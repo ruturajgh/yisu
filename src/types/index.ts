@@ -4,8 +4,17 @@ export interface Leader {
   role: string;
   designation?: string;
   image?: string;
+  portrait?: string;
   quote?: string;
   description?: string;
+  fullBio?: string;
+  achievements?: string[];
+  mediaQuotes?: string[];
+  socialLinks?: {
+    twitter?: string;
+    linkedin?: string;
+  };
+  signature?: string;
 }
 
 export interface Course {

@@ -124,4 +124,44 @@
   .section-subtitle {
     @apply text-lg text-muted-foreground max-w-2xl;
   }
+
+  /* Glass Morphism Utilities */
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-md bg-black/10 border border-white/10;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/80 border border-white/20 shadow-xl;
+  }
+
+  .glass-header {
+    @apply backdrop-blur-xl bg-white/90 border-b border-white/20;
+  }
+
+  /* Government Styling */
+  .government-border {
+    @apply border-2 border-double border-gold;
+  }
+
+  .government-seal {
+    @apply inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gold to-gold-light border-4 border-white shadow-xl;
+  }
+
+  .telangana-gradient {
+    @apply bg-gradient-to-r from-telangana-green via-telangana-gold to-telangana-saffron;
+  }
+
+  /* Parallax Utilities */
+  .parallax-container {
+    @apply overflow-hidden relative;
+  }
+
+  /* Video Background */
+  .video-bg {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
 }

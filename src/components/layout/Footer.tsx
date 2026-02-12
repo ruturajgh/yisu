@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube, Linkedin } from "lucide-react";
 import Button from "@/components/shared/Button";
+import GovernmentBadge from "@/components/shared/GovernmentBadge";
 import { contactInfo, socialLinks } from "@/data/constants";
 
 const combinedLinks = [
@@ -16,6 +17,31 @@ export default function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container-narrow">
+        {/* Government Branding Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-navy via-navy/95 to-royal border-b border-accent/30 py-4 px-4"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <img
+                src="/images/TelanganaRaising.jpg"
+                alt="Telangana Rising"
+                className="h-8 w-auto rounded shadow-md"
+              />
+              <div>
+                <p className="text-white font-semibold text-sm">Government of Telangana</p>
+                <p className="text-accent text-xs">Official Government Initiative</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 text-white/80 text-sm">
+              <span>YISU Act 2024</span>
+            </div>
+          </div>
+        </motion.div>
+
         <div className="border-t border-secondary-foreground/10">
           <div className="section-padding pb-0">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -26,8 +52,13 @@ export default function Footer() {
                 transition={{ duration: 0.5 }}
               >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-royal flex items-center justify-center shadow-lg">
-                    <span className="text-primary-foreground font-serif font-bold text-xl">Y</span>
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-lg relative">
+                    <span className="text-navy font-serif font-bold text-xl">Y</span>
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 rounded-full border-2 border-accent/50"
+                    />
                   </div>
                   <div>
                     <span className="font-serif font-bold text-xl leading-none block">YISU</span>
@@ -35,7 +66,7 @@ export default function Footer() {
                   </div>
                 </div>
                 <p className="text-sm text-secondary-foreground/70 leading-relaxed mb-6">
-                  Established by the Government of Telangana under the YISU Act 2024.
+                  Established by Government of Telangana under YISU Act 2024. Building future workforce through practical skills education.
                 </p>
                 <div className="flex items-center gap-3">
                   {Object.entries(socialLinks).slice(0, 5).map(([key, url]) => {
@@ -126,6 +157,18 @@ export default function Footer() {
               <a href="#" className="hover:text-accent transition-colors">RTI</a>
             </div>
           </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mt-4 text-center md:text-left"
+          >
+            <p className="text-xs text-secondary-foreground/40 flex items-center justify-center md:justify-start gap-2">
+              <GovernmentBadge variant="stamp" size="sm" className="opacity-30" />
+              <span>Government of Telangana • YISU Act 2024</span>
+            </p>
+          </motion.div>
         </motion.div>
       </div>
     </footer>

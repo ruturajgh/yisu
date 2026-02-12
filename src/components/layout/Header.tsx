@@ -50,46 +50,23 @@ export default function Header() {
             : "bg-secondary/95 backdrop-blur-md border-b border-secondary-foreground/10"
         )}
       >
-        <div className={cn(
-          "bg-primary/5 border-b",
-          isScrolled ? "border-primary/10" : "border-secondary-foreground/10"
-        )}>
-          <div className="container-narrow px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between py-2 text-xs">
-              <div className="flex items-center gap-4">
-                <span className="flex items-center gap-2 text-primary font-medium">
-                  <GraduationCap className="w-3.5 h-3.5" />
-                  Established by Government of Telangana
-                </span>
-                <span className="text-muted-foreground">|</span>
-                <span className="text-muted-foreground">YISU Act 2024</span>
-              </div>
-              <div className="hidden sm:flex items-center gap-4">
-                <a href="#" className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors">
-                  <User className="w-3.5 h-3.5" />
-                  Student Portal
-                </a>
-                <a href="#" className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors">
-                  <GraduationCap className="w-3.5 h-3.5" />
-                  Staff Login
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <nav className="container-narrow px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <a href="/" className="flex items-center gap-3 group">
               <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5 }}
-                className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-royal flex items-center justify-center shadow-lg"
+                className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-lg relative"
               >
-                <span className="text-primary-foreground font-serif font-bold text-xl">Y</span>
+                <span className="text-navy font-serif font-bold text-xl">Y</span>
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 rounded-full border-2 border-accent/50"
+                />
               </motion.div>
               <div>
-                <span className="font-serif font-bold text-xl leading-none block group-hover:text-primary transition-colors">YISU</span>
+                <span className="font-serif font-bold text-xl leading-none block group-hover:text-accent transition-colors">YISU</span>
                 <span className="text-[11px] text-muted-foreground/80 leading-none block">Young India Skills University</span>
               </div>
             </a>
@@ -135,7 +112,7 @@ export default function Header() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2.5 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 transition-colors"
+                className="p-2.5 rounded-lg text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors"
               >
                 <Search className="w-5 h-5" />
               </motion.button>

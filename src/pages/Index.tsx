@@ -1,12 +1,13 @@
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import NewsTicker from "@/components/layout/NewsTicker";
+import GovernmentBar from "@/components/layout/GovernmentBar";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-import HeroSection from "@/components/sections/HeroSection";
+import HeroGovernment from "@/components/sections/HeroGovernment";
 import StatsSection from "@/components/sections/StatsSection";
-import LeadershipSection from "@/components/sections/LeadershipSection";
+import LeadershipShowcase from "@/components/sections/LeadershipShowcase";
 import SchoolsProgramsSection from "@/components/sections/SchoolsProgramsSection";
 import WhyYISUSection from "@/components/sections/WhyYISUSection";
 import OutreachSection from "@/components/sections/OutreachSection";
@@ -20,13 +21,13 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <ScrollProgress />
-      <NewsTicker />
+      <GovernmentBar />
       <Header />
 
       <main>
-        <HeroSection />
+        <HeroGovernment />
         <StatsSection />
-        <LeadershipSection />
+        <LeadershipShowcase />
         <SchoolsProgramsSection />
         <WhyYISUSection />
         <OutreachSection />
