@@ -9,13 +9,14 @@ export default function EventsSection() {
   const latestEvents = events.slice(0, 4);
 
   return (
-    <section className="bg-light-blue section-padding">
+    <section className="bg-card section-padding">
       <div className="container-narrow">
         <SectionHeader
           title="Latest Events"
           subtitle="Campus Updates"
-          description="Stay updated with the latest happenings at YISU"
+          description="Stay updated with latest happenings at YISU"
           align="center"
+          badgeVariant="glass"
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
@@ -70,11 +71,11 @@ function EventCard({ event, index }: EventCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
+      whileHover={{ scale: 1.05 }}
       className="group h-full"
     >
       <motion.div
-        className="bg-card border border-border rounded-xl p-6 h-full hover:border-primary/40 hover:shadow-xl transition-all relative overflow-hidden"
+        className="glass-card hover:border-primary/40 rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         {event.isNew && (
           <motion.div

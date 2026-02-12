@@ -11,13 +11,14 @@ export default function SchoolsProgramsSection() {
   const featuredCourses = trendingCourses.slice(0, 3);
 
   return (
-    <section className="bg-light-blue section-padding">
+    <section className="bg-card section-padding">
       <div className="container-narrow">
         <SectionHeader
           title="Schools & Programs"
           subtitle="Explore Your Path"
           description="Choose your area of interest or browse our featured courses"
           align="center"
+          badgeVariant="glass"
         />
 
         <div className="mt-12">
@@ -103,20 +104,19 @@ function SchoolCard({ school, index }: SchoolCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-      whileHover={{ y: -8 }}
+      whileHover={{ scale: 1.05 }}
       className="group h-full"
     >
       <motion.div
-        className="bg-card border border-border rounded-xl p-6 h-full hover:border-primary/40 hover:shadow-xl transition-all relative overflow-hidden"
+        className="glass-card hover:border-primary/40 rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         <div className="mb-4">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
             whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
             className="text-5xl mb-4"
           >
             {school.icon}
@@ -167,11 +167,11 @@ function CourseCard({ course, index }: CourseCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-      whileHover={{ y: -8 }}
+      whileHover={{ scale: 1.05 }}
       className="group h-full"
     >
       <motion.div
-        className="bg-card border border-border rounded-xl p-6 h-full hover:border-primary/40 hover:shadow-xl transition-all relative overflow-hidden"
+        className="glass-card hover:border-primary/40 rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         {course.isNew && (
           <motion.div

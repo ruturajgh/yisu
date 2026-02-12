@@ -13,6 +13,7 @@ export default function AcademicsGallerySection() {
           subtitle="Campus Life"
           description="Experience hands-on learning, industry visits, and practical training at YISU."
           align="center"
+          badgeVariant="glass"
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
@@ -54,11 +55,11 @@ function GalleryItem({ item, index }: GalleryItemProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
+      whileHover={{ scale: 1.05 }}
       className="group h-full"
     >
       <motion.div
-        className="bg-background border border-border rounded-xl overflow-hidden hover:border-primary/40 hover:shadow-xl transition-all h-full flex flex-col"
+        className="glass-card hover:border-primary/40 rounded-xl overflow-hidden transition-all h-full flex flex-col"
       >
         <motion.div
           initial={{ scale: 0.95 }}

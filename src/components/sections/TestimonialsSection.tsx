@@ -12,6 +12,7 @@ export default function TestimonialsSection() {
           subtitle="Success Stories"
           description="Discover how YISU has transformed careers"
           align="center"
+          badgeVariant="glass"
         />
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
@@ -44,11 +45,11 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
+      whileHover={{ scale: 1.05 }}
       className="group h-full"
     >
       <motion.div
-        className="bg-background border border-border rounded-xl p-6 h-full hover:border-primary/40 hover:shadow-xl transition-all relative overflow-hidden"
+        className="glass-card hover:border-primary/40 rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}

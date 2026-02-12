@@ -6,13 +6,14 @@ import { outreachStats } from "@/data/constants";
 
 export default function OutreachSection() {
   return (
-    <section className="bg-light-blue section-padding">
+    <section className="bg-card section-padding">
       <div className="container-narrow">
         <SectionHeader
           title="YISU Outreach Projects"
           subtitle="Impact Beyond Campus"
           description="YISU reaches out to rural government colleges across Telangana, providing full-cycle job readiness programs to empower youth."
           align="center"
+          badgeVariant="glass"
         />
 
         <div className="grid lg:grid-cols-2 gap-8 mt-12">
@@ -73,8 +74,8 @@ function ProjectCard({ name, location, subtitle, stats, delay }: ProjectCardProp
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -8 }}
-      className="bg-card border border-border rounded-xl p-8 hover:border-primary/40 hover:shadow-2xl transition-all"
+      whileHover={{ scale: 1.05 }}
+      className="glass-card hover:border-primary/40 rounded-xl p-8 transition-all"
     >
       <motion.div
         initial={{ scale: 0 }}
@@ -133,7 +134,7 @@ function ProjectCard({ name, location, subtitle, stats, delay }: ProjectCardProp
         </motion.div>
       </div>
 
-      <div className="p-5 rounded-lg bg-primary/5 border border-primary/20">
+      <div className="p-5 rounded-lg glass-card bg-primary/5 border-primary/20">
         <div className="flex items-center gap-2 mb-3">
           <TrendingUp className="w-5 h-5 text-primary" />
           <span className="text-sm font-semibold text-primary">Placements Achieved</span>

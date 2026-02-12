@@ -135,7 +135,7 @@
   }
 
   .glass-card {
-    @apply backdrop-blur-lg bg-white/80 border border-white/20 shadow-xl;
+    @apply backdrop-blur-lg bg-white/10 border border-white/20 shadow-xl;
   }
 
   .glass-header {

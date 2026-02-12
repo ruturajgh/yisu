@@ -9,12 +9,17 @@ export default function IndustryPartnersSection() {
   return (
     <section className="bg-secondary section-padding">
       <div className="container-narrow">
-        <SectionHeader
-          title="Industry Collaborations"
-          subtitle="Our Partners"
-          description='"Designed with Industry. Delivered for Employability."'
-          align="center"
-        />
+        <div className="text-center mb-12">
+          <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider uppercase text-accent border border-accent/30 rounded-sm">
+            Our Partners
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold font-serif text-white mb-4">
+            Industry Collaborations
+          </h2>
+          <p className="text-lg text-secondary-foreground/70 max-w-3xl">
+            "Designed with Industry. Delivered for Employability."
+          </p>
+        </div>
 
         <div className="mt-16 overflow-hidden relative">
           <motion.div

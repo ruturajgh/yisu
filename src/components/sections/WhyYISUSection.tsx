@@ -13,6 +13,7 @@ export default function WhyYISUSection() {
           subtitle="Our Advantages"
           description="At YISU, we believe in empowering youth with industry-ready skills that make them job-ready from Day One."
           align="center"
+          badgeVariant="glass"
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
@@ -56,21 +57,20 @@ function WhyCard({ point, index }: WhyCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
+      whileHover={{ scale: 1.05 }}
       className={`${isFeatured ? 'md:col-span-2 lg:col-span-1' : ''}`}
     >
       <motion.div
-        className={`bg-background border ${
+        className={`glass-card ${
           isFeatured ? 'border-primary/30 bg-primary/5' : 'border-border'
-        } rounded-xl p-6 h-full hover:border-primary/40 hover:shadow-xl transition-all relative overflow-hidden`}
+        } rounded-xl p-6 h-full hover:border-primary/40 transition-all relative overflow-hidden`}
       >
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
           whileHover={{ rotate: [0, -5, 5, -5, 0] }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
           className={`text-5xl mb-4 ${isFeatured ? 'text-6xl' : ''}`}
         >
           {point.icon}

@@ -47,7 +47,7 @@ export default function Header() {
           "sticky top-0 z-50 transition-all duration-300",
           isScrolled
             ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
-            : "bg-secondary/95 backdrop-blur-md border-b border-secondary-foreground/10"
+            : "bg-secondary shadow-sm border-b border-secondary-foreground/10"
         )}
       >
         <nav className="container-narrow px-4 sm:px-6 lg:px-8">
@@ -66,8 +66,8 @@ export default function Header() {
                 />
               </motion.div>
               <div>
-                <span className="font-serif font-bold text-xl leading-none block group-hover:text-accent transition-colors">YISU</span>
-                <span className="text-[11px] text-muted-foreground/80 leading-none block">Young India Skills University</span>
+                <span className="font-serif font-bold text-xl leading-none block group-hover:text-accent transition-colors" style={{ color: isScrolled ? undefined : 'white' }}>YISU</span>
+                <span className="text-[11px] text-muted-foreground/80 leading-none block" style={{ color: isScrolled ? undefined : 'rgba(255,255,255,0.7)' }}>Young India Skills University</span>
               </div>
             </a>
 
@@ -79,9 +79,9 @@ export default function Header() {
                   onMouseEnter={() => setActiveDropdown(index)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <button className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium text-foreground/90 hover:text-primary transition-colors rounded-md hover:bg-primary/5">
+                  <button className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium hover:text-primary transition-colors rounded-md hover:bg-primary/5" style={{ color: isScrolled ? undefined : 'white' }}>
                     {item.label}
-                    {item.children && <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", activeDropdown === index && "rotate-180")} />}
+                    {item.children && <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", activeDropdown === index && "rotate-180")} style={{ color: isScrolled ? undefined : 'white' }} />}
                   </button>
                   <AnimatePresence>
                     {item.children && activeDropdown === index && (
@@ -112,7 +112,8 @@ export default function Header() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2.5 rounded-lg text-muted-foreground hover:text-accent hover:bg-accent/5 transition-colors"
+                className="p-2.5 rounded-lg hover:text-accent hover:bg-accent/5 transition-colors"
+                style={{ color: isScrolled ? undefined : 'white' }}
               >
                 <Search className="w-5 h-5" />
               </motion.button>
@@ -122,8 +123,9 @@ export default function Header() {
             </div>
 
             <button
-              className="lg:hidden p-2 rounded-lg text-foreground hover:bg-muted"
+              className="lg:hidden p-2 rounded-lg hover:bg-muted"
               onClick={() => setMobileOpen(!mobileOpen)}
+              style={{ color: isScrolled ? undefined : 'white' }}
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

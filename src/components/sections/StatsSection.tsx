@@ -23,16 +23,13 @@ export default function StatsSection() {
 
       <div className="container-narrow relative z-10">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <GovernmentBadge variant="seal" size="sm" />
-            <span className="text-accent font-semibold text-sm tracking-widest">IMPACT METRICS</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-serif text-foreground mb-4">
-            Impact at a Glance
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Building the future of skills education with measurable impact across Telangana and beyond.
-          </p>
+          <SectionHeader
+            title="Impact at a Glance"
+            subtitle="IMPACT METRICS"
+            description="Building future of skills education with measurable impact across Telangana and beyond."
+            align="center"
+            badgeVariant="glass"
+          />
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -69,8 +66,8 @@ function StatCard({ stat, delay }: StatCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -8 }}
-      className="group glass bg-white/50 backdrop-blur-md border border-white/20 hover:border-accent/50 rounded-2xl p-6 lg:p-8 transition-all relative overflow-hidden"
+      whileHover={{ scale: 1.05 }}
+      className="group glass-card hover:border-accent/50 rounded-xl p-6 lg:p-8 transition-all relative overflow-hidden"
     >
       {/* Gradient Background on Hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

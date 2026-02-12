@@ -45,7 +45,7 @@ export default function HeroGovernment() {
         <img src={heroCampus} alt="YISU Campus" className="w-full h-full object-cover" />
         <motion.div
           style={{ y }}
-          className="absolute inset-0 bg-gradient-to-br from-navy/98 via-navy/95 to-royal/92"
+          className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/80 to-royal/75"
         />
       </div>
 
@@ -87,7 +87,7 @@ export default function HeroGovernment() {
               className="inline-flex items-center gap-3 px-5 py-2.5 glass rounded-full border border-accent/30"
             >
               <GovernmentBadge variant="seal" size="sm" />
-              <span className="text-accent font-semibold text-sm tracking-wide">GOVERNMENT OF TELANGANA</span>
+              <span className="text-accent font-semibold text-sm tracking-wide">Government of Telangana</span>
             </motion.div>
 
             {/* Main Heading */}
@@ -104,7 +104,7 @@ export default function HeroGovernment() {
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="absolute bottom-3 left-0 w-full h-[4px] bg-gradient-to-r from-accent to-transparent origin-left"
+                    className="absolute -bottom-2 left-0 w-full h-[4px] bg-gradient-to-r from-accent to-transparent origin-left"
                   />
                 </span>
               </h1>
@@ -137,7 +137,7 @@ export default function HeroGovernment() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-wrap gap-6"
             >
-              <div className="flex items-center gap-3 px-5 py-4 glass rounded-2xl border border-white/10">
+              <div className="flex items-center gap-3 px-5 py-4 glass-card rounded-xl">
                 <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
                   <Users className="w-6 h-6 text-accent" />
                 </div>
@@ -146,7 +146,7 @@ export default function HeroGovernment() {
                   <div className="text-xs text-white/60">Learners enrolled</div>
                 </div>
               </div>
-              <div className="flex items-center gap-3 px-5 py-4 glass rounded-2xl border border-white/10">
+              <div className="flex items-center gap-3 px-5 py-4 glass-card rounded-xl">
                 <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
                   <Award className="w-6 h-6 text-primary" />
                 </div>
@@ -167,8 +167,8 @@ export default function HeroGovernment() {
           >
             <div className="sticky top-8">
             <motion.div
-              whileHover={{ y: -10 }}
-              className="glass bg-white/10 backdrop-blur-xl border-2 border-accent/30 rounded-3xl p-8 shadow-2xl relative overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+              className="glass-card border-2 border-accent/30 rounded-xl p-8 relative overflow-hidden"
             >
               {/* Decorative Elements */}
               <motion.div
@@ -185,7 +185,7 @@ export default function HeroGovernment() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="w-full aspect-[4/5] max-w-sm mx-auto mb-6 rounded-2xl bg-gradient-to-br from-navy/80 to-navy/60 border-2 border-accent/30 flex items-center justify-center relative overflow-hidden"
+                className="w-full aspect-[4/5] max-w-sm mx-auto mb-6 rounded-xl bg-gradient-to-br from-navy/80 to-navy/60 border-2 border-accent/30 flex items-center justify-center relative overflow-hidden"
               >
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">

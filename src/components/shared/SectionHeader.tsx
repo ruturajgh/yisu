@@ -10,6 +10,7 @@ interface SectionHeaderProps {
   className?: string;
   highlightWord?: string;
   children?: ReactNode;
+  badgeVariant?: "default" | "glass";
 }
 
 export default function SectionHeader({
@@ -19,7 +20,8 @@ export default function SectionHeader({
   align = "center",
   className = "",
   highlightWord,
-  children
+  children,
+  badgeVariant = "default"
 }: SectionHeaderProps) {
   const alignClasses = {
     left: "text-left",
@@ -48,7 +50,11 @@ export default function SectionHeader({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider uppercase text-primary border border-primary/30 rounded-sm"
+          className={`inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider uppercase ${
+            badgeVariant === 'glass'
+              ? 'glass-card text-accent'
+              : 'text-primary border border-primary/30 rounded-sm'
+          }`}
         >
           {subtitle}
         </motion.span>
