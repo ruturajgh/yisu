@@ -11,7 +11,16 @@ export default function SchoolsProgramsSection() {
   const featuredCourses = trendingCourses.slice(0, 3);
 
   return (
-    <section className="bg-card section-padding">
+    <section className="bg-card section-padding relative overflow-hidden">
+      {/* Very Subtle Decorative Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 152, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-32 right-32 w-32 h-32 bg-accent/2 rounded-full blur-2xl"
+        />
+      </div>
+
       <div className="container-narrow">
         <SectionHeader
           title="Schools & Programs"
@@ -104,11 +113,11 @@ function SchoolCard({ school, index }: SchoolCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.02 }}
       className="group h-full"
     >
       <motion.div
-        className="glass-card hover:border-primary/40 rounded-xl p-6 h-full transition-all relative overflow-hidden"
+        className="glass-card hover:border-accent/30 rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         <div className="mb-4">
           <motion.div
@@ -140,7 +149,7 @@ function SchoolCard({ school, index }: SchoolCardProps) {
         </motion.div>
 
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
+          className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
         />
       </motion.div>
     </motion.div>
@@ -167,11 +176,11 @@ function CourseCard({ course, index }: CourseCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.02 }}
       className="group h-full"
     >
       <motion.div
-        className="glass-card hover:border-primary/40 rounded-xl p-6 h-full transition-all relative overflow-hidden"
+        className="glass-card hover:border-accent/30 rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         {course.isNew && (
           <motion.div
@@ -219,7 +228,7 @@ function CourseCard({ course, index }: CourseCardProps) {
         </motion.div>
 
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
+          className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
         />
       </motion.div>
     </motion.div>

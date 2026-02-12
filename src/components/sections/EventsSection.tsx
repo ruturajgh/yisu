@@ -9,7 +9,16 @@ export default function EventsSection() {
   const latestEvents = events.slice(0, 4);
 
   return (
-    <section className="bg-card section-padding">
+    <section className="bg-gradient-to-b from-background to-muted/20 section-padding relative overflow-hidden">
+      {/* Very Subtle Decorative Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 140, repeat: Infinity, ease: "linear" }}
+          className="absolute top-12 left-12 w-32 h-32 bg-primary/3 rounded-full blur-2xl"
+        />
+      </div>
+
       <div className="container-narrow">
         <SectionHeader
           title="Latest Events"
@@ -71,11 +80,11 @@ function EventCard({ event, index }: EventCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.02 }}
       className="group h-full"
     >
       <motion.div
-        className="glass-card hover:border-primary/40 rounded-xl p-6 h-full transition-all relative overflow-hidden"
+        className="bg-white/70 backdrop-blur-sm border border-border hover:border-primary/20 hover:shadow-lg rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         {event.isNew && (
           <motion.div
@@ -96,7 +105,7 @@ function EventCard({ event, index }: EventCardProps) {
           className="flex items-start gap-4"
         >
           <div className="flex-shrink-0">
-            <div className="w-14 h-14 rounded-lg bg-primary/10 border border-primary/20 flex flex-col items-center justify-center">
+            <div className="w-14 h-14 rounded-lg bg-primary/5 border border-primary/20 flex flex-col items-center justify-center">
               <span className="text-xs font-semibold text-primary uppercase">{month}</span>
               <span className="text-xl font-bold text-primary font-serif leading-none mt-1">{day}</span>
             </div>
@@ -127,7 +136,7 @@ function EventCard({ event, index }: EventCardProps) {
         </motion.div>
 
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
+          className="absolute inset-0 bg-gradient-to-br from-primary/3 to-accent/3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
         />
       </motion.div>
     </motion.div>

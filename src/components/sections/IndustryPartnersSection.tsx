@@ -7,16 +7,25 @@ export default function IndustryPartnersSection() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="bg-secondary section-padding">
+    <section className="bg-gradient-to-b from-secondary/50 to-card section-padding relative overflow-hidden">
+      {/* Very Subtle Decorative Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 130, repeat: Infinity, ease: "linear" }}
+          className="absolute top-16 right-16 w-36 h-36 bg-accent/3 rounded-full blur-2xl"
+        />
+      </div>
+
       <div className="container-narrow">
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider uppercase text-accent border border-accent/30 rounded-sm">
             Our Partners
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold font-serif text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold font-serif text-foreground mb-4">
             Industry Collaborations
           </h2>
-          <p className="text-lg text-secondary-foreground/70 max-w-3xl">
+          <p className="text-lg text-muted-foreground max-w-3xl">
             "Designed with Industry. Delivered for Employability."
           </p>
         </div>
@@ -50,7 +59,7 @@ export default function IndustryPartnersSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.1 }}
                 whileHover={{ scale: 1.05, y: -4 }}
-                className="flex-shrink-0 w-40 h-20 rounded-xl bg-secondary-foreground/5 border border-secondary-foreground/10 flex items-center justify-center hover:border-accent/40 hover:bg-secondary-foreground/10 transition-all cursor-default"
+                className="flex-shrink-0 w-40 h-20 rounded-xl bg-white/60 backdrop-blur-sm border border-border flex items-center justify-center hover:border-accent/30 hover:shadow-md transition-all cursor-default"
               >
                 {partner.logo ? (
                   <img
@@ -59,7 +68,7 @@ export default function IndustryPartnersSection() {
                     className="max-w-[120px] max-h-[50px] object-contain"
                   />
                 ) : (
-                  <span className="text-sm font-semibold text-secondary-foreground/70 text-center px-2">
+                  <span className="text-sm font-semibold text-muted-foreground text-center px-2">
                     {partner.name}
                   </span>
                 )}
@@ -67,8 +76,8 @@ export default function IndustryPartnersSection() {
             ))}
           </motion.div>
 
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-secondary to-transparent" />
-          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-secondary to-transparent" />
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-card to-transparent" />
+          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-card to-transparent" />
         </div>
 
         <motion.div
@@ -78,10 +87,10 @@ export default function IndustryPartnersSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <div className="inline-flex items-center gap-3 text-secondary-foreground/70">
+          <div className="inline-flex items-center gap-3 text-muted-foreground">
             <Handshake className="w-5 h-5 text-accent" />
             <span className="text-sm">
-              Join <span className="font-semibold text-secondary-foreground">30+</span> industry partners shaping future education
+              Join <span className="font-semibold text-foreground">30+</span> industry partners shaping future education
             </span>
           </div>
         </motion.div>

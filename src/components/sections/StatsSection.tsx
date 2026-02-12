@@ -6,18 +6,18 @@ import GovernmentBadge from "@/components/shared/GovernmentBadge";
 
 export default function StatsSection() {
   return (
-    <section className="bg-card border-t border-border section-padding relative overflow-hidden">
-      {/* Background Decorative Elements */}
+    <section className="bg-gradient-to-b from-background to-muted/30 section-padding relative overflow-hidden">
+      {/* Very Subtle Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-40 -right-40 w-80 h-80 border-[1px] border-accent/10 rounded-full"
+          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+          className="absolute top-10 right-10 w-32 h-32 bg-accent/3 rounded-full blur-2xl"
         />
         <motion.div
           animate={{ rotate: -360 }}
-          transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-40 -left-40 w-80 h-80 border-[1px] border-primary/10 rounded-full"
+          transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-10 left-10 w-40 h-40 bg-primary/3 rounded-full blur-2xl"
         />
       </div>
 
@@ -67,7 +67,7 @@ function StatCard({ stat, delay }: StatCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ scale: 1.05 }}
-      className="group glass-card hover:border-accent/50 rounded-xl p-6 lg:p-8 transition-all relative overflow-hidden"
+      className="group bg-white/70 backdrop-blur-sm border border-border hover:border-accent/30 hover:shadow-lg rounded-xl p-6 lg:p-8 transition-all relative overflow-hidden"
     >
       {/* Gradient Background on Hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -60,11 +60,11 @@ function CourseCard({ course, index }: CourseCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -4 }}
       className="group h-full"
     >
       <motion.div
-        className="bg-background border border-border rounded-xl p-6 h-full hover:border-primary/40 hover:shadow-xl transition-all relative overflow-hidden"
+        className="bg-white/70 backdrop-blur-sm border border-border hover:border-accent/30 hover:shadow-lg rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         {course.isNew && (
           <motion.div
@@ -79,7 +79,7 @@ function CourseCard({ course, index }: CourseCardProps) {
 
         <div className="mb-5">
           <div className="flex items-center gap-2 mb-3">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-semibold text-sm">
+            <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent font-semibold text-sm">
               {course.partner.charAt(0)}
             </div>
             <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
@@ -112,14 +112,14 @@ function CourseCard({ course, index }: CourseCardProps) {
           <Button
             variant="ghost"
             size="sm"
-            className="w-full group-hover:bg-primary/10 group-hover:text-primary"
+            className="w-full group-hover:bg-accent/10 group-hover:text-accent"
           >
             View Course <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
         </motion.div>
 
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
+          className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
         />
       </motion.div>
     </motion.div>

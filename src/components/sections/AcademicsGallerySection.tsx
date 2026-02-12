@@ -6,7 +6,16 @@ import { academicsGallery } from "@/data/constants";
 
 export default function AcademicsGallerySection() {
   return (
-    <section className="bg-card border-t border-border section-padding">
+    <section className="bg-gradient-to-b from-background to-muted/20 section-padding relative overflow-hidden">
+      {/* Very Subtle Decorative Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 135, repeat: Infinity, ease: "linear" }}
+          className="absolute top-14 right-14 w-32 h-32 bg-accent/3 rounded-full blur-2xl"
+        />
+      </div>
+
       <div className="container-narrow">
         <SectionHeader
           title="Academics at YISU"
@@ -55,29 +64,29 @@ function GalleryItem({ item, index }: GalleryItemProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.02 }}
       className="group h-full"
     >
       <motion.div
-        className="glass-card hover:border-primary/40 rounded-xl overflow-hidden transition-all h-full flex flex-col"
+        className="bg-white/70 backdrop-blur-sm border border-border hover:border-accent/20 hover:shadow-lg rounded-xl overflow-hidden transition-all h-full flex flex-col"
       >
         <motion.div
           initial={{ scale: 0.95 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-          className="relative aspect-video bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center overflow-hidden"
+          className="relative aspect-video bg-gradient-to-br from-accent/10 to-primary/10 flex items-center justify-center overflow-hidden"
         >
           {item.image ? (
             <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
           ) : (
-            <ImageIcon className="w-16 h-16 text-primary/30" />
+            <ImageIcon className="w-16 h-16 text-accent/30" />
           )}
           <motion.div
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-primary/20 flex items-center justify-center"
+            className="absolute inset-0 bg-accent/20 flex items-center justify-center"
           >
             <ImageIcon className="w-12 h-12 text-white" />
           </motion.div>
@@ -93,7 +102,7 @@ function GalleryItem({ item, index }: GalleryItemProps) {
         </div>
 
         <motion.div
-          className="h-1 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"
+          className="h-1 bg-gradient-to-r from-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
         />
       </motion.div>
     </motion.div>

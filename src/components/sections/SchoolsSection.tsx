@@ -9,7 +9,16 @@ export default function SchoolsSection() {
   const activeSchools = schools.filter(s => !s.isComingSoon).slice(0, 6);
 
   return (
-    <section className="bg-light-blue section-padding">
+    <section className="bg-light-blue section-padding relative overflow-hidden">
+      {/* Very Subtle Decorative Element */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 148, repeat: Infinity, ease: "linear" }}
+          className="absolute top-32 left-32 w-32 h-32 bg-accent/2 rounded-full blur-2xl"
+        />
+      </div>
+
       <div className="container-narrow">
         <SectionHeader
           title="Explore Your Interests"
@@ -59,11 +68,11 @@ function SchoolCard({ school, index }: SchoolCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -4 }}
       className="group h-full"
     >
       <motion.div
-        className="bg-card border border-border rounded-xl p-6 h-full hover:border-primary/40 hover:shadow-xl transition-all relative overflow-hidden"
+        className="bg-white/70 backdrop-blur-sm border border-border hover:border-accent/30 hover:shadow-lg rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         {school.isComingSoon && (
           <motion.div
@@ -84,7 +93,6 @@ function SchoolCard({ school, index }: SchoolCardProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
             whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-            transition={{ duration: 0.5 }}
             className="text-5xl mb-4"
           >
             {school.icon}
