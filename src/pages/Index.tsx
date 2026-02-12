@@ -7,8 +7,7 @@ import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import StatsSection from "@/components/sections/StatsSection";
 import LeadershipSection from "@/components/sections/LeadershipSection";
-import TrendingCoursesSection from "@/components/sections/TrendingCoursesSection";
-import SchoolsSection from "@/components/sections/SchoolsSection";
+import SchoolsProgramsSection from "@/components/sections/SchoolsProgramsSection";
 import WhyYISUSection from "@/components/sections/WhyYISUSection";
 import OutreachSection from "@/components/sections/OutreachSection";
 import AcademicsGallerySection from "@/components/sections/AcademicsGallerySection";
@@ -28,8 +27,7 @@ const Index = () => {
         <HeroSection />
         <StatsSection />
         <LeadershipSection />
-        <TrendingCoursesSection />
-        <SchoolsSection />
+        <SchoolsProgramsSection />
         <WhyYISUSection />
         <OutreachSection />
         <AcademicsGallerySection />

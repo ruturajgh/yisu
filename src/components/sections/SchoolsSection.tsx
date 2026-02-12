@@ -6,18 +6,20 @@ import BadgeComp from "@/components/shared/Badge";
 import { schools } from "@/data/schools";
 
 export default function SchoolsSection() {
+  const activeSchools = schools.filter(s => !s.isComingSoon).slice(0, 6);
+
   return (
     <section className="bg-light-blue section-padding">
       <div className="container-narrow">
         <SectionHeader
           title="Explore Your Interests"
           subtitle="Our Schools"
-          description="YISU offers specialized schools across various sectors, each designed with industry partnerships to ensure job-ready graduates."
+          description="Specialized schools designed with industry partnerships for job-ready graduates"
           align="center"
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {schools.map((school, index) => (
+          {activeSchools.map((school, index) => (
             <SchoolCard key={school.id} school={school} index={index} />
           ))}
         </div>
@@ -26,8 +28,8 @@ export default function SchoolsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="text-center mt-10"
         >
           <Button variant="primary" size="lg">
             Explore All Schools <ArrowRight className="ml-2 w-5 h-5" />
@@ -75,7 +77,7 @@ function SchoolCard({ school, index }: SchoolCardProps) {
           </motion.div>
         )}
 
-        <div className="mb-5">
+        <div className="mb-4">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
@@ -87,14 +89,9 @@ function SchoolCard({ school, index }: SchoolCardProps) {
           >
             {school.icon}
           </motion.div>
-          <h3 className="font-serif font-bold text-lg text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
+          <h3 className="font-serif font-bold text-lg text-foreground leading-snug group-hover:text-primary transition-colors">
             {school.name}
           </h3>
-          {school.description && (
-            <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
-              {school.description}
-            </p>
-          )}
         </div>
 
         <motion.div

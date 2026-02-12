@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 import Button from "@/components/shared/Button";
 import SectionHeader from "@/components/shared/SectionHeader";
 import BadgeComp from "@/components/shared/Badge";
 import { events } from "@/data/events";
 
 export default function EventsSection() {
-  const latestEvents = events.slice(0, 8);
+  const latestEvents = events.slice(0, 4);
 
   return (
     <section className="bg-light-blue section-padding">
@@ -14,7 +14,7 @@ export default function EventsSection() {
         <SectionHeader
           title="Latest Events"
           subtitle="Campus Updates"
-          description="Stay updated with the latest happenings, collaborations, and milestones at YISU."
+          description="Stay updated with the latest happenings at YISU"
           align="center"
         />
 
@@ -28,8 +28,8 @@ export default function EventsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-center mt-10"
         >
           <Button variant="primary" size="lg">
             View All Events <ArrowRight className="ml-2 w-5 h-5" />
@@ -92,7 +92,7 @@ function EventCard({ event, index }: EventCardProps) {
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-          className="flex items-start gap-4 mb-4"
+          className="flex items-start gap-4"
         >
           <div className="flex-shrink-0">
             <div className="w-14 h-14 rounded-lg bg-primary/10 border border-primary/20 flex flex-col items-center justify-center">
@@ -110,16 +110,12 @@ function EventCard({ event, index }: EventCardProps) {
           </div>
         </motion.div>
 
-        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3 mb-4">
-          {event.description}
-        </p>
-
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-          className="pt-4 border-t border-border/50"
+          className="pt-4 mt-4 border-t border-border/50"
         >
           <a
             href={event.link || "#"}

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Button from "@/components/shared/Button";
 import SectionHeader from "@/components/shared/SectionHeader";
 import { whyYISUPoints } from "@/data/constants";
@@ -71,28 +71,18 @@ function WhyCard({ point, index }: WhyCardProps) {
           transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
           whileHover={{ rotate: [0, -5, 5, -5, 0] }}
           transition={{ duration: 0.5 }}
-          className={`text-5xl mb-5 ${isFeatured ? 'text-6xl' : ''}`}
+          className={`text-5xl mb-4 ${isFeatured ? 'text-6xl' : ''}`}
         >
           {point.icon}
         </motion.div>
 
-        <h3 className="font-serif font-bold text-xl text-foreground mb-3 leading-snug">
+        <h3 className="font-serif font-bold text-lg text-foreground mb-3 leading-snug">
           {point.title}
         </h3>
 
         <p className="text-sm text-muted-foreground leading-relaxed">
-          {point.description}
+          • {point.description}
         </p>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-          className="absolute top-6 right-6"
-        >
-          <CheckCircle2 className={`w-6 h-6 ${isFeatured ? 'text-primary' : 'text-accent'}`} />
-        </motion.div>
 
         {isFeatured && (
           <motion.div

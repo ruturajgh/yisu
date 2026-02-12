@@ -55,32 +55,32 @@ export const outreachStats = {
 export const whyYISUPoints = [
   {
     id: 1,
-    title: "Industry-Aligned Curriculum for Future-Ready Careers",
-    description: "Our programs are meticulously curated directly with industry and as per job descriptions. Every course equips students with real-world competencies ensuring seamless integration into the workforce across sectors like Healthcare, Logistics, IT, BFSI, etc.",
+    title: "Industry-Aligned Curriculum",
+    description: "Courses designed with industry experts for job-ready skills",
     icon: "🎯"
   },
   {
     id: 2,
-    title: "Experiential Learning & Practical Exposure",
-    description: "We believe in a hands-on, experiential and practice-driven approach to learning and not textbook driven. Through live projects, internships, simulated work environments and field immersion, students gain direct exposure to professional roles.",
+    title: "Experiential Learning",
+    description: "Hands-on projects, internships, and real-world practice",
     icon: "🔧"
   },
   {
     id: 3,
-    title: "Elite Faculty & Industry Mentors",
-    description: "Our faculty and trainer base is derived directly from industry and industry practitioners with conceptual learning coming from academicians with industry background. Students benefit from mentorships that bridge conceptual learning with practical insights.",
+    title: "Expert Faculty",
+    description: "Industry practitioners as teachers and mentors",
     icon: "👨‍🏫"
   },
   {
     id: 4,
-    title: "Employability-Driven Skill Development",
-    description: "Our training ecosystem is anchored in employability. With focused modules on Communication, Problem-Solving, Digital Skills, and Professional Etiquette. Students graduate job-ready—with support from our active learning result-based outcome and corporate network.",
+    title: "Job-Ready Skills",
+    description: "Communication, digital skills, and professional etiquette",
     icon: "💼"
   },
   {
     id: 5,
-    title: "Dynamic Ecosystem for Growth & Innovation",
-    description: "YISU fosters an entrepreneurial and growth-focused campus culture. Through leadership workshops, networking events, and exposure to cutting-edge industry trends, students are prepared not just for jobs—but for leadership in tomorrow's economy.",
+    title: "Growth Ecosystem",
+    description: "Workshops, networking, and industry trends exposure",
     icon: "🚀"
   }
 ];

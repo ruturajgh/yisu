@@ -1,18 +1,24 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube, Linkedin, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Youtube, Linkedin } from "lucide-react";
 import Button from "@/components/shared/Button";
-import { contactInfo, socialLinks, quickLinks, usefulLinks } from "@/data/constants";
-import { notices } from "@/data/notices";
+import { contactInfo, socialLinks } from "@/data/constants";
+
+const combinedLinks = [
+  "About Us",
+  "University Act",
+  "YISU Schools",
+  "Admissions",
+  "Notices & Events",
+  "Student Portal"
+];
 
 export default function Footer() {
-  const footerNotices = notices.slice(0, 4);
-
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container-narrow">
         <div className="border-t border-secondary-foreground/10">
           <div className="section-padding pb-0">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +35,7 @@ export default function Footer() {
                   </div>
                 </div>
                 <p className="text-sm text-secondary-foreground/70 leading-relaxed mb-6">
-                  Established by the Government of Telangana under the YISU Act 2024 to deliver skills-first, industry-integrated higher education.
+                  Established by the Government of Telangana under the YISU Act 2024.
                 </p>
                 <div className="flex items-center gap-3">
                   {Object.entries(socialLinks).slice(0, 5).map(([key, url]) => {
@@ -64,10 +70,10 @@ export default function Footer() {
               >
                 <h4 className="font-serif font-semibold mb-6 text-accent">Quick Links</h4>
                 <ul className="space-y-3">
-                  {quickLinks.map((link) => (
+                  {combinedLinks.map((link) => (
                     <li key={link}>
                       <a href="#" className="text-sm text-secondary-foreground/70 hover:text-accent transition-colors inline-flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent/50 group-hover:bg-accent"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent/50 hover:bg-accent"></span>
                         {link}
                       </a>
                     </li>
@@ -81,30 +87,6 @@ export default function Footer() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <h4 className="font-serif font-semibold mb-6 text-accent">Useful Links</h4>
-                <ul className="space-y-3">
-                  {usefulLinks.map((link) => (
-                    <li key={link}>
-                      <a href="#" className="text-sm text-secondary-foreground/70 hover:text-accent transition-colors inline-flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent/50"></span>
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                  <li className="pt-2">
-                    <Button variant="ghost" size="sm" className="p-0 h-auto text-accent hover:text-accent-foreground">
-                      View All →
-                    </Button>
-                  </li>
-                </ul>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
                 <h4 className="font-serif font-semibold mb-6 text-accent">Contact</h4>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
@@ -113,63 +95,15 @@ export default function Footer() {
                   </li>
                   <li className="flex items-center gap-3">
                     <Phone className="w-5 h-5 flex-shrink-0 text-accent" />
-                    <div className="text-sm text-secondary-foreground/70">
-                      <div>{contactInfo.admissionsPhone}</div>
-                      <div className="text-xs text-muted-foreground">Admissions</div>
-                    </div>
+                    <span className="text-sm text-secondary-foreground/70">{contactInfo.admissionsPhone}</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <Mail className="w-5 h-5 flex-shrink-0 text-accent" />
-                    <div className="text-sm text-secondary-foreground/70">
-                      <div>{contactInfo.admissionsEmail}</div>
-                      <div className="text-xs text-muted-foreground">Admissions</div>
-                    </div>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <MessageCircle className="w-5 h-5 flex-shrink-0 text-accent" />
-                    <div className="text-sm text-secondary-foreground/70">
-                      <div>{contactInfo.generalEmail}</div>
-                      <div className="text-xs text-muted-foreground">General Queries</div>
-                    </div>
+                    <span className="text-sm text-secondary-foreground/70">{contactInfo.admissionsEmail}</span>
                   </li>
                 </ul>
               </motion.div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="border-t border-secondary-foreground/10 pt-8 mb-8"
-            >
-              <h4 className="font-serif font-semibold mb-6 text-accent text-center">Latest Notices</h4>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {footerNotices.map((notice) => (
-                  <motion.a
-                    key={notice.id}
-                    href={notice.link || "#"}
-                    whileHover={{ y: -4 }}
-                    className="bg-secondary-foreground/5 border border-secondary-foreground/10 rounded-lg p-4 hover:border-accent/30 hover:bg-secondary-foreground/10 transition-all group"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 mt-2 rounded-full bg-accent flex-shrink-0"></div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-xs text-secondary-foreground/50 mb-1">{notice.date}</p>
-                        <p className="text-sm text-secondary-foreground/90 group-hover:text-accent transition-colors line-clamp-2">
-                          {notice.title}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.a>
-                ))}
-              </div>
-              <div className="text-center mt-6">
-                <Button variant="outline" size="sm">
-                  View All Notices →
-                </Button>
-              </div>
-            </motion.div>
           </div>
         </div>
 
@@ -182,7 +116,7 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-secondary-foreground/50">
-              © 2024 Young India Skills University. All rights reserved. Government of Telangana.
+              © 2024 Young India Skills University. All rights reserved.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-secondary-foreground/50">
               <a href="#" className="hover:text-accent transition-colors">Privacy Policy</a>
@@ -190,8 +124,6 @@ export default function Footer() {
               <a href="#" className="hover:text-accent transition-colors">Terms of Use</a>
               <span className="hidden md:inline">|</span>
               <a href="#" className="hover:text-accent transition-colors">RTI</a>
-              <span className="hidden md:inline">|</span>
-              <span>{contactInfo.officeHours}</span>
             </div>
           </div>
         </motion.div>

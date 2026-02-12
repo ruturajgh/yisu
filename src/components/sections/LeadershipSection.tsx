@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Quote, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Button from "@/components/shared/Button";
 import SectionHeader from "@/components/shared/SectionHeader";
 import { leadership } from "@/data/leadership";
@@ -73,28 +73,13 @@ function LeaderCard({ leader, index }: LeaderCardProps) {
           <span className="text-4xl font-serif font-bold text-primary">{leader.name.charAt(0)}</span>
         </motion.div>
 
-        <div className="text-center mb-4">
+        <div className="text-center">
           <p className="text-xs font-semibold text-accent uppercase tracking-widest mb-2">{leader.role}</p>
           <h3 className="font-serif font-bold text-lg text-foreground mb-1">{leader.name}</h3>
           {leader.designation && (
             <p className="text-xs text-muted-foreground leading-snug">{leader.designation}</p>
           )}
         </div>
-
-        {leader.quote && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-            className="relative pt-4 mt-4 border-t border-border/50"
-          >
-            <Quote className="w-5 h-5 text-primary/20 absolute top-2 left-0" />
-            <p className="text-xs text-muted-foreground italic leading-relaxed pl-6 line-clamp-4 group-hover:text-foreground/80 transition-colors">
-              "{leader.quote}"
-            </p>
-          </motion.div>
-        )}
 
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"

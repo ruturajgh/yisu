@@ -6,19 +6,17 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   {
-    label: "About YISU",
-    children: ["Overview", "Vision & Mission", "University Act", "Leadership", "Governance", "Accreditation"]
+    label: "About",
+    children: ["Overview", "Leadership", "University Act"]
   },
   {
     label: "Schools & Programs",
-    children: ["School of Applied Life Sciences", "School of Logistics & SCM", "School of Aviation", "School of Healthcare", "Course Finder"]
+    children: ["Schools", "Courses", "Industry Partners"]
   },
   {
     label: "Admissions",
-    children: ["How to Apply", "Eligibility", "Important Dates", "Fees & Support", "Scholarships", "FAQs"]
+    children: ["Apply Now", "Eligibility", "Fees"]
   },
-  { label: "Corporate Partnerships" },
-  { label: "Student Life" },
   { label: "Notices & Events" },
   { label: "Contact" }
 ];
