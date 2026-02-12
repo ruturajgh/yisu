@@ -1,26 +1,20 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Award, Users, Star, Play } from "lucide-react";
+import { ArrowRight, Award, Users } from "lucide-react";
 import Button from "@/components/shared/Button";
 import { useCountUp } from "@/lib/hooks/use-count-up";
-import GovernmentBadge from "@/components/shared/GovernmentBadge";
 import heroCampus from "@/assets/hero-campus.jpg";
 import { useRef } from "react";
 
+const leaders = [
+  { id: 1, name: "Sri A. Revanth Reddy", initials: "SAR" },
+  { id: 2, name: "Sri D. Sridhar Babu", initials: "DSB" },
+  { id: 3, name: "Mr. Anand Mahindra", initials: "AM" },
+  { id: 4, name: "Mr. V.L.V.S.S. Subba Rao", initials: "VSS" }
+];
+
 export default function HeroGovernment() {
   const { displayValue: learnerCount } = useCountUp({
-    end: 40680,
-    duration: 2500,
-    suffix: "+"
-  });
-
-  const { displayValue: courseCount } = useCountUp({
-    end: 17,
-    duration: 2500,
-    suffix: "+"
-  });
-
-  const { displayValue: partnerCount } = useCountUp({
-    end: 20,
+    end: 56754,
     duration: 2500,
     suffix: "+"
   });
@@ -32,14 +26,15 @@ export default function HeroGovernment() {
   });
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
-  const cmInfo = {
-    name: "Sri Anumula Revanth Reddy",
-    designation: "Hon'ble Chief Minister, Telangana",
-    role: "Chancellor, YISU"
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <section ref={ref} className="relative min-h-[90vh] lg:min-h-[95vh] flex items-center overflow-hidden">
+    <section ref={ref} className="relative  flex items-center overflow-hidden">
       {/* Video/Background */}
       <div className="absolute inset-0">
         <img src={heroCampus} alt="YISU Campus" className="w-full h-full object-cover" />
@@ -56,13 +51,10 @@ export default function HeroGovernment() {
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
           className="w-[800px] h-[800px] border-[20px] border-accent rounded-full"
         />
-        <div className="absolute">
-          <GovernmentBadge variant="emblem" size="xl" className="opacity-30" />
-        </div>
       </div>
 
       {/* Background Orbs */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ x: [0, 100, 0], y: [0, -100, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
@@ -76,18 +68,27 @@ export default function HeroGovernment() {
       </div>
 
       <div className="relative z-10 container-narrow section-padding">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-3 gap-8 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-6 max-w-2xl col-span-2">
             {/* Government Badge */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-3 px-5 py-2.5 glass rounded-full border border-accent/30"
+              className="inline-flex items-center gap-2  "
             >
-              <GovernmentBadge variant="seal" size="sm" />
-              <span className="text-accent font-semibold text-sm tracking-wide">Government of Telangana</span>
+              <img
+                src="/images/tglogo.png"
+                alt="Government of Telangana"
+                className="h-24 w-auto relative z-10"
+              />
+
+              <img
+                src="/images/TelanganaRaising.jpg"
+                alt="Telangana Rising"
+                className="h-24 w-auto relative z-10 rounded-full"
+              />
             </motion.div>
 
             {/* Main Heading */}
@@ -96,7 +97,7 @@ export default function HeroGovernment() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 font-serif text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 font-serif text-white">
                 Young India Skills{" "}
                 <span className="relative inline-block">
                   <span className="relative z-10 text-accent">University</span>
@@ -104,13 +105,14 @@ export default function HeroGovernment() {
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="absolute -bottom-2 left-0 w-full h-[4px] bg-gradient-to-r from-accent to-transparent origin-left"
+                    className="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-accent to-transparent origin-left"
                   />
                 </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl leading-relaxed">
-                India's first government-backed skills university with practical courses and real-world projects for job-ready graduates.
+
+              <p className="text-base text-white/70 max-w-xl leading-relaxed">
+                Practical courses, real-world projects, and certifications that open doors to new opportunities.
               </p>
             </motion.div>
 
@@ -118,15 +120,19 @@ export default function HeroGovernment() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap gap-4"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap gap-3"
             >
-              <Button size="lg" variant="gold" className="text-lg px-8 py-4 shadow-2xl">
-                Apply Now <ArrowRight className="ml-2 w-5 h-5" />
+              <Button size="lg" variant="gold" className="text-base px-7 py-3 shadow-xl">
+                Apply Now <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-lg px-8 py-4">
-                <Play className="mr-2 w-5 h-5" />
-                Watch Video
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-base px-7 py-3"
+                onClick={() => scrollToSection('about')}
+              >
+                Know more About us
               </Button>
             </motion.div>
 
@@ -134,126 +140,107 @@ export default function HeroGovernment() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-6"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex  absolute top-0 right-2 items-center gap-4 px-5 py-3 w-max glass-card rounded-full"
             >
-              <div className="flex items-center gap-3 px-5 py-4 glass-card rounded-xl">
-                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                  <Users className="w-6 h-6 text-accent" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-white mb-0.5 font-serif">{learnerCount}</div>
-                  <div className="text-xs text-white/60">Learners enrolled</div>
-                </div>
+              <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                <Users className="w-5 h-5 text-accent" />
               </div>
-              <div className="flex items-center gap-3 px-5 py-4 glass-card rounded-xl">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <Award className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-white mb-0.5 font-serif">{courseCount}</div>
-                  <div className="text-xs text-white/60">Industry courses</div>
-                </div>
+              <div>
+                <div className="text-2xl font-bold text-white font-serif">{learnerCount}</div>
+                <div className="text-[11px] text-white/60">learners visited YISU</div>
               </div>
+            </motion.div>
+
+            {/* Leadership Preview */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="pt-2"
+            >
+              <button
+                onClick={() => scrollToSection('leadership')}
+                className="group text-left"
+              >
+                <p className="text-sm text-accent font-semibold mb-3 flex items-center gap-2">
+                  Meet Our Leadership <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </p>
+                <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                  {leaders.map((leader, index) => (
+                    <div
+                      key={leader.id}
+                      className="flex-shrink-0 flex flex-col items-center group-hover:scale-105 transition-transform"
+                    >
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                        className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center border-2 border-accent/40 mb-2"
+                      >
+                        <span className="text-sm font-serif font-bold text-accent">
+                          {leader.initials}
+                        </span>
+                      </motion.div>
+                      <p className="text-xs text-white/90 font-medium whitespace-nowrap max-w-[100px] text-center">
+                        {leader.name.split(' ').slice(-2).join(' ')}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </button>
             </motion.div>
           </div>
 
-          {/* Right - CM Profile Card */}
+          {/* Right - Government Logos */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="relative flex items-center justify-center"
           >
-            <div className="sticky top-8">
+            {/* Decorative Background Circles */}
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="glass-card border-2 border-accent/30 rounded-xl p-8 relative overflow-hidden"
-            >
-              {/* Decorative Elements */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-10 -right-10 w-32 h-32 border-4 border-accent/20 rounded-full"
-              />
-              <div className="absolute top-4 right-4">
-                <GovernmentBadge variant="seal" size="md" />
-              </div>
-
-              {/* CM Portrait Placeholder */}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="w-full aspect-[4/5] max-w-sm mx-auto mb-6 rounded-xl bg-gradient-to-br from-navy/80 to-navy/60 border-2 border-accent/30 flex items-center justify-center relative overflow-hidden"
-              >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center border-4 border-accent/50">
-                      <span className="text-5xl font-serif font-bold text-accent">CM</span>
-                    </div>
-                    <p className="text-white/60 text-sm">Official Portrait</p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* CM Info */}
-              <div className="text-center">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  className="inline-block px-4 py-1.5 bg-accent/20 rounded-full text-accent text-xs font-semibold mb-4"
-                >
-                  CHANCELLOR
-                </motion.div>
-                <h3 className="text-2xl font-bold text-white mb-2 font-serif">{cmInfo.name}</h3>
-                <p className="text-accent font-medium text-sm mb-1">{cmInfo.designation}</p>
-                <p className="text-white/60 text-sm">{cmInfo.role}</p>
-
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 1, delay: 0.8 }}
-                  className="h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent my-6"
-                />
-
-                <motion.blockquote
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="text-white/80 text-sm leading-relaxed italic"
-                >
-                  "Education is the foundation upon which we build our future. At YISU, we're committed to equipping our youth with the skills needed for tomorrow's workforce."
-                </motion.blockquote>
-              </div>
-            </motion.div>
-            </div>
+              animate={{ rotate: 360 }}
+              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[300px] h-[300px] border-2 border-accent/20 rounded-full"
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[240px] h-[240px] border border-primary/20 rounded-full"
+            />
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="absolute w-[180px] h-[180px] border border-accent/10 rounded-full"
+            />
           </motion.div>
         </div>
-      </div>
+      </div >
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
+      <motion.div 
+        initial={{ opacity: 0 }
+        }
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2"
       >
+        <motion.div
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="text-white/50"
+        >
+          <div className="w-5 h-9 rounded-full border-2 border-white/30 flex items-start justify-center p-1.5">
             <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="text-white/50"
-              >
-                <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
-                  <motion.div
-                    animate={{ y: [0, 12, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-1 h-2 bg-accent rounded-full"
-                  />
-                </div>
-              </motion.div>
-      </motion.div>
-    </section>
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-0.5 h-1.5 bg-accent rounded-full"
+            />
+          </div>
+        </motion.div>
+      </motion.div >
+    </section >
   );
 }

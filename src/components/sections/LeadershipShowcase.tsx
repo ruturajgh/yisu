@@ -9,7 +9,7 @@ export default function LeadershipShowcase() {
   const [selectedLeader, setSelectedLeader] = useState<typeof leadership[0] | null>(null);
 
   return (
-    <section className="relative bg-gradient-to-b from-navy via-navy/95 to-secondary section-padding overflow-hidden">
+    <section id="leadership" className="relative bg-gradient-to-b from-navy via-navy/95 to-secondary section-padding overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div

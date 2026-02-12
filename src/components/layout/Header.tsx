@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Search, User, GraduationCap } from "lucide-react";
+import { Menu, X, ChevronDown, Search } from "lucide-react";
 import Button from "@/components/shared/Button";
 import { cn } from "@/lib/utils";
 
@@ -23,19 +23,7 @@ const navItems = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <>
@@ -43,32 +31,22 @@ export default function Header() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={cn(
-          "sticky top-0 z-50 transition-all duration-300",
-          isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
-            : "bg-secondary shadow-sm border-b border-secondary-foreground/10"
-        )}
+        className="sticky top-0 z-50 bg-background/95 backdrop-blur-md shadow-lg border-b border-border transition-all duration-300"
       >
         <nav className="container-narrow px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <a href="/" className="flex items-center gap-3 group">
               <motion.div
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.5 }}
-                className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent/70 flex items-center justify-center shadow-lg relative"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative"
               >
-                <span className="text-navy font-serif font-bold text-xl">Y</span>
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 rounded-full border-2 border-accent/50"
+                <img
+                  src="/images/skills university.svg"
+                  alt="YISU Logo"
+                  className="h-10 md:h-12 w-auto"
                 />
               </motion.div>
-              <div>
-                <span className="font-serif font-bold text-xl leading-none block group-hover:text-accent transition-colors" style={{ color: isScrolled ? undefined : 'white' }}>YISU</span>
-                <span className="text-[11px] text-muted-foreground/80 leading-none block" style={{ color: isScrolled ? undefined : 'rgba(255,255,255,0.7)' }}>Young India Skills University</span>
-              </div>
             </a>
 
             <div className="hidden lg:flex items-center gap-1">
@@ -79,9 +57,9 @@ export default function Header() {
                   onMouseEnter={() => setActiveDropdown(index)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <button className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium hover:text-primary transition-colors rounded-md hover:bg-primary/5" style={{ color: isScrolled ? undefined : 'white' }}>
+                  <button className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium hover:text-primary transition-colors rounded-md hover:bg-primary/5">
                     {item.label}
-                    {item.children && <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", activeDropdown === index && "rotate-180")} style={{ color: isScrolled ? undefined : 'white' }} />}
+                    {item.children && <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", activeDropdown === index && "rotate-180")} />}
                   </button>
                   <AnimatePresence>
                     {item.children && activeDropdown === index && (
@@ -113,7 +91,6 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="p-2.5 rounded-lg hover:text-accent hover:bg-accent/5 transition-colors"
-                style={{ color: isScrolled ? undefined : 'white' }}
               >
                 <Search className="w-5 h-5" />
               </motion.button>
@@ -125,7 +102,6 @@ export default function Header() {
             <button
               className="lg:hidden p-2 rounded-lg hover:bg-muted"
               onClick={() => setMobileOpen(!mobileOpen)}
-              style={{ color: isScrolled ? undefined : 'white' }}
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

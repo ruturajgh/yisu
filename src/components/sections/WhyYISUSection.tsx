@@ -6,7 +6,7 @@ import { whyYISUPoints } from "@/data/constants";
 
 export default function WhyYISUSection() {
   return (
-    <section className="bg-card border-t border-border section-padding">
+    <section id="about" className="bg-card border-t border-border section-padding">
       <div className="container-narrow">
         <SectionHeader
           title="Why Choose YISU"
