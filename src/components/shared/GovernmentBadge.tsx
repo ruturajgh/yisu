@@ -62,7 +62,7 @@ export default function GovernmentBadge({ variant = "seal", size = "md", classNa
     >
       <div className="text-center">
         <div className="text-[10px] font-bold text-accent tracking-widest">GOVERNMENT</div>
-        <div className="text-[8px] text-accent/70">OF TELANGANA</div>
+        <div className="text-[8px] text-accent/70">of Telangana</div>
       </div>
     </motion.div>
   );

@@ -26,11 +26,6 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <img
-                src="/images/TelanganaRaising.jpg"
-                alt="Telangana Rising"
-                className="h-8 w-auto rounded shadow-md"
-              />
               <div>
                 <p className="text-white font-semibold text-sm">Government of Telangana</p>
                 <p className="text-accent text-xs">Official Government Initiative</p>

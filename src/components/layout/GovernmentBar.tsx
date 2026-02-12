@@ -4,9 +4,8 @@ import { cn } from "@/lib/utils";
 
 export default function GovernmentBar() {
   const notifications = [
-    "YISU Admissions Open for 2024-25 Academic Year",
+    "YISU Admissions Open for 2026-27 Academic Year",
     "New Skill Development Programs Announced",
-    "Telangana Rising: Building Future Leaders",
     "Government-backed Certification Programs"
   ];
 
@@ -35,12 +34,7 @@ export default function GovernmentBar() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="flex items-center gap-3"
               >
-                <img
-                  src="/images/TelanganaRaising.jpg"
-                  alt="Telangana Rising"
-                  className="h-16 w-auto rounded-lg shadow-lg"
-                />
-                <span className="text-accent font-bold tracking-wide">GOVERNMENT OF TELANGANA</span>
+                <span className="text-accent font-bold tracking-wide">Government of Telangana</span>
               </motion.div>
               <span className="text-white/50 hidden md:inline">|</span>
               <motion.div
@@ -65,7 +59,7 @@ export default function GovernmentBar() {
               >
                 <Sparkles className="w-4 h-4 text-accent" />
               </motion.div>
-              <span className="text-accent font-semibold">Telangana Rising</span>
+                <span className="text-accent font-semibold">YISU</span>
             </motion.div>
           </div>
         </div>
