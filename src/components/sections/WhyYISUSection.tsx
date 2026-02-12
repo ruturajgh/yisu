@@ -6,7 +6,7 @@ import { whyYISUPoints } from "@/data/constants";
 
 export default function WhyYISUSection() {
   return (
-    <section id="about" className="bg-secondary border-t-2 border-primary section-padding relative overflow-hidden">
+    <section id="about" className="bg-gray-50 section-padding relative overflow-hidden">
       <div className="container-narrow">
         <SectionHeader
           title="Why Choose YISU"
@@ -26,7 +26,7 @@ export default function WhyYISUSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-12"
         >
           <Button variant="gold" size="lg">
@@ -53,37 +53,25 @@ function WhyCard({ point, index }: WhyCardProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       className={`${isFeatured ? 'md:col-span-2 lg:col-span-1' : ''}`}
     >
-      <motion.div
-        className={`bg-white border-2 ${
-          isFeatured ? 'border-primary' : 'border-primary/50'
-        } rounded-xl p-6 h-full hover:border-accent transition-all relative overflow-hidden`}
-      >
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          whileHover={{ rotate: [0, -5, 5, -5, 0] }}
-          transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-          className={`text-5xl mb-4 ${isFeatured ? 'text-6xl' : ''}`}
-        >
+      <div className="bg-white border border-gray-200 shadow-sm rounded-lg p-8 h-full hover:shadow-md transition-shadow">
+        <div className="text-5xl mb-4">
           {point.icon}
-        </motion.div>
+        </div>
 
-        <h3 className="font-serif font-bold text-lg text-primary mb-3 leading-snug">
+        <h3 className="font-serif font-bold text-lg text-navy mb-3 leading-snug">
           {point.title}
         </h3>
 
-        <p className="text-base text-primary/70 leading-relaxed">
-          • {point.description}
+        <p className="text-base text-gray-600 leading-relaxed">
+          {point.description}
         </p>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

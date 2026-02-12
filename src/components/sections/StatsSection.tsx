@@ -1,26 +1,24 @@
 import { motion } from "framer-motion";
 import { useCountUp } from "@/lib/hooks/use-count-up";
 import { siteStats } from "@/data/constants";
-import SectionHeader from "@/components/shared/SectionHeader";
-import GovernmentBadge from "@/components/shared/GovernmentBadge";
 
 export default function StatsSection() {
   return (
-    <section className="bg-secondary section-padding relative overflow-hidden">
-      <div className="container-narrow relative z-10">
-        <div className="text-center mb-12">
-          <SectionHeader
-            title="Impact at a Glance"
-            subtitle="IMPACT METRICS"
-            description="Building future of skills education with measurable impact across Telangana and beyond."
-            align="center"
-            badgeVariant="glass"
-          />
+    <section className="section bg-white">
+      <div className="container-narrow">
+        <div className="text-center mb-16">
+          <span className="text-sm font-semibold text-gold tracking-widest uppercase">Impact Metrics</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-navy mt-3 mb-4">
+            Impact at a Glance
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Building future of skills education with measurable impact across Telangana and beyond.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {siteStats.map((stat, index) => (
-            <StatCard key={stat.id} stat={stat} delay={index * 0.1} />
+            <StatCard key={stat.id} stat={stat} delay={index * 0.05} />
           ))}
         </div>
       </div>
@@ -51,25 +49,12 @@ function StatCard({ stat, delay }: StatCardProps) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ scale: 1.05 }}
-      className="group bg-white border-2 border-primary hover:border-accent hover:shadow-lg rounded-xl p-6 lg:p-8 transition-all relative overflow-hidden"
+      transition={{ duration: 0.4, delay }}
+      className="bg-white border border-gray-200 shadow-sm rounded-lg p-8 text-center hover:shadow-md transition-shadow"
     >
-      <div className="relative z-10">
-        <motion.div
-          whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-          transition={{ duration: 0.5 }}
-          className="text-5xl mb-4"
-        >
-          {stat.icon}
-        </motion.div>
-        <div className="text-4xl lg:text-5xl font-bold text-primary mb-3 font-serif">
-          {displayValue}
-        </div>
-        <div className="text-base text-primary/80 font-medium">
-          {stat.label}
-        </div>
-      </div>
+      <div className="text-4xl mb-3">{stat.icon}</div>
+      <div className="text-4xl font-bold font-serif text-navy mb-2">{displayValue}</div>
+      <div className="text-sm text-gray-600 font-medium uppercase tracking-wide">{stat.label}</div>
     </motion.div>
   );
 }

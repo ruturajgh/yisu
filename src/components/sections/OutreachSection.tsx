@@ -29,7 +29,7 @@ export default function OutreachSection() {
             location="Vikarabad"
             subtitle="Vikarakabad Kodangal Training for Opportunities and Readiness"
             stats={outreachStats.viktor}
-            delay={0.3}
+            delay={0.15}
           />
         </div>
 
@@ -37,7 +37,7 @@ export default function OutreachSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-12"
         >
           <Button variant="primary" size="lg">
@@ -70,85 +70,78 @@ function ProjectCard({ name, location, subtitle, stats, delay }: ProjectCardProp
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: delay === 0 ? -30 : 30 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ scale: 1.02 }}
-      className="bg-secondary border-2 border-primary hover:border-accent hover:shadow-lg rounded-xl p-8 transition-all"
+      transition={{ duration: 0.4, delay }}
+      className="bg-gray-50 border border-gray-200 shadow-sm rounded-lg p-8 hover:shadow-md transition-shadow"
     >
-      <motion.div
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: 0.2 + delay }}
-        className="mb-6"
-      >
-        <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-primary text-white rounded-lg border-2 border-primary">
+      <div className="mb-6">
+        <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-navy text-white rounded-lg">
           <span className="text-3xl font-bold font-serif">{name}</span>
         </div>
-      </motion.div>
-
-      <div className="flex items-center gap-2 mb-4">
-        <MapPin className="w-5 h-5 text-accent" />
-        <span className="text-base font-bold text-primary">{location}</span>
       </div>
 
-      <p className="text-sm text-foreground/70 uppercase tracking-wider mb-6">{subtitle}</p>
+      <div className="flex items-center gap-2 mb-4">
+        <MapPin className="w-5 h-5 text-gold" />
+        <span className="text-base font-bold text-navy">{location}</span>
+      </div>
+
+      <p className="text-sm text-gray-600 uppercase tracking-wider mb-6">{subtitle}</p>
 
       <div className="grid grid-cols-3 gap-4 mb-6">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.3 + delay }}
-          className="text-center p-4 rounded-lg bg-white border-2 border-primary/50 hover:border-primary transition-colors"
+          transition={{ duration: 0.4, delay: 0.1 + delay }}
+          className="text-center p-4 rounded-lg bg-white border border-gray-200"
         >
-          <Users className="w-6 h-6 text-accent mx-auto mb-2" />
-          <div className="text-2xl font-bold text-primary font-serif">{stats.students}</div>
-          <div className="text-sm text-foreground/70 mt-1">Students</div>
+          <Users className="w-6 h-6 text-gold mx-auto mb-2" />
+          <div className="text-2xl font-bold text-navy font-serif">{stats.students}</div>
+          <div className="text-sm text-gray-600 mt-1">Students</div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.4 + delay }}
-          className="text-center p-4 rounded-lg bg-white border-2 border-primary/50 hover:border-primary transition-colors"
+          transition={{ duration: 0.4, delay: 0.15 + delay }}
+          className="text-center p-4 rounded-lg bg-white border border-gray-200"
         >
-          <Building2 className="w-6 h-6 text-accent mx-auto mb-2" />
-          <div className="text-2xl font-bold text-primary font-serif">{stats.recruiters}</div>
-          <div className="text-sm text-foreground/70 mt-1">Recruiters</div>
+          <Building2 className="w-6 h-6 text-gold mx-auto mb-2" />
+          <div className="text-2xl font-bold text-navy font-serif">{stats.recruiters}</div>
+          <div className="text-sm text-gray-600 mt-1">Recruiters</div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.5 + delay }}
-          className="text-center p-4 rounded-lg bg-white border-2 border-primary/50 hover:border-primary transition-colors"
+          transition={{ duration: 0.4, delay: 0.2 + delay }}
+          className="text-center p-4 rounded-lg bg-white border border-gray-200"
         >
-          <Award className="w-6 h-6 text-accent mx-auto mb-2" />
-          <div className="text-2xl font-bold text-primary font-serif">{stats.colleges}</div>
-          <div className="text-sm text-foreground/70 mt-1">Colleges</div>
+          <Award className="w-6 h-6 text-gold mx-auto mb-2" />
+          <div className="text-2xl font-bold text-navy font-serif">{stats.colleges}</div>
+          <div className="text-sm text-gray-600 mt-1">Colleges</div>
         </motion.div>
       </div>
 
-      <div className="p-5 rounded-lg bg-primary/5 border-2 border-primary">
+      <div className="p-5 rounded-lg bg-navy/5 border border-gray-200">
         <div className="flex items-center gap-2 mb-3">
-          <TrendingUp className="w-5 h-5 text-accent" />
-          <span className="text-base font-bold text-accent">Placements Achieved</span>
+          <TrendingUp className="w-5 h-5 text-gold" />
+          <span className="text-base font-bold text-gold">Placements Achieved</span>
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <div className="text-3xl font-bold text-primary font-serif">{totalPlacements}</div>
-            <div className="text-sm text-foreground/70 mt-1">Total Placements</div>
+            <div className="text-3xl font-bold text-navy font-serif">{totalPlacements}</div>
+            <div className="text-sm text-gray-600 mt-1">Total Placements</div>
           </div>
           <div className="text-right">
-            <div className="text-base font-bold text-primary">{stats.placements.logistics}</div>
-            <div className="text-sm text-foreground/70">Logistics</div>
-            <div className="text-base font-bold text-primary mt-1">{stats.placements.banks}</div>
-            <div className="text-sm text-foreground/70">Banks</div>
+            <div className="text-base font-bold text-navy">{stats.placements.logistics}</div>
+            <div className="text-sm text-gray-600">Logistics</div>
+            <div className="text-base font-bold text-navy mt-1">{stats.placements.banks}</div>
+            <div className="text-sm text-gray-600">Banks</div>
           </div>
         </div>
       </div>

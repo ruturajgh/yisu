@@ -1,19 +1,28 @@
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
-import SectionHeader from "@/components/shared/SectionHeader";
+import { Quote } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-white border-t-2 border-primary section-padding relative overflow-hidden">
+    <section className="bg-gray-50 section-padding relative overflow-hidden">
       <div className="container-narrow">
-        <SectionHeader
-          title="Hear from Our Students"
-          subtitle="Success Stories"
-          description="Discover how YISU has transformed careers"
-          align="center"
-          badgeVariant="glass"
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider uppercase text-gold bg-white rounded-sm">
+            Testimonials
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold font-serif text-navy mb-4">
+            Hear from Our Students
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Discover how YISU has transformed careers
+          </p>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 mt-12">
           {testimonials.map((testimonial, index) => (
@@ -44,21 +53,14 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ scale: 1.02 }}
-      className="group h-full"
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      className="h-full"
     >
-      <motion.div
-        className="bg-secondary border-2 border-primary hover:border-accent rounded-xl p-6 h-full transition-all relative overflow-hidden"
-      >
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-          className="flex flex-col items-center text-center mb-5"
-        >
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center border-4 border-primary shadow-lg mb-4">
+      <div className="bg-white border border-gray-200 shadow-sm rounded-lg p-8 h-full relative">
+        <Quote className="w-8 h-8 text-gold/30 mb-4" />
+
+        <div className="flex flex-col items-center text-center mb-6">
+          <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-3">
             {testimonial.image ? (
               <img
                 src={testimonial.image}
@@ -66,32 +68,27 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
                 className="w-full h-full rounded-full object-cover"
               />
             ) : (
-              <span className="text-3xl font-bold text-accent font-serif">
+              <span className="text-xl font-bold text-navy font-serif">
                 {testimonial.initials}
               </span>
             )}
           </div>
-          <h3 className="font-serif font-bold text-lg text-primary">{testimonial.name}</h3>
-          <p className="text-base text-primary/70">{testimonial.course}</p>
-        </motion.div>
+          <h3 className="font-serif font-semibold text-base text-navy">{testimonial.name}</h3>
+          <p className="text-sm text-gray-600">{testimonial.course}</p>
+        </div>
+
+        <p className="text-gray-700 text-sm leading-relaxed text-center italic">
+          "{testimonial.quote}"
+        </p>
 
         {testimonial.placement && (
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-            className="flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white rounded-full text-base font-bold border-2 border-primary"
-          >
-            <CheckCircle className="w-4 h-4" />
-            {testimonial.placement}
-          </motion.div>
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-navy text-white rounded-full text-xs font-semibold">
+              {testimonial.placement}
+            </div>
+          </div>
         )}
-
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
-        />
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

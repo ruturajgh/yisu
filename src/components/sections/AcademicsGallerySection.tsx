@@ -26,7 +26,7 @@ export default function AcademicsGallerySection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center mt-12"
         >
           <Button variant="outline" size="lg">
@@ -51,51 +51,30 @@ interface GalleryItemProps {
 function GalleryItem({ item, index }: GalleryItemProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       className="group h-full"
     >
-      <motion.div
-        className="bg-secondary border-2 border-primary hover:border-accent hover:shadow-lg rounded-xl overflow-hidden transition-all h-full flex flex-col"
-      >
-        <motion.div
-          initial={{ scale: 0.95 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-          className="relative aspect-video bg-gradient-to-br from-accent/10 to-primary/10 flex items-center justify-center overflow-hidden"
-        >
+      <div className="bg-white border border-gray-200 shadow-sm rounded-lg overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col">
+        <div className="relative aspect-video bg-gradient-to-br from-gray-100 to-gray-50 flex items-center justify-center overflow-hidden">
           {item.image ? (
-            <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
           ) : (
-            <ImageIcon className="w-16 h-16 text-accent/30" />
+            <ImageIcon className="w-16 h-16 text-gray-300" />
           )}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-accent/20 flex items-center justify-center"
-          >
-            <ImageIcon className="w-12 h-12 text-primary" />
-          </motion.div>
-        </motion.div>
+        </div>
 
-        <div className="p-5 flex-1 flex flex-col">
-          <h3 className="font-serif font-bold text-base text-primary mb-2 leading-snug line-clamp-2 group-hover:text-accent transition-colors">
+        <div className="p-6 flex-1 flex flex-col">
+          <h3 className="font-serif font-bold text-base text-navy mb-2 leading-snug line-clamp-2 group-hover:text-gold transition-colors">
             {item.title}
           </h3>
-          <p className="text-sm text-primary/70 leading-relaxed line-clamp-2 flex-1">
+          <p className="text-sm text-gray-600 leading-relaxed line-clamp-2 flex-1">
             {item.description}
           </p>
         </div>
-
-        <motion.div
-          className="h-1 bg-gradient-to-r from-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-        />
-      </motion.div>
+      </div>
     </motion.div>
   );
 }

@@ -6,68 +6,74 @@
 
 @layer base {
   :root {
-    /* 10-30-60 Color Scheme */
-    /* 60% Dominant - Navy Blue */
-    --background: 215 55% 23%;
-    --foreground: 0 0% 100%;
+    /* Evolved Navy Palette - depth and sophistication */
+    --navy-deep: 215 50% 15%;
+    --navy: 215 50% 22%;
+    --navy-light: 215 45% 30%;
+    --navy-pale: 215 40% 45%;
 
-    /* 30% Secondary - White/Off-White */
+    /* Evolved Gold Palette - refined, not yellow */
+    --gold: 42 70% 45%;
+    --gold-dark: 42 75% 38%;
+    --gold-light: 42 65% 55%;
+
+    /* Neutral Grays - essential for professional look */
+    --gray-50: 210 15% 97%;
+    --gray-100: 210 15% 94%;
+    --gray-200: 210 15% 89%;
+    --gray-300: 210 15% 80%;
+    --gray-400: 210 15% 65%;
+    --gray-500: 210 15% 50%;
+    --gray-600: 215 20% 35%;
+    --gray-700: 215 25% 25%;
+    --gray-800: 215 30% 18%;
+    --gray-900: 215 35% 12%;
+
+    /* Semantic Colors */
+    --bg-primary: 0 0% 100%;
+    --bg-secondary: 210 15% 96%;
+    --bg-muted: 210 15% 90%;
+
+    /* Text Colors - clear hierarchy */
+    --text-primary: 215 35% 15%;
+    --text-secondary: 215 25% 30%;
+    --text-tertiary: 215 15% 45%;
+    --text-inverse: 0 0% 100%;
+
+    /* Border Colors - subtle, not heavy */
+    --border-subtle: 210 15% 88%;
+    --border-medium: 210 15% 80%;
+    --border-strong: 215 25% 30%;
+
+    /* Shadows - depth without being heavy */
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.08);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.08);
+
+    /* Legacy compatibility - map old vars to new */
+    --primary: 215 50% 22%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 15% 96%;
+    --secondary-foreground: 215 25% 30%;
+    --muted: 210 15% 90%;
+    --muted-foreground: 215 15% 45%;
+    --accent: 42 70% 45%;
+    --accent-foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 215 35% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 215 55% 23%;
+    --card-foreground: 215 35% 15%;
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 42 70% 45%;
+    --radius: 0.5rem;
+    --royal: 215 45% 30%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 215 55% 23%;
-
-    /* Primary matches dominant (60%) */
-    --primary: 215 55% 23%;
-    --primary-foreground: 0 0% 100%;
-
-    /* Secondary for lighter backgrounds */
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 215 55% 23%;
-
-    /* Muted for variation */
-    --muted: 215 55% 33%;
-    --muted-foreground: 215 55% 40%;
-
-    /* 10% Accent - Gold */
-    --accent: 43 75% 47%;
-    --accent-foreground: 0 0% 100%;
-
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 215 55% 85%;
-    --input: 215 55% 85%;
-    --ring: 43 75% 47%;
-
-    --radius: 0.375rem;
-
-    /* Custom YISU tokens - Simplified to 10-30-60 */
-    --navy: 215 55% 23%;
-    --navy-foreground: 0 0% 100%;
-    --royal: 215 55% 33%;
-    --gold: 43 75% 47%;
-    --gold-light: 43 75% 57%;
-
-    /* Additional accessibility colors */
-    --text-primary: 0 0% 100%;
-    --text-secondary: 215 55% 60%;
-    --text-on-light: 215 55% 23%;
-    --text-muted: 215 55% 50%;
-    --text-card-light: 215 55% 45%;
-    --success: 142 76% 36%;
-    --warning: 38 92% 50%;
-
-    /* Sidebar colors */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 215 55% 23%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 215 55% 23%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 43 75% 47%;
   }
 
   .dark {
@@ -111,104 +117,137 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased text-base leading-relaxed;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
-    @apply tracking-wide leading-tight;
   }
 
   h1 {
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
 
   h2 {
-    @apply text-4xl md:text-5xl font-bold;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    font-weight: 600;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl font-bold;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    line-height: 1.4;
+    font-weight: 600;
   }
 }
 
 @layer components {
+  /* Section Spacing - generous, classic */
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 lg:py-24;
+    @apply px-4 sm:px-6 lg:px-8;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  /* Container - centered, not full-width */
   .container-narrow {
-    @apply max-w-7xl mx-auto;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
-  .gold-underline {
-    @apply relative inline-block;
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
-  .gold-underline::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-full h-[3px] bg-accent;
+  /* Cards - refined, not heavy */
+  .card {
+    background: white;
+    border: 1px solid hsl(var(--border-subtle));
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
   }
 
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  .card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: hsl(var(--border-medium));
   }
 
-  .section-subtitle {
-    @apply text-lg text-muted-foreground max-w-2xl;
-  }
-
-  /* Solid Card Utilities - Replaced glass for accessibility */
+  /* Legacy card utilities - updated */
   .glass {
-    @apply bg-white border border-border shadow-lg;
+    @apply bg-white border border-gray-200 shadow-sm;
   }
 
   .glass-dark {
-    @apply bg-primary border border-border shadow-lg;
+    @apply bg-navy border border-navy-light/30 shadow-lg;
   }
 
   .glass-card {
-    @apply bg-white border-2 border-border shadow-lg rounded-xl;
+    @apply bg-white border border-gray-200 shadow-sm rounded-lg;
   }
 
   .glass-header {
-    @apply bg-white border-b border-border shadow-sm;
+    @apply bg-white border-b border-gray-200 shadow-sm;
   }
 
-  /* Card variations for better accessibility */
   .card-light {
-    @apply bg-white border-2 border-primary shadow-lg rounded-xl;
+    @apply bg-white border border-gray-200 shadow-sm rounded-lg;
   }
 
   .card-medium {
-    @apply bg-secondary border-2 border-border shadow-lg rounded-xl;
+    @apply bg-gray-50 border border-gray-200 shadow-sm rounded-lg;
   }
 
   .card-dark {
-    @apply bg-primary border-2 border-primary/50 shadow-lg rounded-xl;
+    @apply bg-navy border border-navy-light/30 shadow-lg rounded-lg;
   }
 
   /* Government Styling */
   .government-border {
-    @apply border-2 border-double border-gold;
+    @apply border border-gold;
   }
 
   .government-seal {
-    @apply inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gold to-gold-light border-4 border-white shadow-xl;
-  }
-
-  .telangana-gradient {
-    @apply bg-gradient-to-r from-telangana-green via-telangana-gold to-telangana-saffron;
-  }
-
-  /* Parallax Utilities */
-  .parallax-container {
-    @apply overflow-hidden relative;
-  }
-
-  /* Video Background */
-  .video-bg {
-    @apply absolute inset-0 w-full h-full object-cover;
+    @apply inline-flex items-center justify-center w-16 h-16 rounded-full bg-gold border-4 border-white shadow-md;
   }
 
   /* Scrollbar Utilities */
