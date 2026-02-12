@@ -24,11 +24,11 @@ export default function Button({
   icon
 }: ButtonProps) {
   const variantClasses = {
-    primary: "bg-primary text-primary-foreground hover:bg-primary/90",
-    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90",
-    outline: "border border-border text-foreground hover:bg-muted hover:border-primary/30",
-    ghost: "text-foreground hover:bg-muted hover:text-primary",
-    gold: "bg-accent text-accent-foreground hover:bg-gold-light"
+    primary: "bg-primary text-white hover:bg-primary/90 shadow-md",
+    secondary: "bg-secondary text-primary hover:bg-muted shadow-md",
+    outline: "border-2 border-primary text-primary hover:bg-primary/5 hover:border-primary",
+    ghost: "text-primary hover:bg-primary/10",
+    gold: "bg-accent text-white hover:bg-accent/90 shadow-lg font-semibold"
   };
 
   const sizeClasses = {

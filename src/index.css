@@ -6,82 +6,101 @@
 
 @layer base {
   :root {
-    --background: 210 33% 97%;
-    --foreground: 216 50% 15%;
+    /* 10-30-60 Color Scheme */
+    /* 60% Dominant - Navy Blue */
+    --background: 215 55% 23%;
+    --foreground: 0 0% 100%;
 
+    /* 30% Secondary - White/Off-White */
     --card: 0 0% 100%;
-    --card-foreground: 216 50% 15%;
+    --card-foreground: 215 55% 23%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 216 50% 15%;
+    --popover-foreground: 215 55% 23%;
 
-    --primary: 220 85% 30%;
+    /* Primary matches dominant (60%) */
+    --primary: 215 55% 23%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 216 70% 15%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary for lighter backgrounds */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 215 55% 23%;
 
-    --muted: 210 33% 94%;
-    --muted-foreground: 216 20% 46%;
+    /* Muted for variation */
+    --muted: 215 55% 33%;
+    --muted-foreground: 0 0% 85%;
 
-    --accent: 42 50% 55%;
-    --accent-foreground: 216 50% 10%;
+    /* 10% Accent - Gold */
+    --accent: 43 75% 47%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 220 85% 30%;
+    --border: 215 55% 85%;
+    --input: 215 55% 85%;
+    --ring: 43 75% 47%;
 
     --radius: 0.375rem;
 
-    /* Custom YISU tokens */
-    --navy: 216 70% 15%;
+    /* Custom YISU tokens - Simplified to 10-30-60 */
+    --navy: 215 55% 23%;
     --navy-foreground: 0 0% 100%;
-    --royal: 222 72% 42%;
-    --gold: 42 50% 55%;
-    --gold-light: 42 50% 70%;
-    --light-blue: 210 60% 95%;
-    --hero-overlay: 216 70% 15%;
+    --royal: 215 55% 33%;
+    --gold: 43 75% 47%;
+    --gold-light: 43 75% 57%;
 
+    /* Additional accessibility colors */
+    --text-primary: 0 0% 100%;
+    --text-secondary: 0 0% 92%;
+    --text-on-light: 215 55% 23%;
+    --text-muted: 0 0% 70%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+
+    /* Sidebar colors */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary: 215 55% 23%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 215 55% 23%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 43 75% 47%;
   }
 
   .dark {
-    --background: 216 50% 5%;
-    --foreground: 210 40% 95%;
-    --card: 216 50% 8%;
-    --card-foreground: 210 40% 95%;
-    --popover: 216 50% 8%;
-    --popover-foreground: 210 40% 95%;
-    --primary: 210 60% 50%;
+    /* Dark mode - keeping navy as dominant but lighter */
+    --background: 215 55% 18%;
+    --foreground: 0 0% 100%;
+    --card: 215 55% 23%;
+    --card-foreground: 0 0% 100%;
+    --popover: 215 55% 23%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 215 55% 33%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 95%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 42 50% 55%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 55% 28%;
+    --muted-foreground: 0 0% 75%;
+    --accent: 43 75% 52%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 95%;
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 213 27% 84%;
-    --navy: 216 70% 10%;
-    --navy-foreground: 0 0% 95%;
-    --royal: 222 72% 50%;
-    --gold: 42 50% 60%;
-    --gold-light: 42 50% 40%;
-    --light-blue: 210 30% 12%;
-    --hero-overlay: 216 70% 8%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 215 55% 35%;
+    --input: 215 55% 35%;
+    --ring: 43 75% 47%;
+    --navy: 215 55% 23%;
+    --navy-foreground: 0 0% 100%;
+    --royal: 215 55% 33%;
+    --gold: 43 75% 52%;
+    --gold-light: 43 75% 62%;
+
+    /* Dark mode accessibility colors */
+    --text-primary: 0 0% 100%;
+    --text-secondary: 0 0% 90%;
+    --text-on-light: 215 55% 23%;
+    --text-muted: 0 0% 70%;
   }
 }
 
@@ -91,11 +110,24 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased text-base leading-relaxed;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
+    @apply tracking-wide leading-tight;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl font-bold;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-bold;
   }
 }
 
@@ -125,21 +157,34 @@
     @apply text-lg text-muted-foreground max-w-2xl;
   }
 
-  /* Glass Morphism Utilities */
+  /* Solid Card Utilities - Replaced glass for accessibility */
   .glass {
-    @apply backdrop-blur-md bg-white/10 border border-white/20;
+    @apply bg-white border border-border shadow-lg;
   }
 
   .glass-dark {
-    @apply backdrop-blur-md bg-black/10 border border-white/10;
+    @apply bg-primary border border-border shadow-lg;
   }
 
   .glass-card {
-    @apply backdrop-blur-lg bg-white/10 border border-white/20 shadow-xl;
+    @apply bg-white border-2 border-border shadow-lg rounded-xl;
   }
 
   .glass-header {
-    @apply backdrop-blur-xl bg-white/90 border-b border-white/20;
+    @apply bg-white border-b border-border shadow-sm;
+  }
+
+  /* Card variations for better accessibility */
+  .card-light {
+    @apply bg-white border-2 border-primary shadow-lg rounded-xl;
+  }
+
+  .card-medium {
+    @apply bg-secondary border-2 border-border shadow-lg rounded-xl;
+  }
+
+  .card-dark {
+    @apply bg-primary border-2 border-primary/50 shadow-lg rounded-xl;
   }
 
   /* Government Styling */

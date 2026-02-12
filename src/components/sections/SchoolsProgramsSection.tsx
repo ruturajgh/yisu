@@ -11,16 +11,7 @@ export default function SchoolsProgramsSection() {
   const featuredCourses = trendingCourses.slice(0, 3);
 
   return (
-    <section className="bg-card section-padding relative overflow-hidden">
-      {/* Very Subtle Decorative Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 152, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-32 right-32 w-32 h-32 bg-accent/2 rounded-full blur-2xl"
-        />
-      </div>
-
+    <section className="bg-white section-padding relative overflow-hidden">
       <div className="container-narrow">
         <SectionHeader
           title="Schools & Programs"
@@ -117,7 +108,7 @@ function SchoolCard({ school, index }: SchoolCardProps) {
       className="group h-full"
     >
       <motion.div
-        className="glass-card hover:border-accent/30 rounded-xl p-6 h-full transition-all relative overflow-hidden"
+        className="bg-secondary border-2 border-primary hover:border-accent rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         <div className="mb-4">
           <motion.div
@@ -130,7 +121,7 @@ function SchoolCard({ school, index }: SchoolCardProps) {
           >
             {school.icon}
           </motion.div>
-          <h3 className="font-serif font-bold text-base text-foreground leading-snug group-hover:text-primary transition-colors">
+          <h3 className="font-serif font-bold text-base text-primary leading-snug group-hover:text-accent transition-colors">
             {school.name}
           </h3>
         </div>
@@ -140,17 +131,13 @@ function SchoolCard({ school, index }: SchoolCardProps) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-          className="flex items-center gap-2 pt-4 border-t border-border/50 text-sm"
+          className="flex items-center gap-2 pt-4 border-t-2 border-primary/50 text-sm"
         >
           <GraduationCap className="w-4 h-4 text-accent" />
-          <span className="font-semibold text-foreground">
+          <span className="font-bold text-primary">
             {school.courses} {school.courses === 1 ? "Course" : "Courses"}
           </span>
         </motion.div>
-
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
-        />
       </motion.div>
     </motion.div>
   );
@@ -180,7 +167,7 @@ function CourseCard({ course, index }: CourseCardProps) {
       className="group h-full"
     >
       <motion.div
-        className="glass-card hover:border-accent/30 rounded-xl p-6 h-full transition-all relative overflow-hidden"
+        className="bg-secondary border-2 border-primary hover:border-accent rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         {course.isNew && (
           <motion.div
@@ -195,25 +182,25 @@ function CourseCard({ course, index }: CourseCardProps) {
 
         <div className="mb-4">
           <div className="flex items-center gap-2 mb-3">
-            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-semibold text-xs">
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-xs">
               {course.partner.charAt(0)}
             </div>
-            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+            <p className="text-xs font-bold text-primary uppercase tracking-wider">
               {course.partner}
             </p>
           </div>
-          <h3 className="font-serif font-semibold text-base text-foreground mb-3 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
+          <h3 className="font-serif font-bold text-base text-primary mb-3 leading-snug line-clamp-2 group-hover:text-accent transition-colors">
             {course.name}
           </h3>
         </div>
 
         <div className="space-y-2 mb-4">
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <Clock className="w-3.5 h-3.5 text-accent" />
+          <div className="flex items-center gap-2 text-sm text-muted">
+            <Clock className="w-4 h-4 text-accent" />
             <span>{course.duration}</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="font-semibold text-foreground">{course.fee}</span>
+          <div className="flex items-center gap-2 text-sm text-muted">
+            <span className="font-bold text-primary">{course.fee}</span>
           </div>
         </div>
 
@@ -222,14 +209,10 @@ function CourseCard({ course, index }: CourseCardProps) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 1.0 + index * 0.1 }}
-          className="pt-3 border-t border-border/50 flex items-center justify-center"
+          className="pt-3 border-t-2 border-primary/50 flex items-center justify-center"
         >
           <ArrowRight className="w-4 h-4 text-primary group-hover:text-accent transition-colors" />
         </motion.div>
-
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
-        />
       </motion.div>
     </motion.div>
   );

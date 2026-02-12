@@ -6,16 +6,7 @@ import { whyYISUPoints } from "@/data/constants";
 
 export default function WhyYISUSection() {
   return (
-    <section id="about" className="bg-card border-t border-border section-padding relative overflow-hidden">
-      {/* Very Subtle Decorative Element */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 155, repeat: Infinity, ease: "linear" }}
-          className="absolute top-20 right-20 w-32 h-32 bg-accent/2 rounded-full blur-2xl"
-        />
-      </div>
-
+    <section id="about" className="bg-secondary border-t-2 border-primary section-padding relative overflow-hidden">
       <div className="container-narrow">
         <SectionHeader
           title="Why Choose YISU"
@@ -70,9 +61,9 @@ function WhyCard({ point, index }: WhyCardProps) {
       className={`${isFeatured ? 'md:col-span-2 lg:col-span-1' : ''}`}
     >
       <motion.div
-        className={`glass-card ${
-          isFeatured ? 'border-accent/30 bg-accent/5' : 'border-border'
-        } rounded-xl p-6 h-full hover:border-accent/40 transition-all relative overflow-hidden`}
+        className={`bg-white border-2 ${
+          isFeatured ? 'border-primary' : 'border-primary/50'
+        } rounded-xl p-6 h-full hover:border-accent transition-all relative overflow-hidden`}
       >
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -85,19 +76,13 @@ function WhyCard({ point, index }: WhyCardProps) {
           {point.icon}
         </motion.div>
 
-        <h3 className="font-serif font-bold text-lg text-foreground mb-3 leading-snug">
+        <h3 className="font-serif font-bold text-lg text-primary mb-3 leading-snug">
           {point.title}
         </h3>
 
-        <p className="text-sm text-muted-foreground leading-relaxed">
+        <p className="text-base text-muted leading-relaxed">
           • {point.description}
         </p>
-
-        {isFeatured && (
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none rounded-xl"
-          />
-        )}
       </motion.div>
     </motion.div>
   );

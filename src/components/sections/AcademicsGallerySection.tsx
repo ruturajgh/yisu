@@ -6,16 +6,7 @@ import { academicsGallery } from "@/data/constants";
 
 export default function AcademicsGallerySection() {
   return (
-    <section className="bg-gradient-to-b from-background to-muted/20 section-padding relative overflow-hidden">
-      {/* Very Subtle Decorative Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 135, repeat: Infinity, ease: "linear" }}
-          className="absolute top-14 right-14 w-32 h-32 bg-accent/3 rounded-full blur-2xl"
-        />
-      </div>
-
+    <section className="bg-white section-padding relative overflow-hidden">
       <div className="container-narrow">
         <SectionHeader
           title="Academics at YISU"
@@ -68,7 +59,7 @@ function GalleryItem({ item, index }: GalleryItemProps) {
       className="group h-full"
     >
       <motion.div
-        className="bg-white/70 backdrop-blur-sm border border-border hover:border-accent/20 hover:shadow-lg rounded-xl overflow-hidden transition-all h-full flex flex-col"
+        className="bg-secondary border-2 border-primary hover:border-accent hover:shadow-lg rounded-xl overflow-hidden transition-all h-full flex flex-col"
       >
         <motion.div
           initial={{ scale: 0.95 }}
@@ -93,10 +84,10 @@ function GalleryItem({ item, index }: GalleryItemProps) {
         </motion.div>
 
         <div className="p-5 flex-1 flex flex-col">
-          <h3 className="font-serif font-semibold text-base text-foreground mb-2 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
+          <h3 className="font-serif font-bold text-base text-primary mb-2 leading-snug line-clamp-2 group-hover:text-accent transition-colors">
             {item.title}
           </h3>
-          <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2 flex-1">
+          <p className="text-sm text-muted leading-relaxed line-clamp-2 flex-1">
             {item.description}
           </p>
         </div>

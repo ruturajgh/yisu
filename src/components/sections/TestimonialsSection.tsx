@@ -5,16 +5,7 @@ import { testimonials } from "@/data/testimonials";
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-card border-t border-border section-padding relative overflow-hidden">
-      {/* Very Subtle Decorative Element */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 160, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-32 -right-32 w-40 h-40 bg-primary/2 rounded-full blur-2xl"
-        />
-      </div>
-
+    <section className="bg-white border-t-2 border-primary section-padding relative overflow-hidden">
       <div className="container-narrow">
         <SectionHeader
           title="Hear from Our Students"
@@ -58,7 +49,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       className="group h-full"
     >
       <motion.div
-        className="glass-card bg-white/80 hover:border-accent/30 rounded-xl p-6 h-full transition-all relative overflow-hidden"
+        className="bg-secondary border-2 border-primary hover:border-accent rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -67,7 +58,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
           transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
           className="flex flex-col items-center text-center mb-5"
         >
-          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center border-4 border-accent/30 shadow-lg mb-4">
+          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center border-4 border-primary shadow-lg mb-4">
             {testimonial.image ? (
               <img
                 src={testimonial.image}
@@ -80,8 +71,8 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
               </span>
             )}
           </div>
-          <h3 className="font-serif font-bold text-lg text-foreground">{testimonial.name}</h3>
-          <p className="text-sm text-muted-foreground">{testimonial.course}</p>
+          <h3 className="font-serif font-bold text-lg text-primary">{testimonial.name}</h3>
+          <p className="text-base text-muted">{testimonial.course}</p>
         </motion.div>
 
         {testimonial.placement && (
@@ -90,7 +81,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-            className="flex items-center justify-center gap-2 px-4 py-3 bg-accent/10 rounded-full text-sm font-medium text-accent border border-accent/20"
+            className="flex items-center justify-center gap-2 px-4 py-3 bg-primary text-white rounded-full text-base font-bold border-2 border-primary"
           >
             <CheckCircle className="w-4 h-4" />
             {testimonial.placement}

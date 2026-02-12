@@ -27,9 +27,9 @@ export default function GovernmentBadge({ variant = "seal", size = "md", classNa
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className={`inline-flex items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 border-4 border-white/80 shadow-2xl ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-full bg-accent border-4 border-white shadow-2xl ${sizeClasses[size]} ${className}`}
     >
-      <Shield className={`${iconSizes[size]} text-navy`} strokeWidth={2} />
+      <Shield className={`${iconSizes[size]} text-white`} strokeWidth={2} />
     </motion.div>
   );
 
@@ -38,7 +38,7 @@ export default function GovernmentBadge({ variant = "seal", size = "md", classNa
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className={`inline-flex items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/80 border-4 border-white shadow-2xl ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-full bg-accent border-4 border-white shadow-2xl ${sizeClasses[size]} ${className}`}
     >
       <svg
         viewBox="0 0 100 100"

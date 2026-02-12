@@ -34,13 +34,13 @@ export default function HeroGovernment() {
   };
 
   return (
-    <section ref={ref} className="relative  flex items-center overflow-hidden">
+    <section ref={ref} className="relative flex items-center overflow-hidden">
       {/* Video/Background */}
       <div className="absolute inset-0">
         <img src={heroCampus} alt="YISU Campus" className="w-full h-full object-cover" />
         <motion.div
           style={{ y }}
-          className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/80 to-royal/75"
+          className="absolute inset-0 bg-primary/95"
         />
       </div>
 
@@ -49,23 +49,11 @@ export default function HeroGovernment() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="w-[800px] h-[800px] border-[20px] border-accent rounded-full"
+          className="w-[800px] h-[800px] border-[20px] border-white rounded-full"
         />
       </div>
 
-      {/* Background Orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ x: [0, 100, 0], y: [0, -100, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ x: [0, -100, 0], y: [0, 100, 0] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl"
-        />
-      </div>
+
 
       <div className="relative z-10 container-narrow section-padding">
         <div className="grid lg:grid-cols-3 gap-8 items-center">
@@ -97,21 +85,21 @@ export default function HeroGovernment() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 font-serif text-white">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 font-serif text-white">
                 Young India Skills{" "}
-                <span className="relative inline-block">
-                  <span className="relative z-10 text-accent">University</span>
+                <span className="text-white relative inline-block">
+                  University
                   <motion.span
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
-                    className="absolute -bottom-2 left-0 w-full h-[3px] bg-gradient-to-r from-accent to-transparent origin-left"
+                    className="absolute -bottom-2 left-0 w-full h-[4px] bg-accent origin-left"
                   />
                 </span>
               </h1>
 
 
-              <p className="text-base text-white/70 max-w-xl leading-relaxed">
+              <p className="text-lg text-white/95 max-w-xl leading-relaxed">
                 Practical courses, real-world projects, and certifications that open doors to new opportunities.
               </p>
             </motion.div>
@@ -121,15 +109,15 @@ export default function HeroGovernment() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-3"
+              className="flex flex-wrap gap-4"
             >
-              <Button size="lg" variant="gold" className="text-base px-7 py-3 shadow-xl">
-                Apply Now <ArrowRight className="ml-2 w-4 h-4" />
+              <Button size="lg" variant="gold" className="text-lg px-8 py-4 shadow-xl">
+                Apply Now <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 text-base px-7 py-3"
+                className="border-2 border-white text-white hover:bg-white/10 hover:border-white text-lg px-8 py-4"
                 onClick={() => scrollToSection('about')}
               >
                 Know more About us
@@ -141,14 +129,14 @@ export default function HeroGovernment() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex  absolute top-0 right-2 items-center gap-4 px-5 py-3 w-max glass-card rounded-full"
+              className="flex absolute top-0 right-2 items-center gap-4 px-6 py-4 w-max bg-white rounded-full shadow-xl"
             >
-              <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                <Users className="w-5 h-5 text-accent" />
+              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                <Users className="w-6 h-6 text-accent" />
               </div>
               <div>
-                <div className="text-2xl font-bold text-white font-serif">{learnerCount}</div>
-                <div className="text-[11px] text-white/60">learners visited YISU</div>
+                <div className="text-3xl font-bold text-primary font-serif">{learnerCount}</div>
+                <div className="text-sm text-muted">learners visited YISU</div>
               </div>
             </motion.div>
 
@@ -157,14 +145,14 @@ export default function HeroGovernment() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="pt-2"
+              className="pt-4"
             >
               <button
                 onClick={() => scrollToSection('leadership')}
                 className="group text-left"
               >
-                <p className="text-sm text-accent font-semibold mb-3 flex items-center gap-2">
-                  Meet Our Leadership <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <p className="text-base text-accent font-bold mb-4 flex items-center gap-2">
+                  Meet Our Leadership <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </p>
                 <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
                   {leaders.map((leader, index) => (
@@ -176,13 +164,13 @@ export default function HeroGovernment() {
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                        className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center border-2 border-accent/40 mb-2"
+                        className="w-14 h-14 rounded-full bg-white flex items-center justify-center border-2 border-primary mb-2"
                       >
-                        <span className="text-sm font-serif font-bold text-accent">
+                        <span className="text-base font-serif font-bold text-primary">
                           {leader.initials}
                         </span>
                       </motion.div>
-                      <p className="text-xs text-white/90 font-medium whitespace-nowrap max-w-[100px] text-center">
+                      <p className="text-sm text-white/90 font-semibold whitespace-nowrap max-w-[100px] text-center">
                         {leader.name.split(' ').slice(-2).join(' ')}
                       </p>
                     </div>
@@ -203,17 +191,17 @@ export default function HeroGovernment() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[300px] h-[300px] border-2 border-accent/20 rounded-full"
+              className="absolute w-[300px] h-[300px] border-2 border-white/10 rounded-full"
             />
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[240px] h-[240px] border border-primary/20 rounded-full"
+              className="absolute w-[240px] h-[240px] border border-white/10 rounded-full"
             />
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute w-[180px] h-[180px] border border-accent/10 rounded-full"
+              className="absolute w-[180px] h-[180px] border border-white/10 rounded-full"
             />
           </motion.div>
         </div>

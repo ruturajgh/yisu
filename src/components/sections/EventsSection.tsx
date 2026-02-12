@@ -9,16 +9,7 @@ export default function EventsSection() {
   const latestEvents = events.slice(0, 4);
 
   return (
-    <section className="bg-gradient-to-b from-background to-muted/20 section-padding relative overflow-hidden">
-      {/* Very Subtle Decorative Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 140, repeat: Infinity, ease: "linear" }}
-          className="absolute top-12 left-12 w-32 h-32 bg-primary/3 rounded-full blur-2xl"
-        />
-      </div>
-
+    <section className="bg-white section-padding relative overflow-hidden">
       <div className="container-narrow">
         <SectionHeader
           title="Latest Events"
@@ -84,7 +75,7 @@ function EventCard({ event, index }: EventCardProps) {
       className="group h-full"
     >
       <motion.div
-        className="bg-white/70 backdrop-blur-sm border border-border hover:border-primary/20 hover:shadow-lg rounded-xl p-6 h-full transition-all relative overflow-hidden"
+        className="bg-secondary border-2 border-primary hover:border-accent hover:shadow-lg rounded-xl p-6 h-full transition-all relative overflow-hidden"
       >
         {event.isNew && (
           <motion.div
@@ -105,17 +96,17 @@ function EventCard({ event, index }: EventCardProps) {
           className="flex items-start gap-4"
         >
           <div className="flex-shrink-0">
-            <div className="w-14 h-14 rounded-lg bg-primary/5 border border-primary/20 flex flex-col items-center justify-center">
-              <span className="text-xs font-semibold text-primary uppercase">{month}</span>
-              <span className="text-xl font-bold text-primary font-serif leading-none mt-1">{day}</span>
+            <div className="w-14 h-14 rounded-lg bg-primary border-2 border-primary flex flex-col items-center justify-center">
+              <span className="text-xs font-bold text-white uppercase">{month}</span>
+              <span className="text-xl font-bold text-white font-serif leading-none mt-1">{day}</span>
             </div>
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="font-serif font-semibold text-base text-foreground mb-2 leading-snug line-clamp-2 group-hover:text-primary transition-colors">
+            <h3 className="font-serif font-bold text-base text-primary mb-2 leading-snug line-clamp-2 group-hover:text-accent transition-colors">
               {event.title}
             </h3>
             {year && (
-              <p className="text-xs text-muted-foreground">{year}</p>
+              <p className="text-sm text-muted">{year}</p>
             )}
           </div>
         </motion.div>
@@ -125,13 +116,13 @@ function EventCard({ event, index }: EventCardProps) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-          className="pt-4 mt-4 border-t border-border/50"
+          className="pt-4 mt-4 border-t-2 border-primary/50"
         >
           <a
             href={event.link || "#"}
-            className="text-xs font-medium text-primary hover:text-accent transition-colors inline-flex items-center gap-1"
+            className="text-sm font-bold text-primary hover:text-accent transition-colors inline-flex items-center gap-1"
           >
-            Read More <ArrowRight className="w-3.5 h-3.5" />
+            Read More <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>
 

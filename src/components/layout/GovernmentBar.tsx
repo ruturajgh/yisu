@@ -14,7 +14,7 @@ export default function GovernmentBar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative bg-gradient-to-r from-navy via-navy/95 to-royal overflow-hidden"
+      className="relative bg-primary overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -26,7 +26,7 @@ export default function GovernmentBar() {
       <div className="relative">
         {/* Top Government Branding */}
         <div className="container-narrow px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between py-2 text-xs">
+          <div className="flex items-center justify-between py-3 text-sm">
             <div className="flex items-center gap-4">
               <motion.div
                 initial={{ scale: 0 }}
@@ -34,16 +34,16 @@ export default function GovernmentBar() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="flex items-center gap-3"
               >
-                <span className="text-accent font-bold tracking-wide">Government of Telangana</span>
+                <span className="text-white font-bold tracking-wide">Government of Telangana</span>
               </motion.div>
-              <span className="text-white/50 hidden md:inline">|</span>
+              <span className="text-white/30 hidden md:inline">|</span>
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="hidden md:flex items-center gap-2 text-accent font-medium"
+                className="hidden md:flex items-center gap-2 text-accent font-semibold"
               >
-                <Flag className="w-3.5 h-3.5" />
+                <Flag className="w-4 h-4" />
                 <span>YISU Act 2024</span>
               </motion.div>
             </div>
@@ -57,9 +57,9 @@ export default function GovernmentBar() {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
               >
-                <Sparkles className="w-4 h-4 text-accent" />
+                <Sparkles className="w-5 h-5 text-accent" />
               </motion.div>
-                <span className="text-accent font-semibold">YISU</span>
+                <span className="text-accent font-bold text-base">YISU</span>
             </motion.div>
           </div>
         </div>
@@ -69,15 +69,15 @@ export default function GovernmentBar() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="border-t border-accent/30 bg-navy/95 backdrop-blur-sm"
+          className="border-t-2 border-accent bg-primary"
         >
-          <div className="container-narrow px-4 sm:px-6 lg:px-8 py-2">
-            <div className="flex items-center gap-3">
+          <div className="container-narrow px-4 sm:px-6 lg:px-8 py-3">
+            <div className="flex items-center gap-4">
               <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                <Bell className="w-4 h-4 text-accent flex-shrink-0" />
+                <Bell className="w-5 h-5 text-accent flex-shrink-0" />
               </motion.div>
               <div className="flex-1 overflow-hidden">
                 <motion.div
@@ -86,16 +86,16 @@ export default function GovernmentBar() {
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 >
                   {notifications.map((notice, index) => (
-                    <span key={index} className="text-white/90 text-sm flex items-center gap-2">
+                    <span key={index} className="text-white text-base flex items-center gap-2">
                       {notice}
-                      <ChevronRight className="w-3 h-3 text-accent" />
+                      <ChevronRight className="w-4 h-4 text-accent" />
                     </span>
                   ))}
                   {/* Duplicate for seamless loop */}
                   {notifications.map((notice, index) => (
-                    <span key={`dup-${index}`} className="text-white/90 text-sm flex items-center gap-2">
+                    <span key={`dup-${index}`} className="text-white text-base flex items-center gap-2">
                       {notice}
-                      <ChevronRight className="w-3 h-3 text-accent" />
+                      <ChevronRight className="w-4 h-4 text-accent" />
                     </span>
                   ))}
                 </motion.div>

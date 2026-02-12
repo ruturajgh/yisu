@@ -6,21 +6,7 @@ import GovernmentBadge from "@/components/shared/GovernmentBadge";
 
 export default function StatsSection() {
   return (
-    <section className="bg-gradient-to-b from-background to-muted/30 section-padding relative overflow-hidden">
-      {/* Very Subtle Decorative Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="absolute top-10 right-10 w-32 h-32 bg-accent/3 rounded-full blur-2xl"
-        />
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-10 left-10 w-40 h-40 bg-primary/3 rounded-full blur-2xl"
-        />
-      </div>
-
+    <section className="bg-secondary section-padding relative overflow-hidden">
       <div className="container-narrow relative z-10">
         <div className="text-center mb-12">
           <SectionHeader
@@ -67,23 +53,20 @@ function StatCard({ stat, delay }: StatCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       whileHover={{ scale: 1.05 }}
-      className="group bg-white/70 backdrop-blur-sm border border-border hover:border-accent/30 hover:shadow-lg rounded-xl p-6 lg:p-8 transition-all relative overflow-hidden"
+      className="group bg-white border-2 border-primary hover:border-accent hover:shadow-lg rounded-xl p-6 lg:p-8 transition-all relative overflow-hidden"
     >
-      {/* Gradient Background on Hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-
       <div className="relative z-10">
         <motion.div
           whileHover={{ rotate: [0, -10, 10, -10, 0] }}
           transition={{ duration: 0.5 }}
-          className="text-4xl mb-4"
+          className="text-5xl mb-4"
         >
           {stat.icon}
         </motion.div>
-        <div className="text-3xl lg:text-4xl font-bold text-accent mb-2 font-serif">
+        <div className="text-4xl lg:text-5xl font-bold text-primary mb-3 font-serif">
           {displayValue}
         </div>
-        <div className="text-sm text-muted-foreground font-medium">
+        <div className="text-base text-muted font-medium">
           {stat.label}
         </div>
       </div>

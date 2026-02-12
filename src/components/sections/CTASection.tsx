@@ -5,12 +5,7 @@ import { contactInfo } from "@/data/constants";
 
 export default function CTASection() {
   return (
-    <section className="relative bg-gradient-to-br from-primary via-royal to-primary overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-accent rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-60 h-60 bg-white rounded-full blur-3xl" />
-      </div>
-
+    <section className="relative bg-primary overflow-hidden">
       <div className="container-narrow section-padding relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -35,7 +30,7 @@ export default function CTASection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-white/95 mb-8 max-w-2xl mx-auto"
           >
             Take the first step toward a transformative educational experience at Young India Skills University.
           </motion.p>
@@ -49,7 +44,7 @@ export default function CTASection() {
             <Button size="lg" variant="gold" className="text-lg px-10 py-4 shadow-2xl">
               Apply Now <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-10 py-4 bg-white/10 text-white border-white/30 hover:bg-white/20 hover:border-white/50">
+            <Button size="lg" variant="outline" className="text-lg px-10 py-4 bg-white/10 text-white border-2 border-white/50 hover:bg-white/20 hover:border-white">
               Contact Us
             </Button>
           </motion.div>
@@ -61,17 +56,17 @@ export default function CTASection() {
             className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
           >
             <div className="flex items-center justify-center gap-3 text-white/90">
-              <Phone className="w-5 h-5 text-accent" />
+              <Phone className="w-6 h-6 text-accent" />
               <div className="text-left">
-                <p className="text-xs text-white/60">Admissions</p>
-                <p className="font-semibold">{contactInfo.admissionsPhone}</p>
+                <p className="text-xs text-white/70">Admissions</p>
+                <p className="font-bold text-base">{contactInfo.admissionsPhone}</p>
               </div>
             </div>
             <div className="flex items-center justify-center gap-3 text-white/90">
-              <Mail className="w-5 h-5 text-accent" />
+              <Mail className="w-6 h-6 text-accent" />
               <div className="text-left">
-                <p className="text-xs text-white/60">Email</p>
-                <p className="font-semibold text-sm">{contactInfo.admissionsEmail}</p>
+                <p className="text-xs text-white/70">Email</p>
+                <p className="font-bold text-base">{contactInfo.admissionsEmail}</p>
               </div>
             </div>
           </motion.div>
@@ -80,19 +75,12 @@ export default function CTASection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-sm text-white/60 mt-8"
+            className="text-base text-white/80 mt-8"
           >
             {contactInfo.officeHours}
           </motion.p>
         </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.6 }}
-        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"
-      />
     </section>
   );
 }
