@@ -74,7 +74,7 @@ export default function SectionHeader({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-lg text-foreground/70 max-w-3xl"
+          className="text-lg text-foreground"
         >
           {description}
         </motion.p>

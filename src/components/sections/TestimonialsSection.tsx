@@ -11,20 +11,20 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
-          <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold tracking-wider uppercase text-gold bg-white rounded-sm">
+          <span className="inline-block px-4 py-1.5 mb-3 text-xs font-semibold tracking-wider uppercase text-gold bg-white rounded-sm">
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold font-serif text-navy mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-navy mb-4">
             Hear from Our Students
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base text-gray-600 max-w-3xl mx-auto">
             Discover how YISU has transformed careers
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
+        <div className="grid md:grid-cols-3 gap-5 mt-10">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
           ))}
@@ -56,10 +56,10 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       transition={{ duration: 0.5, delay: index * 0.05 }}
       className="h-full"
     >
-      <div className="bg-white border border-gray-200 shadow-sm rounded-lg p-8 h-full relative">
+      <div className="bg-white border border-gray-200 shadow-sm rounded-lg p-6 h-full relative">
         <Quote className="w-8 h-8 text-gold/30 mb-4" />
 
-        <div className="flex flex-col items-center text-center mb-6">
+        <div className="flex flex-col items-center text-center mb-5">
           <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-3">
             {testimonial.image ? (
               <img

@@ -16,7 +16,7 @@ export default function AcademicsGallerySection() {
           badgeVariant="glass"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
           {academicsGallery.map((item, index) => (
             <GalleryItem key={item.id} item={item} index={index} />
           ))}
@@ -27,7 +27,7 @@ export default function AcademicsGallerySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-12"
+          className="text-center mt-10"
         >
           <Button variant="outline" size="lg">
             View Full Gallery <ArrowRight className="ml-2 w-5 h-5" />
@@ -66,7 +66,7 @@ function GalleryItem({ item, index }: GalleryItemProps) {
           )}
         </div>
 
-        <div className="p-6 flex-1 flex flex-col">
+        <div className="p-5 flex-1 flex flex-col">
           <h3 className="font-serif font-bold text-base text-navy mb-2 leading-snug line-clamp-2 group-hover:text-gold transition-colors">
             {item.title}
           </h3>

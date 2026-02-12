@@ -23,7 +23,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white mb-6 leading-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-white mb-6 leading-tight"
           >
             Ready to Begin Your Journey?
           </motion.h2>
@@ -33,7 +33,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto"
+            className="text-base md:text-lg text-white/90 mb-8 max-w-2xl mx-auto"
           >
             Take the first step toward a transformative educational experience at Young India Skills University.
           </motion.p>
@@ -43,7 +43,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
           >
             <Button size="lg" variant="gold" className="text-lg px-10 py-4 shadow-lg">
               Apply Now <ArrowRight className="ml-2 w-5 h-5" />
@@ -58,7 +58,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
+            className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto"
           >
             <div className="flex items-center justify-center gap-3 text-white">
               <Phone className="w-5 h-5 text-gold" />
@@ -81,7 +81,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-base text-white/80 mt-8"
+            className="text-sm text-white/80 mt-6"
           >
             {contactInfo.officeHours}
           </motion.p>

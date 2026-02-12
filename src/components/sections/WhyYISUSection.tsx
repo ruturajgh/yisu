@@ -16,7 +16,7 @@ export default function WhyYISUSection() {
           badgeVariant="glass"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
           {whyYISUPoints.map((point, index) => (
             <WhyCard key={point.id} point={point} index={index} />
           ))}
@@ -27,7 +27,7 @@ export default function WhyYISUSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center mt-12"
+          className="text-center mt-10"
         >
           <Button variant="gold" size="lg">
             Learn More About YISU <ArrowRight className="ml-2 w-5 h-5" />
@@ -59,8 +59,8 @@ function WhyCard({ point, index }: WhyCardProps) {
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className={`${isFeatured ? 'md:col-span-2 lg:col-span-1' : ''}`}
     >
-      <div className="bg-white border border-gray-200 shadow-sm rounded-lg p-8 h-full hover:shadow-md transition-shadow">
-        <div className="text-5xl mb-4">
+      <div className="bg-white border border-gray-200 shadow-sm rounded-lg p-6 h-full hover:shadow-md transition-shadow">
+        <div className="text-4xl mb-3">
           {point.icon}
         </div>
 

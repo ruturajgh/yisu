@@ -6,17 +6,17 @@ export default function StatsSection() {
   return (
     <section className="section bg-white">
       <div className="container-narrow">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="text-sm font-semibold text-gold tracking-widest uppercase">Impact Metrics</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-navy mt-3 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-navy mt-2 mb-3">
             Impact at a Glance
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
             Building future of skills education with measurable impact across Telangana and beyond.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
           {siteStats.map((stat, index) => (
             <StatCard key={stat.id} stat={stat} delay={index * 0.05} />
           ))}
@@ -50,10 +50,10 @@ function StatCard({ stat, delay }: StatCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay }}
-      className="bg-white border border-gray-200 shadow-sm rounded-lg p-8 text-center hover:shadow-md transition-shadow"
+      className="bg-white border border-gray-200 shadow-sm rounded-lg p-6 text-center hover:shadow-md transition-shadow"
     >
-      <div className="text-4xl mb-3">{stat.icon}</div>
-      <div className="text-4xl font-bold font-serif text-navy mb-2">{displayValue}</div>
+      <div className="text-3xl mb-3">{stat.icon}</div>
+      <div className="text-3xl font-bold font-serif text-navy mb-2">{displayValue}</div>
       <div className="text-sm text-gray-600 font-medium uppercase tracking-wide">{stat.label}</div>
     </motion.div>
   );

@@ -19,7 +19,7 @@ export default function EventsSection() {
           badgeVariant="glass"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
           {latestEvents.map((event, index) => (
             <EventCard key={event.id} event={event} index={index} />
           ))}
@@ -73,38 +73,40 @@ function EventCard({ event, index }: EventCardProps) {
       transition={{ duration: 0.4, delay: index * 0.05 }}
       className="group h-full"
     >
-      <div className="bg-white border border-gray-200 shadow-sm rounded-lg p-6 h-full hover:shadow-md transition-shadow relative overflow-hidden">
-        {event.isNew && (
-          <motion.div
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.15 + index * 0.05 }}
-            className="absolute top-4 right-4"
-          >
-            <BadgeComp variant="new">NEW</BadgeComp>
-          </motion.div>
-        )}
+      <div className="bg-white border border-gray-200 shadow-sm rounded-lg p-5 h-full hover:shadow-md transition-shadow relative overflow-hidden">
+
 
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
-          className="flex items-start gap-4"
+          className="flex items-start gap-3"
         >
           <div className="flex-shrink-0">
-            <div className="w-14 h-14 rounded-lg bg-navy flex flex-col items-center justify-center">
+            <div className="w-12 h-12 rounded-lg bg-navy flex flex-col items-center justify-center">
               <span className="text-xs font-bold text-white uppercase">{month}</span>
-              <span className="text-xl font-bold text-white font-serif leading-none mt-1">{day}</span>
+              <span className="text-lg font-bold text-white font-serif leading-none mt-1">{day}</span>
             </div>
           </div>
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 relative min-w-0">
             <h3 className="font-serif font-bold text-base text-navy mb-2 leading-snug line-clamp-2 group-hover:text-gold transition-colors">
               {event.title}
             </h3>
-            {year && (
-              <p className="text-sm text-gray-600">{year}</p>
-            )}
+
+            <div className="flex justify-between">
+              <p className="text-sm text-gray-600">{year ?? ''}</p>
+
+              {event.isNew && (
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className=" bg-gold text-white text-[10px] font-bold px-2 py-0.5 rounded"
+                >
+                  NEW
+                </motion.span>
+              )}</div>
           </div>
         </motion.div>
 
@@ -113,7 +115,7 @@ function EventCard({ event, index }: EventCardProps) {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.25 + index * 0.05 }}
-          className="pt-4 mt-4 border-t border-gray-200"
+          className="pt-3 mt-3 border-t border-gray-200"
         >
           <a
             href={event.link || "#"}
