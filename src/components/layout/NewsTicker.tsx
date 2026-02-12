@@ -11,7 +11,7 @@ export default function NewsTicker() {
         <div className="flex items-center">
           <div className="flex items-center gap-2 px-4 py-2.5 bg-primary/10 border-r border-secondary-foreground/10">
             <Bell className="w-4 h-4 text-accent" />
-            <span className="text-xs font-semibold text-accent uppercase tracking-wider">Notices</span>
+            <span className="text-xs font-semibold text-white/90 uppercase tracking-wider">Notices</span>
           </div>
           <div className="flex-1 overflow-hidden">
             <motion.div
@@ -38,7 +38,7 @@ export default function NewsTicker() {
                 <motion.a
                   key={`${notice.id}-${index}`}
                   href={notice.link || "#"}
-                  className="flex-shrink-0 text-sm text-secondary-foreground/90 hover:text-accent transition-colors whitespace-nowrap"
+                  className="flex-shrink-0 text-sm text-foreground hover:text-accent transition-colors whitespace-nowrap"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
                 >

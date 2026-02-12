@@ -28,8 +28,8 @@ export default function SchoolsProgramsSection() {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <h3 className="font-serif font-bold text-2xl text-foreground mb-2">Our Schools</h3>
-            <p className="text-sm text-muted-foreground">Specialized programs designed with industry partners</p>
+            <h3 className="font-serif font-bold text-2xl text-primary mb-2">Our Schools</h3>
+            <p className="text-sm text-primary/70">Specialized programs designed with industry partners</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -58,8 +58,8 @@ export default function SchoolsProgramsSection() {
             viewport={{ once: true }}
             className="text-center mb-8"
           >
-            <h3 className="font-serif font-bold text-2xl text-foreground mb-2">Featured Courses</h3>
-            <p className="text-sm text-muted-foreground">Industry-aligned programs for immediate employability</p>
+            <h3 className="font-serif font-bold text-2xl text-primary mb-2">Featured Courses</h3>
+            <p className="text-sm text-primary/70">Industry-aligned programs for immediate employability</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -195,11 +195,11 @@ function CourseCard({ course, index }: CourseCardProps) {
         </div>
 
         <div className="space-y-2 mb-4">
-          <div className="flex items-center gap-2 text-sm text-muted">
+          <div className="flex items-center gap-2 text-sm text-primary/70">
             <Clock className="w-4 h-4 text-accent" />
             <span>{course.duration}</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-muted">
+          <div className="flex items-center gap-2 text-sm text-primary/70">
             <span className="font-bold text-primary">{course.fee}</span>
           </div>
         </div>

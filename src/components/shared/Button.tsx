@@ -24,9 +24,9 @@ export default function Button({
   icon
 }: ButtonProps) {
   const variantClasses = {
-    primary: "bg-primary text-white hover:bg-primary/90 shadow-md",
+    primary: "bg-primary text-white hover:bg-primary/95 shadow-md",
     secondary: "bg-secondary text-primary hover:bg-muted shadow-md",
-    outline: "border-2 border-primary text-primary hover:bg-primary/5 hover:border-primary",
+    outline: "border-2 border-primary text-primary hover:bg-primary hover:text-white hover:border-primary",
     ghost: "text-primary hover:bg-primary/10",
     gold: "bg-accent text-white hover:bg-accent/90 shadow-lg font-semibold"
   };

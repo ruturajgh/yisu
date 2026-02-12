@@ -79,7 +79,7 @@ function GalleryItem({ item, index }: GalleryItemProps) {
             transition={{ duration: 0.3 }}
             className="absolute inset-0 bg-accent/20 flex items-center justify-center"
           >
-            <ImageIcon className="w-12 h-12 text-white" />
+            <ImageIcon className="w-12 h-12 text-primary" />
           </motion.div>
         </motion.div>
 
@@ -87,7 +87,7 @@ function GalleryItem({ item, index }: GalleryItemProps) {
           <h3 className="font-serif font-bold text-base text-primary mb-2 leading-snug line-clamp-2 group-hover:text-accent transition-colors">
             {item.title}
           </h3>
-          <p className="text-sm text-muted leading-relaxed line-clamp-2 flex-1">
+          <p className="text-sm text-primary/70 leading-relaxed line-clamp-2 flex-1">
             {item.description}
           </p>
         </div>

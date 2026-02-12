@@ -72,7 +72,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
             )}
           </div>
           <h3 className="font-serif font-bold text-lg text-primary">{testimonial.name}</h3>
-          <p className="text-base text-muted">{testimonial.course}</p>
+          <p className="text-base text-primary/70">{testimonial.course}</p>
         </motion.div>
 
         {testimonial.placement && (

@@ -9,11 +9,11 @@ interface BadgeProps {
 
 export default function Badge({ children, variant = "default", className = "" }: BadgeProps) {
   const variantClasses = {
-    default: "bg-muted text-muted-foreground border-border",
-    primary: "bg-primary/10 text-primary border-primary/30",
-    gold: "bg-accent/10 text-accent border-accent/30",
-    success: "bg-green-500/10 text-green-600 border-green-500/30",
-    new: "bg-red-500/10 text-red-600 border-red-500/30"
+    default: "bg-secondary text-foreground/70 border-border",
+    primary: "bg-primary/20 text-primary/90 border-primary/40",
+    gold: "bg-accent/20 text-accent/90 border-accent/40",
+    success: "bg-green-500/20 text-green-700 border-green-500/40",
+    new: "bg-red-500/20 text-red-700 border-red-500/40"
   };
 
   return (

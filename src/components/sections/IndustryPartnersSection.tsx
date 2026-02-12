@@ -16,7 +16,7 @@ export default function IndustryPartnersSection() {
           <h2 className="text-4xl md:text-5xl font-bold font-serif text-primary mb-4">
             Industry Collaborations
           </h2>
-          <p className="text-lg text-muted max-w-3xl">
+          <p className="text-lg text-primary/70 max-w-3xl">
             "Designed with Industry. Delivered for Employability."
           </p>
         </div>

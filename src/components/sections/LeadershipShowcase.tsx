@@ -26,7 +26,7 @@ export default function LeadershipShowcase() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif text-white mb-4">
             Visionary Leaders
           </h2>
-          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+          <p className="text-lg text-white/95 max-w-2xl mx-auto">
             Guided by distinguished leaders committed to transforming skills education in India through Telangana Rising initiative.
           </p>
         </motion.div>
@@ -117,7 +117,7 @@ function LeaderCard({ leader, index, onClick }: LeaderCardProps) {
                       {leader.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
-                  <p className="text-muted text-xs">Official Portrait</p>
+                  <p className="text-foreground/70 text-xs">Official Portrait</p>
                 </div>
               </div>
             </motion.div>
@@ -135,7 +135,7 @@ function LeaderCard({ leader, index, onClick }: LeaderCardProps) {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
-              className="text-muted text-sm leading-relaxed italic mb-4"
+              className="text-foreground/70 text-sm leading-relaxed italic mb-4"
             >
               "{leader.quote}"
             </motion.blockquote>
@@ -194,14 +194,14 @@ function LeaderModal({ leader, onClose }: LeaderModalProps) {
                       {leader.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
-                  <p className="text-muted text-sm">Official Portrait</p>
+                  <p className="text-foreground/70 text-sm">Official Portrait</p>
                 </div>
               </div>
             </div>
 
             {/* Signature */}
             <div className="bg-secondary border-2 border-primary rounded-xl p-4">
-              <p className="text-muted text-xs mb-2">Digital Signature</p>
+              <p className="text-foreground/70 text-xs mb-2">Digital Signature</p>
               <p className="text-accent font-serif text-xl italic">{leader.name}</p>
             </div>
 
@@ -263,7 +263,7 @@ function LeaderModal({ leader, onClose }: LeaderModalProps) {
                 <Award className="w-5 h-5 text-accent" />
                 Biography
               </h3>
-              <p className="text-muted leading-relaxed">{leader.fullBio || leader.description}</p>
+              <p className="text-foreground leading-relaxed">{leader.fullBio || leader.description}</p>
             </div>
 
             {/* Achievements */}
@@ -280,7 +280,7 @@ function LeaderModal({ leader, onClose }: LeaderModalProps) {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: 0.4 + idx * 0.1 }}
-                      className="flex items-start gap-3 text-muted"
+                      className="flex items-start gap-3 text-foreground"
                     >
                       <span className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
                       <span>{achievement}</span>
@@ -303,7 +303,7 @@ function LeaderModal({ leader, onClose }: LeaderModalProps) {
                       transition={{ duration: 0.4, delay: 0.6 + idx * 0.1 }}
                       className="bg-secondary border-2 border-primary rounded-lg px-4 py-3"
                     >
-                      <p className="text-muted text-sm italic">"{quote}"</p>
+                      <p className="text-foreground/70 text-sm italic">"{quote}"</p>
                     </motion.div>
                   ))}
                 </div>

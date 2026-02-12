@@ -106,7 +106,7 @@ function EventCard({ event, index }: EventCardProps) {
               {event.title}
             </h3>
             {year && (
-              <p className="text-sm text-muted">{year}</p>
+              <p className="text-sm text-primary/70">{year}</p>
             )}
           </div>
         </motion.div>

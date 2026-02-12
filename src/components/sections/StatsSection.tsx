@@ -66,7 +66,7 @@ function StatCard({ stat, delay }: StatCardProps) {
         <div className="text-4xl lg:text-5xl font-bold text-primary mb-3 font-serif">
           {displayValue}
         </div>
-        <div className="text-base text-muted font-medium">
+        <div className="text-base text-primary/80 font-medium">
           {stat.label}
         </div>
       </div>

@@ -136,7 +136,7 @@ export default function HeroGovernment() {
               </div>
               <div>
                 <div className="text-3xl font-bold text-primary font-serif">{learnerCount}</div>
-                <div className="text-sm text-muted">learners visited YISU</div>
+                <div className="text-sm text-primary">learners visited YISU</div>
               </div>
             </motion.div>
 
@@ -170,7 +170,7 @@ export default function HeroGovernment() {
                           {leader.initials}
                         </span>
                       </motion.div>
-                      <p className="text-sm text-white/90 font-semibold whitespace-nowrap max-w-[100px] text-center">
+                      <p className="text-sm text-white font-semibold whitespace-nowrap max-w-[100px] text-center">
                         {leader.name.split(' ').slice(-2).join(' ')}
                       </p>
                     </div>
@@ -218,7 +218,7 @@ export default function HeroGovernment() {
         <motion.div
           animate={{ y: [0, 12, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="text-white/50"
+          className="text-white/90"
         >
           <div className="w-5 h-9 rounded-full border-2 border-white/30 flex items-start justify-center p-1.5">
             <motion.div

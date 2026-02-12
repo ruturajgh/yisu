@@ -94,7 +94,7 @@ function ProjectCard({ name, location, subtitle, stats, delay }: ProjectCardProp
         <span className="text-base font-bold text-primary">{location}</span>
       </div>
 
-      <p className="text-sm text-muted uppercase tracking-wider mb-6">{subtitle}</p>
+      <p className="text-sm text-foreground/70 uppercase tracking-wider mb-6">{subtitle}</p>
 
       <div className="grid grid-cols-3 gap-4 mb-6">
         <motion.div
@@ -106,7 +106,7 @@ function ProjectCard({ name, location, subtitle, stats, delay }: ProjectCardProp
         >
           <Users className="w-6 h-6 text-accent mx-auto mb-2" />
           <div className="text-2xl font-bold text-primary font-serif">{stats.students}</div>
-          <div className="text-sm text-muted mt-1">Students</div>
+          <div className="text-sm text-foreground/70 mt-1">Students</div>
         </motion.div>
 
         <motion.div
@@ -118,7 +118,7 @@ function ProjectCard({ name, location, subtitle, stats, delay }: ProjectCardProp
         >
           <Building2 className="w-6 h-6 text-accent mx-auto mb-2" />
           <div className="text-2xl font-bold text-primary font-serif">{stats.recruiters}</div>
-          <div className="text-sm text-muted mt-1">Recruiters</div>
+          <div className="text-sm text-foreground/70 mt-1">Recruiters</div>
         </motion.div>
 
         <motion.div
@@ -130,7 +130,7 @@ function ProjectCard({ name, location, subtitle, stats, delay }: ProjectCardProp
         >
           <Award className="w-6 h-6 text-accent mx-auto mb-2" />
           <div className="text-2xl font-bold text-primary font-serif">{stats.colleges}</div>
-          <div className="text-sm text-muted mt-1">Colleges</div>
+          <div className="text-sm text-foreground/70 mt-1">Colleges</div>
         </motion.div>
       </div>
 
@@ -142,13 +142,13 @@ function ProjectCard({ name, location, subtitle, stats, delay }: ProjectCardProp
         <div className="flex items-center justify-between">
           <div>
             <div className="text-3xl font-bold text-primary font-serif">{totalPlacements}</div>
-            <div className="text-sm text-muted mt-1">Total Placements</div>
+            <div className="text-sm text-foreground/70 mt-1">Total Placements</div>
           </div>
           <div className="text-right">
             <div className="text-base font-bold text-primary">{stats.placements.logistics}</div>
-            <div className="text-sm text-muted">Logistics</div>
+            <div className="text-sm text-foreground/70">Logistics</div>
             <div className="text-base font-bold text-primary mt-1">{stats.placements.banks}</div>
-            <div className="text-sm text-muted">Banks</div>
+            <div className="text-sm text-foreground/70">Banks</div>
           </div>
         </div>
       </div>

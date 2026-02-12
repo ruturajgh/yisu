@@ -34,9 +34,9 @@ export default function GovernmentBar() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="flex items-center gap-3"
               >
-                <span className="text-white font-bold tracking-wide">Government of Telangana</span>
+                <span className="text-white/95 font-bold tracking-wide">Government of Telangana</span>
               </motion.div>
-              <span className="text-white/30 hidden md:inline">|</span>
+              <span className="text-white/60 hidden md:inline">|</span>
               <motion.div
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -44,7 +44,7 @@ export default function GovernmentBar() {
                 className="hidden md:flex items-center gap-2 text-accent font-semibold"
               >
                 <Flag className="w-4 h-4" />
-                <span>YISU Act 2024</span>
+                <span className="text-accent/90">YISU Act 2024</span>
               </motion.div>
             </div>
             <motion.div
@@ -59,7 +59,7 @@ export default function GovernmentBar() {
               >
                 <Sparkles className="w-5 h-5 text-accent" />
               </motion.div>
-                <span className="text-accent font-bold text-base">YISU</span>
+                <span className="text-accent/90 font-bold text-base">YISU</span>
             </motion.div>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function GovernmentBar() {
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
                 >
                   {notifications.map((notice, index) => (
-                    <span key={index} className="text-white text-base flex items-center gap-2">
+                    <span key={index} className="text-white/95 text-base flex items-center gap-2">
                       {notice}
                       <ChevronRight className="w-4 h-4 text-accent" />
                     </span>

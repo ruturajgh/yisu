@@ -44,7 +44,7 @@ export default function CTASection() {
             <Button size="lg" variant="gold" className="text-lg px-10 py-4 shadow-2xl">
               Apply Now <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button size="lg" variant="outline" className="text-lg px-10 py-4 bg-white/10 text-white border-2 border-white/50 hover:bg-white/20 hover:border-white">
+            <Button size="lg" variant="outline" className="text-lg px-10 py-4 bg-white/20 text-white border-2 border-white/70 hover:bg-white/30 hover:border-white">
               Contact Us
             </Button>
           </motion.div>
@@ -55,14 +55,14 @@ export default function CTASection() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto"
           >
-            <div className="flex items-center justify-center gap-3 text-white/90">
+            <div className="flex items-center justify-center gap-3 text-white">
               <Phone className="w-6 h-6 text-accent" />
               <div className="text-left">
                 <p className="text-xs text-white/70">Admissions</p>
                 <p className="font-bold text-base">{contactInfo.admissionsPhone}</p>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-3 text-white/90">
+            <div className="flex items-center justify-center gap-3 text-white">
               <Mail className="w-6 h-6 text-accent" />
               <div className="text-left">
                 <p className="text-xs text-white/70">Email</p>

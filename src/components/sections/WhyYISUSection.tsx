@@ -80,7 +80,7 @@ function WhyCard({ point, index }: WhyCardProps) {
           {point.title}
         </h3>
 
-        <p className="text-base text-muted leading-relaxed">
+        <p className="text-base text-primary/70 leading-relaxed">
           • {point.description}
         </p>
       </motion.div>

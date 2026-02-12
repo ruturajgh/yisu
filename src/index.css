@@ -28,7 +28,7 @@
 
     /* Muted for variation */
     --muted: 215 55% 33%;
-    --muted-foreground: 0 0% 85%;
+    --muted-foreground: 215 55% 40%;
 
     /* 10% Accent - Gold */
     --accent: 43 75% 47%;
@@ -52,9 +52,10 @@
 
     /* Additional accessibility colors */
     --text-primary: 0 0% 100%;
-    --text-secondary: 0 0% 92%;
+    --text-secondary: 215 55% 60%;
     --text-on-light: 215 55% 23%;
-    --text-muted: 0 0% 70%;
+    --text-muted: 215 55% 50%;
+    --text-card-light: 215 55% 45%;
     --success: 142 76% 36%;
     --warning: 38 92% 50%;
 

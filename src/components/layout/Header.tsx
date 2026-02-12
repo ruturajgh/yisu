@@ -57,7 +57,7 @@ export default function Header() {
                   onMouseEnter={() => setActiveDropdown(index)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <button className="flex items-center gap-1.5 px-5 py-3 text-base font-medium text-primary hover:text-accent hover:bg-accent/5 transition-colors rounded-md border-b-2 border-transparent hover:border-accent">
+                  <button className="flex items-center gap-1.5 px-5 py-3 text-base font-medium text-primary/90 hover:text-accent hover:bg-accent/5 transition-colors rounded-md border-b-2 border-transparent hover:border-accent">
                     {item.label}
                     {item.children && <ChevronDown className={cn("w-4 h-4 transition-transform duration-200", activeDropdown === index && "rotate-180")} />}
                   </button>
@@ -132,7 +132,7 @@ export default function Header() {
                           <a
                             key={child}
                             href="#"
-                            className="block px-5 py-3 text-base text-muted hover:text-primary hover:bg-muted/50 rounded-lg transition-colors"
+                            className="block px-5 py-3 text-base text-foreground/70 hover:text-primary hover:bg-muted/50 rounded-lg transition-colors"
                           >
                             {child}
                           </a>
