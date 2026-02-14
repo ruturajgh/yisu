@@ -2,6 +2,7 @@ import ScrollProgress from "@/components/layout/ScrollProgress";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import NewsTicker from "@/components/layout/NewsTicker";
 import GovernmentBar from "@/components/layout/GovernmentBar";
+import LogoHeader from "@/components/layout/LogoHeader";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
@@ -21,7 +22,11 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <ScrollProgress />
+      {/* Layer 1: Government Bar */}
       <GovernmentBar />
+      {/* Layer 2: Logo Header with Actions */}
+      <LogoHeader />
+      {/* Layer 3: Navigation Bar */}
       <Header />
 
       <main>
