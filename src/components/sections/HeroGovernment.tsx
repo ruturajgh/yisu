@@ -16,7 +16,7 @@ export default function HeroGovernment() {
   return (
     <>
       {/* Main Hero Section */}
-      <section className="relative min-h-[60vh] lg:min-h-[70vh] flex items-center overflow-hidden">
+      <section className="relative py-24 flex items-center overflow-hidden">
         {/* Background - elegant gradient overlay */}
         <div className="absolute inset-0">
           <img src={heroCampus} alt="YISU Campus" className="w-full h-full object-cover" />
@@ -41,24 +41,29 @@ export default function HeroGovernment() {
           <div>
             {/* Left Content */}
             <div className="max-w-2xl">
-              {/* Government Logos */}
+              {/* Council Images */}
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex items-center gap-4 mb-8"
+                className="flex items-center gap-3 mb-6"
               >
-                <img
-                  src="/images/tglogo.png"
-                  alt="Government of Telangana"
-                  className="h-16 opacity-90 hover:opacity-100 transition-opacity"
-                />
-                <div className="w-px h-12 bg-white/20" />
-                <img
-                  src="/images/TelanganaRaising.jpg"
-                  alt="Telangana Rising"
-                  className="h-16 rounded-full hover:scale-105 transition-transform"
-                />
+                {leadership.slice(0, 4).map((leader, index) => (
+                  <motion.div
+                    key={leader.id}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
+                    whileHover={{ scale: 1.05 }}
+                    className="w-14 h-14 bg-white/10 backdrop-blur-lg border-2 border-white/20 rounded-full overflow-hidden cursor-pointer hover:border-accent/60 transition-all"
+                  >
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="text-lg font-serif font-bold text-white">
+                        {leader.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
               </motion.div>
 
               {/* Heading */}
@@ -83,7 +88,7 @@ export default function HeroGovernment() {
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
                       transition={{ duration: 0.8, delay: 0.5 }}
-                      className="absolute bottom-2 left-0 w-full h-[4px] bg-gradient-to-r from-accent to-accent/50 origin-left"
+                      className="absolute -bottom-2 left-0 w-full h-[4px] bg-gradient-to-r from-accent to-accent/50 origin-left"
                     />
                   </span>
                 </h1>

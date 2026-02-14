@@ -26,16 +26,7 @@ export default function SchoolsProgramsSection() {
         </div>
 
         <div className="mt-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h3 className="font-serif font-bold text-2xl text-navy mb-2">Our Schools</h3>
-            <p className="text-sm text-gray-600">Specialized programs designed with industry partners</p>
-          </motion.div>
-
+  
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {displayedSchools.map((school, index) => (
               <SchoolCard key={school.id} school={school} index={index} />
