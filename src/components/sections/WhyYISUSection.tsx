@@ -6,7 +6,7 @@ import { whyYISUPoints } from "@/data/constants";
 
 export default function WhyYISUSection() {
   return (
-    <section id="about" className="bg-gray-50 section-padding relative overflow-hidden">
+    <section id="about" className="bg-gray-50 section-compact relative overflow-hidden">
       <div className="container-narrow">
         <SectionHeader
           title="Why Choose YISU"

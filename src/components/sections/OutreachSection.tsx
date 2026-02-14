@@ -6,7 +6,7 @@ import { outreachStats } from "@/data/constants";
 
 export default function OutreachSection() {
   return (
-    <section className="bg-white section-padding relative overflow-hidden">
+    <section className="bg-white section-compact relative overflow-hidden">
       <div className="container-narrow">
         <SectionHeader
           title="YISU Outreach Projects"

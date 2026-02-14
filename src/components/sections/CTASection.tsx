@@ -5,7 +5,7 @@ import { contactInfo } from "@/data/constants";
 
 export default function CTASection() {
   return (
-    <section className="relative bg-navy overflow-hidden">
+    <section className="relative bg-navy overflow-hidden section-compact">
       <div className="container-narrow section-padding relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div

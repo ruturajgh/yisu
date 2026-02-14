@@ -9,7 +9,7 @@ export default function EventsSection() {
   const latestEvents = events.slice(0, 4);
 
   return (
-    <section className="bg-gray-50 section-padding relative overflow-hidden">
+    <section className="bg-gray-50 section-compact relative overflow-hidden">
       <div className="container-narrow">
         <SectionHeader
           title="Latest Events"

@@ -7,7 +7,7 @@ export default function IndustryPartnersSection() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="bg-white section-padding relative overflow-hidden">
+    <section className="bg-white section-compact relative overflow-hidden">
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

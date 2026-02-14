@@ -31,14 +31,14 @@ const Index = () => {
 
       <main>
         <HeroGovernment />
-        <StatsSection />
-        <LeadershipShowcase />
+        <IndustryPartnersSection /> \
+        {/* <StatsSection /> */}
         <SchoolsProgramsSection />
+        <LeadershipShowcase />
         <WhyYISUSection />
         <OutreachSection />
         <AcademicsGallerySection />
         <EventsSection />
-        <IndustryPartnersSection />
         <TestimonialsSection />
         <CTASection />
       </main>

@@ -6,7 +6,7 @@ import { academicsGallery } from "@/data/constants";
 
 export default function AcademicsGallerySection() {
   return (
-    <section className="bg-white section-padding relative overflow-hidden">
+    <section className="bg-white section-compact relative overflow-hidden">
       <div className="container-narrow">
         <SectionHeader
           title="Academics at YISU"

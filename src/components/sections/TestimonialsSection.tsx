@@ -4,7 +4,7 @@ import { testimonials } from "@/data/testimonials";
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-gray-50 section-padding relative overflow-hidden">
+    <section className="bg-gray-50 section-compact relative overflow-hidden">
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -168,6 +168,18 @@
     }
   }
 
+  .section-compact {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .section-compact {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+
   .section-padding {
     @apply px-4 sm:px-6 lg:px-8;
     padding-top: 4rem;
