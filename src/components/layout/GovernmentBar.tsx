@@ -90,22 +90,22 @@ export default function GovernmentBar() {
                   { name: 'linkedin', Icon: Linkedin, url: socialLinks.linkedin },
                   { name: 'instagram', Icon: Instagram, url: socialLinks.instagram },
                   { name: 'youtube', Icon: Youtube, url: socialLinks.youtube }
-                ].slice(0, window.innerWidth < 640 ? 3 : 5).map(({ name, Icon, url }, index) => (
-                  <motion.a
-                    key={name}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                    whileHover={{ scale: 1.2, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
-                    aria-label={name}
-                  >
-                    <Icon className="w-4 h-4" />
-                  </motion.a>
+                  ].slice(0, window.innerWidth < 640 ? 3 : 5).map(({ name, Icon, url }, index) => (
+                    <motion.a
+                      key={name}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                      whileHover={{ scale: 1.2, y: -2 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
+                      aria-label={name}
+                    >
+                      <Icon className="w-4 h-4 text-white" />
+                    </motion.a>
                 ))}
               </motion.div>
 
