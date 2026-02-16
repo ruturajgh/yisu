@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Bell, GraduationCap, ExternalLink, Menu, X, ChevronDown, Phone } from "lucide-react";
+import { GraduationCap, ExternalLink, Menu, X, ChevronDown, Phone } from "lucide-react";
 import Button from "@/components/shared/Button";
 import { contactInfo } from "@/data/constants";
 
@@ -9,7 +9,7 @@ const navItems = [
     label: "About",
     children: [
       { label: "Overview", href: "#about" },
-      { label: "Leadership", href: "#leadership" },
+      { label: "Leadersip", href: "#leadersip" },
       { label: "University Act", href: "#act" },
       { label: "Campus", href: "#campus" }
     ]
@@ -41,7 +41,6 @@ const navItems = [
 ];
 
 export default function LogoHeader() {
-  const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -74,45 +73,48 @@ export default function LogoHeader() {
               {/* Vertical Separator */}
               <div className="w-px h-12 bg-border opacity-50" aria-hidden="true"></div>
 
-              {/* Telangana Rising Logo - Decorative (no action) */}
+              {/* Leadership Images: CM, Telangana Rising, VC */}
+              <div className="flex items-center gap-3">
+                {/* Telangana Rising - Circular */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="flex items-center"
+                >
+                  <img
+                    src="/images/TelanganaRaising.jpg"
+                    alt="Telangana Rising"
+                    className="h-16 w-16 w-auto rounded-full"
+                  />
+                </motion.div>
+
+                {/* CM Image - Circular */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="flex items-center"
+                >
+                  <img
+                    src="/images/chancellor.webp"
+                    alt="CM Revanth Reddy"
+                    className="h-16 w-16 rounded-full object-cover border-2 border-white/20"
+                  />
+                </motion.div>
+
+              </div>
+            </div>
+
+            {/* Right: Actions - Desktop */}
+            <div className="hidden lg:flex items-center gap-3">
+              {/* Anand Mahindra - Circular, Subtle */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center"
               >
                 <img
-                  src="/images/TelanganaRaising.jpg"
-                  alt="Telangana Rising"
-                  className="h-14 w-auto rounded-full"
+                  src="/images/anand-mahindra.webp"
+                  alt="Anand Mahindra"
+                  className="h-16 w-16 rounded-full object-cover border-2 border-accent/20  transition-opacity"
                 />
               </motion.div>
-            </div>
-
-            {/* Right: Actions - Desktop */}
-            <div className="hidden lg:flex items-center gap-3">
-              {/* Search Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setSearchOpen(true)}
-                className="p-3 rounded-lg text-primary/80 hover:text-accent hover:bg-accent/10 transition-colors"
-                aria-label="Search (Ctrl+K)"
-                title="Search (Ctrl+K)"
-              >
-                <Search className="w-5 h-5" />
-              </motion.button>
-
-              {/* Notices Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="relative p-3 rounded-lg text-primary/80 hover:text-accent hover:bg-accent/10 transition-colors"
-                aria-label="Notices (3 new)"
-              >
-                <Bell className="w-5 h-5" />
-                <span className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-accent text-white text-xs font-bold rounded-full flex items-center justify-center">
-                  3
-                </span>
-              </motion.button>
 
               {/* Student Portal Link */}
               <a
@@ -143,60 +145,6 @@ export default function LogoHeader() {
           </div>
         </div>
       </motion.header>
-
-      {/* Search Modal */}
-      {searchOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[70] flex items-start justify-center pt-28 bg-black/60 backdrop-blur-sm"
-          onClick={() => setSearchOpen(false)}
-        >
-          <motion.div
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -20, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-2xl mx-4 bg-white shadow-2xl rounded-2xl overflow-hidden"
-          >
-            <div className="flex items-center gap-3 p-4 border-b border-border">
-              <Search className="w-5 h-5 text-foreground/40" />
-              <input
-                type="text"
-                placeholder="Search programs, courses, events, news..."
-                className="flex-1 text-lg outline-none placeholder:text-foreground/40"
-                autoFocus
-              />
-              <button
-                onClick={() => setSearchOpen(false)}
-                className="p-2 rounded-lg hover:bg-muted transition-colors"
-                aria-label="Close search"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-            <div className="p-6">
-              <p className="text-sm text-foreground/60 mb-4 font-semibold">Popular Searches</p>
-              <div className="flex flex-wrap gap-2">
-                {["BFSI Program", "Admissions 2026", "Fee Structure", "Campus Tour", "Placement", "Online Courses"].map((term) => (
-                  <button
-                    key={term}
-                    onClick={() => setSearchOpen(false)}
-                    className="px-4 py-2 text-sm font-medium text-primary/80 hover:text-accent hover:bg-accent/5 rounded-lg transition-all border border-border"
-                  >
-                    {term}
-                  </button>
-                ))}
-              </div>
-              <p className="text-xs text-foreground/40 mt-6">Press <kbd className="px-2 py-1 bg-muted rounded text-xs">Esc</kbd> to close</p>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
 
       {/* Mobile Menu Drawer */}
       <AnimatePresence>
@@ -237,6 +185,7 @@ export default function LogoHeader() {
                   </button>
                 </div>
 
+     
                 {/* Navigation Items */}
                 <div className="space-y-1">
                   {navItems.map((item) => (
@@ -281,26 +230,15 @@ export default function LogoHeader() {
                   >
                     Apply Now
                   </Button>
-                  <div className="grid grid-cols-2 gap-3">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full text-sm font-semibold"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <Phone className="w-4 h-4 mr-2" />
-                      Contact
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="w-full text-sm font-semibold"
-                      onClick={() => setSearchOpen(true)}
-                    >
-                      <Search className="w-4 h-4 mr-2" />
-                        Search
-                      </Button>
-                  </div>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full text-sm font-semibold"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <Phone className="w-4 h-4 mr-2" />
+                    Contact
+                  </Button>
                 </div>
               </div>
             </motion.div>

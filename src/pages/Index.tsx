@@ -1,12 +1,12 @@
 import ScrollProgress from "@/components/layout/ScrollProgress";
 import ScrollToTop from "@/components/layout/ScrollToTop";
-import NewsTicker from "@/components/layout/NewsTicker";
 import GovernmentBar from "@/components/layout/GovernmentBar";
 import LogoHeader from "@/components/layout/LogoHeader";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-import HeroGovernment from "@/components/sections/HeroGovernment";
+import HeroSlider from "@/components/sections/HeroSlider";
+import PartnerLogoTicker from "@/components/sections/PartnerLogoTicker";
 import StatsSection from "@/components/sections/StatsSection";
 import LeadershipShowcase from "@/components/sections/LeadershipShowcase";
 import SchoolsProgramsSection from "@/components/sections/SchoolsProgramsSection";
@@ -30,14 +30,15 @@ const Index = () => {
       <Header />
 
       <main>
-        <HeroGovernment />
-       
-        {/* <StatsSection /> */}
-       <WhyYISUSection />
-        <LeadershipShowcase />
-         <SchoolsProgramsSection />
+        <HeroSlider />
+        <PartnerLogoTicker />
+        <StatsSection />
+        <WhyYISUSection />
+        <SchoolsProgramsSection />
         <OutreachSection />
-        <AcademicsGallerySection /> <IndustryPartnersSection /> 
+        <IndustryPartnersSection />
+        <AcademicsGallerySection />
+        <LeadershipShowcase />
         <EventsSection />
         <TestimonialsSection />
         <CTASection />

@@ -80,3 +80,19 @@ export interface Stat {
   prefix?: string;
   icon?: string;
 }
+
+export interface HeroSlide {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  badge?: string;
+  ctaText: string;
+  ctaLink: string;
+  stats: Array<{
+    value: string;
+    label: string;
+    icon: string;
+  }>;
+  color?: "navy" | "blue" | "gold" | "gray";
+}

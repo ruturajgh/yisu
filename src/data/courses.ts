@@ -8,7 +8,7 @@ export const trendingCourses: Course[] = [
     duration: "3.5 months",
     fee: "₹5,000",
     isNew: true,
-    image: "/images/courses/swiggy.jpg",
+    image: "/images/swiggy-course.webp",
     badge: "NEW",
     school: "School of Logistics & Supply Chain"
   },
@@ -19,7 +19,7 @@ export const trendingCourses: Course[] = [
     duration: "2 months",
     fee: "₹25,000",
     isNew: true,
-    image: "/images/courses/gmr.jpg",
+      image: "/images/swiggy-course.webp",
     badge: "NEW",
     school: "School of Aviation"
   },
@@ -30,8 +30,7 @@ export const trendingCourses: Course[] = [
     duration: "4 months",
     fee: "₹5,000",
     isNew: true,
-    image: "/images/courses/aurobindo.jpg",
-    badge: "NEW",
+     image: "/images/swiggy-course.webp",   badge: "NEW",
     school: "School of Applied Life Sciences"
   },
   {
@@ -41,8 +40,7 @@ export const trendingCourses: Course[] = [
     duration: "6 months",
     fee: "₹5,000",
     isNew: true,
-    image: "/images/courses/cssd.jpg",
-    badge: "NEW",
+      image: "/images/swiggy-course.webp",  badge: "NEW",
     school: "School of Healthcare"
   },
   {
@@ -52,8 +50,7 @@ export const trendingCourses: Course[] = [
     duration: "6 months",
     fee: "₹15,000",
     isNew: true,
-    image: "/images/courses/pharmacy.jpg",
-    badge: "NEW",
+     image: "/images/swiggy-course.webp",   badge: "NEW",
     school: "School of Healthcare"
   },
   {
@@ -63,8 +60,7 @@ export const trendingCourses: Course[] = [
     duration: "1 year",
     fee: "₹25,000",
     isNew: true,
-    image: "/images/courses/emr.jpg",
-    badge: "NEW",
+      image: "/images/swiggy-course.webp",  badge: "NEW",
     school: "School of Healthcare"
   },
   {
@@ -74,8 +70,7 @@ export const trendingCourses: Course[] = [
     duration: "6 months",
     fee: "₹15,000",
     isNew: true,
-    image: "/images/courses/medical-assistant.jpg",
-    badge: "NEW",
+     image: "/images/swiggy-course.webp",  badge: "NEW",
     school: "School of Healthcare"
   },
   {
@@ -85,8 +80,7 @@ export const trendingCourses: Course[] = [
     duration: "4 months",
     fee: "₹5,000",
     isNew: true,
-    image: "/images/courses/bioe-manufacturing.jpg",
-    badge: "NEW",
+      image: "/images/swiggy-course.webp", badge: "NEW",
     school: "School of Applied Life Sciences"
   },
   {
@@ -96,8 +90,7 @@ export const trendingCourses: Course[] = [
     duration: "4 months",
     fee: "₹5,000",
     isNew: true,
-    image: "/images/courses/bioe-lab.jpg",
-    badge: "NEW",
+      image: "/images/swiggy-course.webp",  badge: "NEW",
     school: "School of Applied Life Sciences"
   },
   {
@@ -107,8 +100,7 @@ export const trendingCourses: Course[] = [
     duration: "3 months",
     fee: "₹5,000",
     isNew: true,
-    image: "/images/courses/dr-reddys.jpg",
-    badge: "NEW",
+      image: "/images/swiggy-course.webp",  badge: "NEW",
     school: "School of Applied Life Sciences"
   },
   {
@@ -118,8 +110,7 @@ export const trendingCourses: Course[] = [
     duration: "3 months",
     fee: "₹10,000",
     isNew: true,
-    image: "/images/courses/gym-trainer.jpg",
-    badge: "NEW",
+     image: "/images/swiggy-course.webp",   badge: "NEW",
     school: "School of Healthcare"
   }
 ];

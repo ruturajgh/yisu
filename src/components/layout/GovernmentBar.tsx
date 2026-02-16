@@ -1,16 +1,9 @@
 import { motion } from "framer-motion";
-import { Bell, Flag, ChevronRight, Sparkles, Phone, Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
+import { Flag, Sparkles, Phone, Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
 import { contactInfo, socialLinks } from "@/data/constants";
 import { cn } from "@/lib/utils";
 
 export default function GovernmentBar() {
-  const notifications = [
-    "YISU Admissions Open for 2026-27 Academic Year - Apply Now!",
-    "New Skill Development Programs Announced in BFSI & Healthcare",
-    "Government-backed Certification Programs Available",
-    "100% Placement Assistance for All Programs"
-  ];
-
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -38,6 +31,7 @@ export default function GovernmentBar() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="hidden sm:flex items-center gap-3"
               >
+                {/* TG Logo */}
                 <img
                   src="/images/tglogo.png"
                   alt="Government of Telangana"
@@ -90,22 +84,22 @@ export default function GovernmentBar() {
                   { name: 'linkedin', Icon: Linkedin, url: socialLinks.linkedin },
                   { name: 'instagram', Icon: Instagram, url: socialLinks.instagram },
                   { name: 'youtube', Icon: Youtube, url: socialLinks.youtube }
-                  ].slice(0, window.innerWidth < 640 ? 3 : 5).map(({ name, Icon, url }, index) => (
-                    <motion.a
-                      key={name}
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                      whileHover={{ scale: 1.2, y: -2 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
-                      aria-label={name}
-                    >
-                      <Icon className="w-4 h-4 text-white" />
-                    </motion.a>
+                ].slice(0, window.innerWidth < 640 ? 3 : 5).map(({ name, Icon, url }, index) => (
+                  <motion.a
+                    key={name}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                    whileHover={{ scale: 1.2, y: -2 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
+                    aria-label={name}
+                  >
+                    <Icon className="w-4 h-4 text-white" />
+                  </motion.a>
                 ))}
               </motion.div>
 
@@ -127,46 +121,6 @@ export default function GovernmentBar() {
             </div>
           </div>
         </div>
-
-        {/* Notification Ticker */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="border-t-2 border-accent/50 bg-primary"
-        >
-          <div className="container-narrow px-4 sm:px-6 lg:px-8 py-3">
-            <div className="flex items-center gap-4">
-              <motion.div
-                animate={{ scale: [1, 1.15, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <Bell className="w-5 h-5 text-accent flex-shrink-0" />
-              </motion.div>
-              <div className="flex-1 overflow-hidden">
-                <motion.div
-                  className="flex gap-12 whitespace-nowrap"
-                  animate={{ x: [0, -800] }}
-                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                >
-                  {notifications.map((notice, index) => (
-                    <span key={index} className="text-white/95 text-base md:text-lg flex items-center gap-2">
-                      {notice}
-                      <ChevronRight className="w-4 h-4 text-accent flex-shrink-0" />
-                    </span>
-                  ))}
-                  {/* Duplicate for seamless loop */}
-                  {notifications.map((notice, index) => (
-                    <span key={`dup-${index}`} className="text-white/95 text-base md:text-lg flex items-center gap-2">
-                      {notice}
-                      <ChevronRight className="w-4 h-4 text-accent flex-shrink-0" />
-                    </span>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </motion.header>
   );

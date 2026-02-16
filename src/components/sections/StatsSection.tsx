@@ -1,60 +1,44 @@
-import { motion } from "framer-motion";
-import { useCountUp } from "@/lib/hooks/use-count-up";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { siteStats } from "@/data/constants";
 
 export default function StatsSection() {
-  return (
-    <section className="section bg-white">
-      <div className="container-narrow">
-        <div className="text-center mb-12">
-          <span className="text-sm font-semibold text-gold tracking-widest uppercase">Impact Metrics</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-navy mt-2 mb-3">
-            Impact at a Glance
-          </h2>
-          <p className="text-base text-gray-600 max-w-2xl mx-auto">
-            Building future of skills education with measurable impact across Telangana and beyond.
-          </p>
-        </div>
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+  return (
+    <section className="py-3 bg-foreground/5 border-y border-border/30">
+      <div className="container-narrow">
+        <div ref={ref} className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
           {siteStats.map((stat, index) => (
-            <StatCard key={stat.id} stat={stat} delay={index * 0.05} />
+            <motion.div
+              key={stat.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="flex items-center gap-2 px-3 py-2 bg-card/50 border border-border/40 rounded-lg hover:bg-card hover:border-accent/30 transition-all group"
+            >
+              <span className="text-lg group-hover:scale-110 transition-transform">
+                {stat.icon}
+              </span>
+              <div className="flex flex-col">
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+                  className="text-sm md:text-base font-bold text-foreground"
+                >
+                  {stat.value}
+                  {stat.suffix}
+                </motion.span>
+                <span className="text-[10px] text-muted-foreground uppercase tracking-wide">
+                  {stat.label}
+                </span>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-interface StatCardProps {
-  stat: {
-    id: number;
-    label: string;
-    value: number;
-    suffix?: string;
-    icon?: string;
-  };
-  delay: number;
-}
-
-function StatCard({ stat, delay }: StatCardProps) {
-  const { displayValue } = useCountUp({
-    end: stat.value,
-    duration: 2000,
-    suffix: stat.suffix
-  });
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay }}
-      className="bg-white border border-gray-200 shadow-sm rounded-lg p-6 text-center hover:shadow-md transition-shadow"
-    >
-      <div className="text-3xl mb-3">{stat.icon}</div>
-      <div className="text-3xl font-bold font-serif text-navy mb-2">{displayValue}</div>
-      <div className="text-sm text-gray-600 font-medium uppercase tracking-wide">{stat.label}</div>
-    </motion.div>
   );
 }

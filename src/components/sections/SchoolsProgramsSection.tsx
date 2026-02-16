@@ -1,203 +1,139 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, GraduationCap, Clock, ChevronsUpDown } from "lucide-react";
 import Button from "@/components/shared/Button";
+import SectionHeader from "@/components/shared/SectionHeader";
 import { schools } from "@/data/schools";
 import { trendingCourses } from "@/data/courses";
+import { cn } from "@/lib/utils";
 
 export default function SchoolsProgramsSection() {
-  const [showAllSchools, setShowAllSchools] = useState(false);
-  const [showAllCourses, setShowAllCourses] = useState(false);
-  const featuredCourses = trendingCourses.slice(0, 3);
-  const displayedSchools = showAllSchools ? schools : schools.filter(s => !s.isComingSoon);
-  const allCourses = trendingCourses;
+  const featuredCourses = trendingCourses.slice(0, 8);
+  const activeSchools = schools.filter(s => !s.isComingSoon);
 
   return (
-    <section className="section bg-gray-50">
+    <section id="programs" className="section bg-card">
       <div className="container-narrow">
-        <div className="text-center mb-12">
-          <span className="text-sm font-semibold text-gold tracking-widest uppercase">Academic Excellence</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-navy mt-2 mb-3">
-            Schools & Programs
-          </h2>
-          <p className="text-base text-gray-600 max-w-2xl mx-auto">
-            Choose your area of interest or browse our featured courses
-          </p>
-        </div>
+        <SectionHeader
+          title="Schools & Programs"
+          subtitle="Academic Excellence"
+          description="Choose your area of interest or browse our featured courses"
+          badgeVariant="glass"
+        />
 
-        <div className="mt-10">
-  
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {displayedSchools.map((school, index) => (
-              <SchoolCard key={school.id} school={school} index={index} />
+        {/* Schools Grid - Bigger Cards */}
+        <div className="mt-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {schools.map((school, index) => (
+              <motion.div
+                key={school.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.04 }}
+                whileHover={{ scale: 1.03 }}
+                className="relative group h-full"
+              >
+                <div className={cn(
+                  "bg-card border border-border/40 rounded-xl p-5 h-full transition-all",
+                  school.isComingSoon ? "opacity-50" : "hover:border-primary/50 hover:shadow-md"
+                )}>
+                  <div className="flex flex-col items-center text-center space-y-2.5">
+                    <span className="text-3xl">{school.icon}</span>
+                    <h3 className="text-sm font-semibold text-foreground leading-tight">
+                      {school.name.replace(/School of /, "").replace(/and /, " & ")}
+                    </h3>
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <GraduationCap className="w-3.5 h-3.5" />
+                      <span>
+                        {school.isComingSoon ? "Launching Soon" : `${school.courses} ${school.courses === 1 ? "Course" : "Courses"}`}
+                      </span>
+                    </div>
+                  </div>
+                  {school.description && (
+                    <div className="absolute inset-0 bg-foreground/95 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center p-4">
+                      <p className="text-xs text-center text-foreground/90 leading-tight">
+                        {school.description}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
             ))}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center mt-8"
-          >
-            <button
-              onClick={() => setShowAllSchools(!showAllSchools)}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold transition-colors"
-            >
-              {showAllSchools ? (
-                <>Show Less <ChevronsUpDown className="w-4 h-4" />
-                </>
-              ) : (
-                <>View All {schools.filter(s => !s.isComingSoon).length} Schools <ArrowRight className="w-4 h-4" />
-                </>
-              )}
-            </button>
-          </motion.div>
         </div>
 
-        <div className="mt-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h3 className="font-serif font-bold text-2xl text-navy mb-2">Featured Courses</h3>
-            <p className="text-sm text-gray-600">Industry-aligned programs for immediate employability</p>
-          </motion.div>
+        {/* Featured Courses - Bigger Cards */}
+        <div className="mt-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {featuredCourses.map((course, index) => (
+              <motion.div
+                key={course.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.04 }}
+                whileHover={{ scale: 1.02, y: -3 }}
+                className="h-full"
+              >
+                 <div className="bg-card border border-border/40 rounded-xl overflow-hidden h-full hover:border-primary/50 hover:shadow-md transition-all group">
+                   {/* Real Course Image */}
+                   <div className="relative h-40 bg-muted/50 overflow-hidden">
+                     <img
+                       src={course.image || "/images/swiggy-course.webp"}
+                       alt={course.name}
+                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                       loading="lazy"
+                     />
+                     {course.isNew && (
+                       <div className="absolute top-3 right-3 z-10">
+                         <span className="px-2 py-1 bg-accent text-background text-xs font-bold rounded-md shadow-sm">
+                           NEW
+                         </span>
+                       </div>
+                     )}
+                   </div>
 
-          <div className="grid md:grid-cols-3 gap-5">
-            {(showAllCourses ? allCourses : featuredCourses).map((course, index) => (
-              <CourseCard key={course.id} course={course} index={index} />
+                  {/* Content */}
+                  <div className="p-4 space-y-3">
+                    {/* Partner */}
+                    <div className="flex items-center gap-2">
+                      <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <span className="text-xs font-bold text-primary">
+                          {course.partner.charAt(0)}
+                        </span>
+                      </div>
+                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                        {course.partner}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-sm font-semibold text-foreground leading-snug line-clamp-2">
+                      {course.name}
+                    </h3>
+
+                    {/* Meta Row */}
+                    <div className="flex items-center justify-between pt-2.5 border-t border-border/30">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <Clock className="w-4 h-4 text-accent" />
+                        <span>{course.duration}</span>
+                      </div>
+                      <span className="text-sm font-bold text-foreground">
+                        {course.fee}
+                      </span>
+                    </div>
+
+                    {/* CTA */}
+                    <div className="flex items-center justify-center pt-2">
+                      <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="text-center mt-8"
-          >
-            <button
-              onClick={() => setShowAllCourses(!showAllCourses)}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold transition-colors"
-            >
-              {showAllCourses ? (
-                <>Show Less <ChevronsUpDown className="w-4 h-4" />
-                </>
-              ) : (
-                <>View All {allCourses.length} Courses <ArrowRight className="w-4 h-4" />
-                </>
-              )}
-            </button>
-          </motion.div>
         </div>
       </div>
     </section>
-  );
-}
-
-interface SchoolCardProps {
-  school: {
-    id: number;
-    name: string;
-    courses: number;
-    icon?: string;
-    isComingSoon?: boolean;
-    description?: string;
-  };
-  index: number;
-}
-
-function SchoolCard({ school, index }: SchoolCardProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="h-full"
-    >
-      <div className={`bg-white border shadow-sm rounded-lg p-6 h-full transition-shadow ${school.isComingSoon ? 'border-gray-300 opacity-60' : 'border-gray-200 hover:shadow-md'}`}>
-        <div className="mb-3">
-          <div className="text-4xl mb-3">
-            {school.icon}
-          </div>
-          <h3 className="font-serif font-semibold text-base text-navy leading-snug">
-            {school.name}
-            {school.isComingSoon && <span className="ml-2 text-xs font-bold text-gray-500 uppercase tracking-wider">Coming Soon</span>}
-          </h3>
-        </div>
-
-        <div className="flex items-center gap-2 pt-4 border-t border-gray-200 text-sm">
-          <GraduationCap className="w-4 h-4 text-gold" />
-          <span className="font-bold text-navy">
-            {school.isComingSoon ? 'Launching' : school.courses} {school.courses === 1 ? "Course" : "Courses"}
-          </span>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
-
-interface CourseCardProps {
-  course: {
-    id: number;
-    name: string;
-    partner: string;
-    duration: string;
-    fee: string;
-    isNew?: boolean;
-    badge?: string;
-  };
-  index: number;
-}
-
-function CourseCard({ course, index }: CourseCardProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.1 + index * 0.05 }}
-      className="h-full"
-    >
-      <div className="bg-white border border-gray-200 shadow-sm rounded-lg p-6 h-full hover:shadow-md transition-shadow relative">
-        {course.isNew && (
-          <div className="absolute top-4 right-4">
-            <span className="inline-block px-2 py-1 bg-gold text-white text-xs font-bold rounded">NEW</span>
-          </div>
-        )}
-
-        <div className="mb-4">
-          <div className="flex items-center gap-2 mb-3">
-            <div className="w-8 h-8 rounded-lg bg-navy flex items-center justify-center text-white font-bold text-xs">
-              {course.partner.charAt(0)}
-            </div>
-            <p className="text-xs font-bold text-gray-700 uppercase tracking-wider">
-              {course.partner}
-            </p>
-          </div>
-          <h3 className="font-serif font-bold text-base text-navy mb-3 leading-snug line-clamp-2">
-            {course.name}
-          </h3>
-        </div>
-
-        <div className="space-y-2 mb-4">
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Clock className="w-4 h-4 text-gold" />
-            <span>{course.duration}</span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <span className="font-bold text-navy">{course.fee}</span>
-          </div>
-        </div>
-
-        <div className="pt-3 border-t border-gray-200 flex items-center justify-center">
-          <ArrowRight className="w-4 h-4 text-navy" />
-        </div>
-      </div>
-    </motion.div>
   );
 }

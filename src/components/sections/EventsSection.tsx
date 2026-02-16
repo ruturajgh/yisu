@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight } from "lucide-react";
-import Button from "@/components/shared/Button";
 import SectionHeader from "@/components/shared/SectionHeader";
-import BadgeComp from "@/components/shared/Badge";
+import PlaceholderImage from "@/components/shared/PlaceholderImage";
 import { events } from "@/data/events";
 
 export default function EventsSection() {
-  const latestEvents = events.slice(0, 4);
+  const latestEvents = events.slice(0, 6);
 
   return (
-    <section className="bg-gray-50 section-compact relative overflow-hidden">
+    <section className="section bg-card">
       <div className="container-narrow">
         <SectionHeader
           title="Latest Events"
@@ -19,112 +18,61 @@ export default function EventsSection() {
           badgeVariant="glass"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
           {latestEvents.map((event, index) => (
-            <EventCard key={event.id} event={event} index={index} />
+            <motion.div
+              key={event.id}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              whileHover={{ scale: 1.02, y: -3 }}
+              className="h-full"
+            >
+              <div className="bg-card border border-border/40 rounded-xl overflow-hidden h-full hover:border-primary/50 hover:shadow-md transition-all group">
+                {/* Date Badge */}
+                <div className="absolute top-3 left-3 z-10">
+                  <div className="flex flex-col items-center bg-primary px-2.5 py-1.5 rounded-lg shadow-sm">
+                    <span className="text-xs font-bold text-background uppercase">
+                      {event.date.slice(0, 3)}
+                    </span>
+                    <span className="text-base font-bold text-background font-serif leading-none mt-0.5">
+                      {event.date.match(/\d+/)?.[0] || ""}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="pt-14 px-4 pb-4 h-full flex flex-col">
+                  <h3 className="text-sm font-semibold text-foreground leading-snug line-clamp-2 mb-3">
+                    {event.title}
+                  </h3>
+
+                  <div className="mt-auto flex items-center justify-between">
+                    <span className="text-xs text-muted-foreground">
+                      {event.date.split(", ")[1] || ""}
+                    </span>
+                    {event.isNew && (
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3 }}
+                        className="px-2 py-0.5 bg-accent text-background text-[10px] font-bold rounded"
+                      >
+                        NEW
+                      </motion.span>
+                    )}
+                  </div>
+
+                  <div className="pt-3 mt-3 border-t border-border/30 flex items-center justify-center">
+                    <ArrowRight className="w-4 h-4 text-primary group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="text-center mt-10"
-        >
-          <Button variant="primary" size="lg">
-            View All Events <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
-        </motion.div>
       </div>
     </section>
-  );
-}
-
-interface EventCardProps {
-  event: {
-    id: number;
-    date: string;
-    title: string;
-    description: string;
-    isNew?: boolean;
-    link?: string;
-  };
-  index: number;
-}
-
-function EventCard({ event, index }: EventCardProps) {
-  const formatDate = (dateStr: string) => {
-    const [monthPart, yearPart] = dateStr.split(", ");
-    return {
-      month: monthPart?.slice(0, 3),
-      day: monthPart?.match(/\d+/)?.[0] || "",
-      year: yearPart
-    };
-  };
-
-  const { month, day, year } = formatDate(event.date);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="group h-full"
-    >
-      <div className="bg-white border border-gray-200 shadow-sm rounded-lg p-5 h-full hover:shadow-md transition-shadow relative overflow-hidden">
-
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
-          className="flex items-start gap-3"
-        >
-          <div className="flex-shrink-0">
-            <div className="w-12 h-12 rounded-lg bg-navy flex flex-col items-center justify-center">
-              <span className="text-xs font-bold text-white uppercase">{month}</span>
-              <span className="text-lg font-bold text-white font-serif leading-none mt-1">{day}</span>
-            </div>
-          </div>
-          <div className="flex-1 relative min-w-0">
-            <h3 className="font-serif font-bold text-base text-navy mb-2 leading-snug line-clamp-2 group-hover:text-gold transition-colors">
-              {event.title}
-            </h3>
-
-            <div className="flex justify-between">
-              <p className="text-sm text-gray-600">{year ?? ''}</p>
-
-              {event.isNew && (
-                <motion.span
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className=" bg-gold text-white text-[10px] font-bold px-2 py-0.5 rounded"
-                >
-                  NEW
-                </motion.span>
-              )}</div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.25 + index * 0.05 }}
-          className="pt-3 mt-3 border-t border-gray-200"
-        >
-          <a
-            href={event.link || "#"}
-            className="text-sm font-bold text-navy hover:text-gold transition-colors inline-flex items-center gap-1"
-          >
-            Read More <ArrowRight className="w-4 h-4" />
-          </a>
-        </motion.div>
-      </div>
-    </motion.div>
   );
 }

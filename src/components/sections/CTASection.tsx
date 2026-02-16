@@ -1,90 +1,90 @@
 import { motion } from "framer-motion";
-import { ArrowRight, GraduationCap, Phone, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Button from "@/components/shared/Button";
+import SectionHeader from "@/components/shared/SectionHeader";
 import { contactInfo } from "@/data/constants";
 
 export default function CTASection() {
   return (
-    <section className="relative bg-navy overflow-hidden section-compact">
-      <div className="container-narrow section-padding relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+    <section id="apply" className="py-8 lg:py-12 bg-gradient-to-br from-primary via-royal to-primary relative overflow-hidden">
+      {/* Decorative elements */}
+      <motion.div
+        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-10 right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div
+        animate={{ scale: [1, 1.3, 1], opacity: [0.08, 0.15, 0.08] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-10 left-10 w-48 h-48 bg-accent/10 rounded-full blur-3xl pointer-events-none"
+      />
+
+      <div className="container-narrow relative z-10">
+        <div className="grid md:grid-cols-2 gap-6 items-center">
+          {/* Left Content */}
+          <div className="space-y-3">
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl md:text-3xl lg:text-4xl font-bold font-serif text-white leading-tight"
+            >
+              Ready to Transform Your Career?
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-sm md:text-base text-white/90 leading-relaxed"
+            >
+              Join thousands of students building successful careers with industry-aligned education at YISU.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex items-center gap-3"
+            >
+              <Button variant="gold" size="sm" className="text-sm">
+                Apply Now <ArrowRight className="w-3.5 h-3.5 ml-1" />
+              </Button>
+              <Button variant="outline" size="sm" className="text-sm border-white text-white hover:bg-white/10">
+                Contact Us
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* Right - Contact Info */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <GraduationCap className="w-16 h-16 text-gold mx-auto" />
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-white mb-6 leading-tight"
-          >
-            Ready to Begin Your Journey?
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-base md:text-lg text-white/90 mb-8 max-w-2xl mx-auto"
-          >
-            Take the first step toward a transformative educational experience at Young India Skills University.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-5 space-y-3"
           >
-            <Button size="lg" variant="gold" className="text-lg px-10 py-4 shadow-lg">
-              Apply Now <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-10 py-4 bg-transparent text-white border-2 border-white/50 hover:bg-white/10 hover:border-white">
-              Contact Us
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto"
-          >
-            <div className="flex items-center justify-center gap-3 text-white">
-              <Phone className="w-5 h-5 text-gold" />
-              <div className="text-left">
-                <p className="text-xs text-white/70">Admissions</p>
-                <p className="font-semibold text-base">{contactInfo.admissionsPhone}</p>
-              </div>
-            </div>
-            <div className="flex items-center justify-center gap-3 text-white">
-              <Mail className="w-5 h-5 text-gold" />
-              <div className="text-left">
-                <p className="text-xs text-white/70">Email</p>
-                <p className="font-semibold text-base">{contactInfo.admissionsEmail}</p>
+            <div>
+              <h3 className="text-sm font-semibold text-white mb-2">Contact Information</h3>
+              <div className="space-y-2 text-xs text-white/90">
+                <div className="flex items-start gap-2">
+                  <span className="text-accent">📍</span>
+                  <span className="leading-relaxed">{contactInfo.address}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-accent">📞</span>
+                  <span>{contactInfo.admissionsPhone}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-accent">📧</span>
+                  <span>{contactInfo.admissionsEmail}</span>
+                </div>
               </div>
             </div>
           </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-sm text-white/80 mt-6"
-          >
-            {contactInfo.officeHours}
-          </motion.p>
         </div>
       </div>
     </section>

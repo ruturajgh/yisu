@@ -10,7 +10,7 @@ const navItems = [
     label: "About",
     children: [
       { label: "Overview", href: "#about" },
-      { label: "Leadership", href: "#leadership" },
+      { label: "Leadersip", href: "#leadersip" },
       { label: "University Act", href: "#act" },
       { label: "Campus", href: "#campus" }
     ]
@@ -44,6 +44,7 @@ const navItems = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <>
@@ -55,9 +56,9 @@ export default function Header() {
         className="hidden lg:flex sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md border-b border-border transition-all duration-300"
       >
         <div className="container-narrow px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center h-16 lg:h-20">
+          <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1.5">
+            <div className="hidden lg:flex items-center gap-1.5 flex-1">
               {navItems.map((item, index) => (
                 <div
                   key={item.label}
@@ -104,17 +105,76 @@ export default function Header() {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2.5 rounded-lg bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Toggle menu"
+            {/* Search Button on right side of header */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setSearchOpen(true)}
+              className="p-2.5 rounded-lg text-primary/80 hover:text-accent hover:bg-accent/10 transition-colors"
+              aria-label="Search (Ctrl+K)"
+              title="Search (Ctrl+K)"
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+              <Search className="w-5 h-5" />
+            </motion.button>
           </div>
         </div>
       </motion.nav>
+
+      {/* Search Modal */}
+      <AnimatePresence>
+        {searchOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[70] flex items-start justify-center pt-28 bg-black/60 backdrop-blur-sm"
+            onClick={() => setSearchOpen(false)}
+          >
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-2xl mx-4 bg-white shadow-2xl rounded-2xl overflow-hidden"
+            >
+              <div className="flex items-center gap-3 p-4 border-b border-border">
+                <Search className="w-5 h-5 text-foreground/40" />
+                <input
+                  type="text"
+                  placeholder="Search programs, courses, events, news..."
+                  className="flex-1 text-lg outline-none placeholder:text-foreground/40"
+                  autoFocus
+                />
+                <button
+                  onClick={() => setSearchOpen(false)}
+                  className="p-2 rounded-lg hover:bg-muted transition-colors"
+                  aria-label="Close search"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div className="p-6">
+                <p className="text-sm text-foreground/60 mb-4 font-semibold">Popular Searches</p>
+                <div className="flex flex-wrap gap-2">
+                  {["BFSI Program", "Admissions 2026", "Fee Structure", "Campus Tour", "Placement", "Online Courses"].map((term) => (
+                    <button
+                      key={term}
+                      onClick={() => setSearchOpen(false)}
+                      className="px-4 py-2 text-sm font-medium text-primary/80 hover:text-accent hover:bg-accent/5 rounded-lg transition-all border border-border"
+                    >
+                      {term}
+                    </button>
+                  ))}
+                </div>
+                <p className="text-xs text-foreground/40 mt-6">Press <kbd className="px-2 py-1 bg-muted rounded text-xs">Esc</kbd> to close</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Mobile Menu Drawer */}
       <AnimatePresence>
@@ -216,11 +276,11 @@ export default function Header() {
                       variant="outline"
                       size="lg"
                       className="w-full text-sm font-semibold"
-                      onClick={() => setMobileOpen(false)}
+                      onClick={() => setSearchOpen(true)}
                     >
                       <Search className="w-4 h-4 mr-2" />
                         Search
-                      </Button>
+                    </Button>
                   </div>
                 </div>
               </div>

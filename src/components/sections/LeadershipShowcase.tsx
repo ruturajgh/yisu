@@ -1,72 +1,75 @@
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
-import GovernmentBadge from "@/components/shared/GovernmentBadge";
+import { ArrowRight } from "lucide-react";
+import SectionHeader from "@/components/shared/SectionHeader";
+import PlaceholderImage from "@/components/shared/PlaceholderImage";
 import { leadership } from "@/data/leadership";
 
 export default function LeadershipShowcase() {
-  return (
-    <section id="leadership" className="section bg-navy text-white">
-      <div className="container-narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <div className="inline-flex items-center gap-2 mb-3">
-            <GovernmentBadge variant="seal" size="sm" />
-            <span className="text-gold font-bold text-sm tracking-widest">LEADERSHIP COUNCIL</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif mb-3">
-            Visionary Leaders
-          </h2>
-          <p className="text-base text-white/80 max-w-2xl mx-auto">
-            Guided by distinguished leaders committed to transforming skills education in India.
-          </p>
-        </motion.div>
+  const featuredLeaders = leadership.slice(0, 4);
 
-        <div className="grid md:grid-cols-2 gap-5 mb-10">
-          {leadership.map((leader, index) => (
-            <LeaderCard key={leader.id} leader={leader} index={index} />
+  return (
+    <section className="section bg-card">
+      <div className="container-narrow">
+        <SectionHeader
+          title="Visionary Leaders"
+          subtitle="Leadership"
+          description="Led by industry veterans and government visionaries"
+          badgeVariant="glass"
+        />
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+          {featuredLeaders.map((leader, index) => (
+            <motion.div
+              key={leader.id}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
+              whileHover={{ scale: 1.02 }}
+              className="h-full"
+            >
+              <div className="bg-card border border-border/40 rounded-xl overflow-hidden h-full hover:border-accent/50 hover:shadow-md transition-all">
+                {/* Bigger Portrait */}
+                <div className="h-44 bg-muted/50 flex items-center justify-center overflow-hidden">
+                  {leader.image ? (
+                    <img
+                      src={leader.image}
+                      alt={leader.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="text-center">
+                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-2">
+                        <span className="text-base font-bold text-primary">
+                          {leader.name.split(' ').map(n => n[0]).join('')}
+                        </span>
+                      </div>
+                      <span className="text-xs text-muted-foreground">
+                        {leader.designation}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Content */}
+                <div className="p-5">
+                  <h3 className="text-sm font-semibold text-foreground leading-snug mb-2">
+                    {leader.name}
+                  </h3>
+                  <p className="text-xs text-accent font-medium mb-3">
+                    {leader.role}
+                  </p>
+                  {leader.quote && (
+                    <p className="text-xs text-muted-foreground leading-snug line-clamp-4 italic">
+                      "{leader.quote}"
+                    </p>
+                  )}
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-interface LeaderCardProps {
-  leader: typeof leadership[0];
-  index: number;
-}
-
-function LeaderCard({ leader, index }: LeaderCardProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="bg-white/5 backdrop-blur border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-colors"
-    >
-      <div className="flex items-start gap-5">
-        <div className="flex-shrink-0">
-          <div className="w-32 h-32 rounded-xl bg-gold/20 flex items-center justify-center border-2 border-gold">
-            <span className="text-3xl font-serif font-bold text-gold">
-              {leader.name.split(' ').map(n => n[0]).join('')}
-            </span>
-          </div>
-        </div>
-        <div className="flex-1">
-          <div className="inline-block px-3 py-1 bg-gold/20 text-gold rounded-full text-xs font-bold mb-3">
-            {leader.role}
-          </div>
-          <h3 className="text-xl font-bold font-serif mb-1">{leader.name}</h3>
-          <p className="text-gold text-sm font-medium mb-3">{leader.designation}</p>
-          <p className="text-white/70 text-sm leading-relaxed italic">"{leader.quote}"</p>
-        </div>
-      </div>
-    </motion.div>
   );
 }
