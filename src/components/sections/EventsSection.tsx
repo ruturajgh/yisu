@@ -29,7 +29,7 @@ export default function EventsSection() {
               whileHover={{ scale: 1.02, y: -3 }}
               className="h-full"
             >
-              <div className="bg-card border border-border/40 rounded-xl overflow-hidden h-full hover:border-primary/50 hover:shadow-md transition-all group">
+              <div className="bg-card relative border border-border/40 rounded-xl overflow-hidden h-full hover:border-primary/50 hover:shadow-md transition-all group">
                 {/* Date Badge */}
                 <div className="absolute top-3 left-3 z-10">
                   <div className="flex flex-col items-center bg-primary px-2.5 py-1.5 rounded-lg shadow-sm">
