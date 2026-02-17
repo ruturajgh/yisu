@@ -53,7 +53,7 @@ export default function LogoHeader() {
         className="relative bg-white border-b border-border transition-all duration-300 z-50"
       >
         <div className="container-narrow px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20 lg:h-28">
+          <div className="flex items-center justify-between h-20 lg:h-24">
             {/* Left: Multiple Logos */}
             <div className="flex items-center gap-6">
               {/* YISU Logo - Clickable to home */}
@@ -83,7 +83,7 @@ export default function LogoHeader() {
                   <img
                     src="/images/TelanganaRaising.jpg"
                     alt="Telangana Rising"
-                    className="h-16 w-16 w-auto rounded-full"
+                    className="h-20 -w-20 w-auto rounded-full"
                   />
                 </motion.div>
 
@@ -95,7 +95,7 @@ export default function LogoHeader() {
                   <img
                     src="/images/chancellor.webp"
                     alt="CM Revanth Reddy"
-                    className="h-16 w-16 rounded-full object-cover border-2 border-white/20"
+                    className="h-20 w-20 rounded-full object-cover border-2 border-white/20"
                   />
                 </motion.div>
 
@@ -112,7 +112,7 @@ export default function LogoHeader() {
                 <img
                   src="/images/anand-mahindra.webp"
                   alt="Anand Mahindra"
-                  className="h-16 w-16 rounded-full object-cover border-2 border-accent/20  transition-opacity"
+                  className="h-20 w-20 rounded-full object-cover border-2 border-accent/20  transition-opacity"
                 />
               </motion.div>
 
