@@ -53,9 +53,9 @@ export default function CompactHeader() {
         className="sticky top-0 z-50 bg-primary shadow-md"
       >
         <div className="container-narrow px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14">
+          <div className="flex items-center justify-between h-16">
             {/* Left Section: Leadership & University Logos */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               {/* CM Image - Circular like Telangana Rising */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -72,25 +72,25 @@ export default function CompactHeader() {
               <motion.img
                 src="/images/tglogo.png"
                 alt="Government of Telangana"
-                className="h-10 opacity-60 hover:opacity-80 transition-opacity hidden md:block"
+                className="h-11 opacity-60 hover:opacity-80 transition-opacity hidden md:block"
                 whileHover={{ scale: 1.02 }}
               />
 
               {/* Separator */}
-              <span className="text-white/20 h-10 w-px hidden md:block" aria-hidden="true"></span>
+              <span className="text-white/20 h-11 w-px hidden md:block" aria-hidden="true"></span>
 
               {/* YISU Logo - Primary */}
               <a href="/" className="flex items-center">
                 <motion.img
                   src="/images/skills university.svg"
                   alt="Young India Skills University"
-                  className="h-12 w-auto"
+                  className="h-14 w-auto"
                   whileHover={{ scale: 1.02 }}
                 />
               </a>
 
               {/* Separator */}
-              <span className="text-white/20 h-10 w-px hidden md:block" aria-hidden="true"></span>
+              <span className="text-white/20 h-11 w-px hidden md:block" aria-hidden="true"></span>
 
               {/* Telangana Rising - Subtle, Circular like CM */}
               <motion.div
@@ -100,13 +100,13 @@ export default function CompactHeader() {
                 <img
                   src="/images/TelanganaRaising.jpg"
                   alt="Telangana Rising"
-                  className="h-12 w-auto rounded-full object-cover opacity-60 hover:opacity-80 transition-opacity"
+                  className="h-14 w-auto rounded-full object-cover opacity-60 hover:opacity-80 transition-opacity"
                 />
               </motion.div>
             </div>
 
             {/* Right Section: Anand + Navigation + Apply */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               {/* Anand Mahindra - Circular, Subtle */}
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -115,7 +115,7 @@ export default function CompactHeader() {
                 <img
                   src="/images/anand-mahindra.jpg"
                   alt="Anand Mahindra"
-                  className="h-12 w-12 rounded-full object-cover opacity-70 hover:opacity-90 transition-opacity border-2 border-accent/20"
+                  className="h-14 w-14 rounded-full object-cover opacity-70 hover:opacity-90 transition-opacity border-2 border-accent/20"
                 />
               </motion.div>
 
@@ -128,7 +128,7 @@ export default function CompactHeader() {
                     onMouseEnter={() => setActiveDropdown(index)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <button className="flex items-center gap-1 px-3 py-2 text-sm font-semibold text-white/90 hover:text-accent hover:bg-white/10 transition-all rounded-md">
+                    <button className="flex items-center gap-1 px-4 py-2.5 text-sm font-semibold text-white/90 hover:text-accent hover:bg-white/10 transition-all rounded-md">
                       {item.label}
                       {item.children && (
                         <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", activeDropdown === index && "rotate-180")} />

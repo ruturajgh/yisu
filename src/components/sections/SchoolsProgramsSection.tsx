@@ -22,7 +22,7 @@ export default function SchoolsProgramsSection() {
 
         {/* Schools Grid - Bigger Cards */}
         <div className="mt-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-5">
             {schools.map((school, index) => (
               <motion.div
                 key={school.id}
@@ -34,16 +34,16 @@ export default function SchoolsProgramsSection() {
                 className="relative group h-full"
               >
                 <div className={cn(
-                  "bg-card border border-border/40 rounded-xl p-5 h-full transition-all",
+                  "bg-card border border-border/40 rounded-xl p-6 h-full transition-all",
                   school.isComingSoon ? "opacity-50" : "hover:border-primary/50 hover:shadow-md"
                 )}>
-                  <div className="flex flex-col items-center text-center space-y-2.5">
+                  <div className="flex flex-col items-center text-center space-y-3">
                     <span className="text-3xl">{school.icon}</span>
-                    <h3 className="text-sm font-semibold text-foreground leading-tight">
+                    <h3 className="text-base font-semibold text-foreground leading-tight">
                       {school.name.replace(/School of /, "").replace(/and /, " & ")}
                     </h3>
-                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <GraduationCap className="w-3.5 h-3.5" />
+                    <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                      <GraduationCap className="w-4 h-4" />
                       <span>
                         {school.isComingSoon ? "Launching Soon" : `${school.courses} ${school.courses === 1 ? "Course" : "Courses"}`}
                       </span>
@@ -51,7 +51,7 @@ export default function SchoolsProgramsSection() {
                   </div>
                   {school.description && (
                     <div className="absolute inset-0 bg-foreground/95 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center p-4">
-                      <p className="text-xs text-center text-foreground/90 leading-tight">
+                      <p className="text-sm text-center text-foreground/90 leading-tight">
                         {school.description}
                       </p>
                     </div>
@@ -64,7 +64,7 @@ export default function SchoolsProgramsSection() {
 
         {/* Featured Courses - Bigger Cards */}
         <div className="mt-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {featuredCourses.map((course, index) => (
               <motion.div
                 key={course.id}
@@ -77,7 +77,7 @@ export default function SchoolsProgramsSection() {
               >
                  <div className="bg-card border border-border/40 rounded-xl overflow-hidden h-full hover:border-primary/50 hover:shadow-md transition-all group">
                    {/* Real Course Image */}
-                   <div className="relative h-40 bg-muted/50 overflow-hidden">
+                   <div className="relative h-48 bg-muted/50 overflow-hidden">
                      <img
                        src={course.image || "/images/swiggy-course.webp"}
                        alt={course.name}
@@ -86,7 +86,7 @@ export default function SchoolsProgramsSection() {
                      />
                      {course.isNew && (
                        <div className="absolute top-3 right-3 z-10">
-                         <span className="px-2 py-1 bg-accent text-background text-xs font-bold rounded-md shadow-sm">
+                         <span className="px-2.5 py-1 bg-accent text-background text-xs font-bold rounded-md shadow-sm">
                            NEW
                          </span>
                        </div>
@@ -94,31 +94,31 @@ export default function SchoolsProgramsSection() {
                    </div>
 
                   {/* Content */}
-                  <div className="p-4 space-y-3">
+                  <div className="p-5 space-y-3">
                     {/* Partner */}
                     <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <span className="text-xs font-bold text-primary">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <span className="text-sm font-bold text-primary">
                           {course.partner.charAt(0)}
                         </span>
                       </div>
-                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                      <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
                         {course.partner}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-sm font-semibold text-foreground leading-snug line-clamp-2">
+                    <h3 className="text-base font-semibold text-foreground leading-snug line-clamp-2">
                       {course.name}
                     </h3>
 
                     {/* Meta Row */}
                     <div className="flex items-center justify-between pt-2.5 border-t border-border/30">
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Clock className="w-4 h-4 text-accent" />
                         <span>{course.duration}</span>
                       </div>
-                      <span className="text-sm font-bold text-foreground">
+                      <span className="text-base font-bold text-foreground">
                         {course.fee}
                       </span>
                     </div>

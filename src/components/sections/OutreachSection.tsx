@@ -36,26 +36,26 @@ export default function OutreachSection() {
                 </div>
               </div>
 
-              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">
                 Manthani Job Opportunities & Readiness
               </p>
 
               {/* Compact Stats Grid */}
-              <div className="grid grid-cols-3 gap-3 mb-4">
-                <div className="text-center p-3 bg-muted/30 rounded-lg border border-border/30">
-                  <Users className="w-5 h-5 text-accent mx-auto mb-2" />
-                  <div className="text-sm font-bold text-foreground">{outreachStats.major.students}</div>
-                  <div className="text-xs text-muted-foreground">Students</div>
+              <div className="grid grid-cols-3 gap-4 mb-4">
+                <div className="text-center p-4 bg-muted/30 rounded-lg border border-border/30">
+                  <Users className="w-6 h-6 text-accent mx-auto mb-2" />
+                  <div className="text-base font-bold text-foreground">{outreachStats.major.students}</div>
+                  <div className="text-sm text-muted-foreground">Students</div>
                 </div>
-                <div className="text-center p-3 bg-muted/30 rounded-lg border border-border/30">
-                  <Building2 className="w-5 h-5 text-accent mx-auto mb-2" />
-                  <div className="text-sm font-bold text-foreground">{outreachStats.major.recruiters}</div>
-                  <div className="text-xs text-muted-foreground">Recruiters</div>
+                <div className="text-center p-4 bg-muted/30 rounded-lg border border-border/30">
+                  <Building2 className="w-6 h-6 text-accent mx-auto mb-2" />
+                  <div className="text-base font-bold text-foreground">{outreachStats.major.recruiters}</div>
+                  <div className="text-sm text-muted-foreground">Recruiters</div>
                 </div>
-                <div className="text-center p-3 bg-muted/30 rounded-lg border border-border/30">
-                  <Award className="w-5 h-5 text-accent mx-auto mb-2" />
-                  <div className="text-sm font-bold text-foreground">{outreachStats.major.colleges}</div>
-                  <div className="text-xs text-muted-foreground">Colleges</div>
+                <div className="text-center p-4 bg-muted/30 rounded-lg border border-border/30">
+                  <Award className="w-6 h-6 text-accent mx-auto mb-2" />
+                  <div className="text-base font-bold text-foreground">{outreachStats.major.colleges}</div>
+                  <div className="text-sm text-muted-foreground">Colleges</div>
                 </div>
               </div>
 
@@ -65,7 +65,7 @@ export default function OutreachSection() {
                   <TrendingUp className="w-5 h-5 text-accent" />
                   <span className="text-sm font-bold text-accent">Placements Achieved</span>
                 </div>
-                <div className="flex items-center justify-between text-xs">
+                <div className="flex items-center justify-between text-sm">
                   <div>
                     <span className="font-bold text-foreground">{outreachStats.major.placements.logistics}</span>
                     <span className="text-muted-foreground"> Logistics</span>
@@ -105,26 +105,26 @@ export default function OutreachSection() {
                 </div>
               </div>
 
-              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">
                 Vikarakabad Kodangal Training for Opportunities and Readiness
               </p>
 
               {/* Compact Stats Grid */}
-              <div className="grid grid-cols-3 gap-3 mb-4">
-                <div className="text-center p-3 bg-muted/30 rounded-lg border border-border/30">
-                  <Users className="w-5 h-5 text-accent mx-auto mb-2" />
-                  <div className="text-sm font-bold text-foreground">{outreachStats.viktor.students}</div>
-                  <div className="text-xs text-muted-foreground">Students</div>
+              <div className="grid grid-cols-3 gap-4 mb-4">
+                <div className="text-center p-4 bg-muted/30 rounded-lg border border-border/30">
+                  <Users className="w-6 h-6 text-accent mx-auto mb-2" />
+                  <div className="text-base font-bold text-foreground">{outreachStats.viktor.students}</div>
+                  <div className="text-sm text-muted-foreground">Students</div>
                 </div>
-                <div className="text-center p-3 bg-muted/30 rounded-lg border border-border/30">
-                  <Building2 className="w-5 h-5 text-accent mx-auto mb-2" />
-                  <div className="text-sm font-bold text-foreground">{outreachStats.viktor.recruiters}</div>
-                  <div className="text-xs text-muted-foreground">Recruiters</div>
+                <div className="text-center p-4 bg-muted/30 rounded-lg border border-border/30">
+                  <Building2 className="w-6 h-6 text-accent mx-auto mb-2" />
+                  <div className="text-base font-bold text-foreground">{outreachStats.viktor.recruiters}</div>
+                  <div className="text-sm text-muted-foreground">Recruiters</div>
                 </div>
-                <div className="text-center p-3 bg-muted/30 rounded-lg border border-border/30">
-                  <Award className="w-5 h-5 text-accent mx-auto mb-2" />
-                  <div className="text-sm font-bold text-foreground">{outreachStats.viktor.colleges}</div>
-                  <div className="text-xs text-muted-foreground">Colleges</div>
+                <div className="text-center p-4 bg-muted/30 rounded-lg border border-border/30">
+                  <Award className="w-6 h-6 text-accent mx-auto mb-2" />
+                  <div className="text-base font-bold text-foreground">{outreachStats.viktor.colleges}</div>
+                  <div className="text-sm text-muted-foreground">Colleges</div>
                 </div>
               </div>
 
@@ -134,7 +134,7 @@ export default function OutreachSection() {
                   <TrendingUp className="w-5 h-5 text-accent" />
                   <span className="text-sm font-bold text-accent">Placements Achieved</span>
                 </div>
-                <div className="flex items-center justify-between text-xs">
+                <div className="flex items-center justify-between text-sm">
                   <div>
                     <span className="font-bold text-foreground">{outreachStats.viktor.placements.logistics}</span>
                     <span className="text-muted-foreground"> Logistics</span>

@@ -155,28 +155,28 @@
 }
 
 @layer components {
-  /* Section Spacing - compact, dense */
+  /* Section Spacing - improved breathability */
   .section {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
  
   @media (min-width: 1024px) {
     .section {
-      padding-top: 2.5rem;
-      padding-bottom: 2.5rem;
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
     }
   }
 
   .section-compact {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   @media (min-width: 1024px) {
     .section-compact {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
     }
   }
 

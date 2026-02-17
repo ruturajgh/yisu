@@ -28,7 +28,7 @@ export default function WhyYISUSection() {
           className="mb-6"
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-6">
           {whyYISUPoints.map((point, index) => (
             <motion.div
               key={point.id}
@@ -39,14 +39,14 @@ export default function WhyYISUSection() {
               whileHover={{ scale: 1.03 }}
               className="relative group h-full"
             >
-              <div className="bg-card border border-border/40 rounded-xl p-5 h-full hover:border-accent/50 hover:shadow-md transition-all">
+              <div className="bg-card border border-border/40 rounded-xl p-6 h-full hover:border-accent/50 hover:shadow-md transition-all">
                 {/* Icon + Short Title */}
-                <div className="flex flex-col items-center text-center space-y-2">
+                <div className="flex flex-col items-center text-center space-y-2.5">
                   <span className="text-2xl group-hover:scale-110 transition-transform">
                     {point.icon}
                   </span>
-                  <h3 className="text-sm font-semibold text-foreground leading-tight">
-                    {point.title.split(' ').slice(0, 2).join(' ')}
+                  <h3 className="text-base font-semibold text-foreground leading-tight">
+                    {point.title}
                   </h3>
                 </div>
 
@@ -56,7 +56,7 @@ export default function WhyYISUSection() {
                   <h3 className="text-sm font-semibold text-background leading-tight mb-2 text-center">
                     {point.title}
                   </h3>
-                  <p className="text-xs text-background/80 leading-tight text-center">
+                  <p className="text-sm text-background/80 leading-tight text-center">
                     {point.description}
                   </p>
                 </div>
