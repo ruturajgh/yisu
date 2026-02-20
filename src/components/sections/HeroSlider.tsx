@@ -40,7 +40,7 @@ export default function HeroSlider() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.4 }}
-              className="grid md:grid-cols-2 gap-6 items-center"
+              className="grid md:grid-cols-2 gap-6 md:gap-8 items-center"
             >
               {/* Left: Content */}
               <div className="space-y-3">
@@ -115,20 +115,30 @@ export default function HeroSlider() {
                 </motion.div>
               </div>
 
-              {/* Right: Visual */}
+               {/* Right: Visual */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
                 className="hidden md:block"
               >
-                <PlaceholderImage
-                  label={currentSlide.subtitle}
-                  icon="🎓"
-                  aspectRatio="4:3"
-                  color={currentSlide.color}
-                  className="h-full min-h-[300px]"
-                />
+                {currentSlide.image ? (
+                  <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-muted/20">
+                    <img
+                      src={currentSlide.image}
+                      alt={currentSlide.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <PlaceholderImage
+                    label={currentSlide.subtitle}
+                    icon="🎓"
+                    aspectRatio="4:3"
+                    color={currentSlide.color}
+                    className="w-full aspect-[4/3]"
+                  />
+                )}
               </motion.div>
             </motion.div>
           </AnimatePresence>

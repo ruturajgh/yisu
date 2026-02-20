@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/shared/SectionHeader";
-import PlaceholderImage from "@/components/shared/PlaceholderImage";
 import { leadership } from "@/data/leadership";
 
 export default function LeadershipShowcase() {
@@ -17,7 +16,7 @@ export default function LeadershipShowcase() {
           badgeVariant="glass"
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 mt-6">
           {featuredLeaders.map((leader, index) => (
             <motion.div
               key={leader.id}
@@ -30,7 +29,7 @@ export default function LeadershipShowcase() {
             >
               <div className="bg-card border border-border/40 rounded-xl overflow-hidden h-full hover:border-accent/50 hover:shadow-md transition-all">
                 {/* Bigger Portrait */}
-                <div className="h-44 bg-muted/50 flex items-center justify-center overflow-hidden">
+                <div className="h-56 bg-muted/50 flex items-center justify-center overflow-hidden">
                   {leader.image ? (
                     <img
                       src={leader.image}
@@ -39,8 +38,8 @@ export default function LeadershipShowcase() {
                     />
                   ) : (
                     <div className="text-center">
-                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-2">
-                        <span className="text-base font-bold text-primary">
+                      <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-2">
+                        <span className="text-lg font-bold text-primary">
                           {leader.name.split(' ').map(n => n[0]).join('')}
                         </span>
                       </div>
@@ -52,15 +51,15 @@ export default function LeadershipShowcase() {
                 </div>
 
                 {/* Content */}
-                <div className="p-5">
-                  <h3 className="text-sm font-semibold text-foreground leading-snug mb-2">
+                <div className="p-6">
+                  <h3 className="text-base font-semibold text-foreground leading-snug mb-2">
                     {leader.name}
                   </h3>
-                  <p className="text-xs text-accent font-medium mb-3">
+                  <p className="text-sm text-accent font-medium mb-3">
                     {leader.role}
                   </p>
                   {leader.quote && (
-                    <p className="text-xs text-muted-foreground leading-snug line-clamp-4 italic">
+                    <p className="text-sm text-muted-foreground leading-snug line-clamp-5 italic">
                       "{leader.quote}"
                     </p>
                   )}

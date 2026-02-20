@@ -16,7 +16,7 @@ export default function TestimonialsSection() {
           badgeVariant="glass"
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6 mt-6">
           {featuredTestimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -28,14 +28,14 @@ export default function TestimonialsSection() {
               className="h-full"
             >
               <div className="bg-card border border-border/40 rounded-xl p-6 h-full hover:border-accent/50 hover:shadow-md transition-all relative overflow-hidden">
-                <Quote className="w-8 h-8 text-accent/30 mb-4" />
+                <Quote className="w-10 h-10 text-accent/30 mb-4" />
 
-                <p className="text-sm text-foreground/80 leading-snug line-clamp-4 mb-4 italic">
+                <p className="text-sm text-foreground/80 leading-snug line-clamp-5 mb-4 italic">
                   "{testimonial.quote}"
                 </p>
 
                 <div className="flex items-center gap-3 pt-3 border-t border-border/30">
-                  <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
                     {testimonial.image ? (
                       <img
                         src={testimonial.image}
@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
                         className="w-full h-full rounded-full object-cover"
                       />
                     ) : (
-                      <span className="text-xs font-bold text-foreground font-serif">
+                      <span className="text-sm font-bold text-foreground font-serif">
                         {testimonial.initials}
                       </span>
                     )}
@@ -59,7 +59,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 {testimonial.placement && (
-                  <div className="absolute top-3 right-3">
+                  <div className="absolute top-4 right-4">
                     <span className="px-2.5 py-1 bg-primary text-background text-xs font-bold rounded">
                       {testimonial.placement}
                     </span>

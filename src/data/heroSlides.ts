@@ -15,7 +15,8 @@ export const heroSlides: HeroSlide[] = [
       { value: "20+", label: "Partners", icon: "🤝" },
       { value: "17+", label: "Courses", icon: "📚" }
     ],
-    color: "navy"
+    color: "navy",
+    image: "/images/auro-bindo-course.webp"
   },
   {
     id: 2,
@@ -31,7 +32,8 @@ export const heroSlides: HeroSlide[] = [
       { value: "₹12L+", label: "Avg Package", icon: "💰" },
       { value: "5", label: "Schools Active", icon: "🎯" }
     ],
-    color: "blue"
+    color: "blue",
+    image: "/images/auro-bindo-course.webp"
   },
   {
     id: 3,
@@ -47,6 +49,7 @@ export const heroSlides: HeroSlide[] = [
       { value: "6mo", label: "Avg Duration", icon: "⏱️" },
       { value: "3mo", label: "Internship", icon: "🔧" }
     ],
-    color: "gold"
+    color: "gold",
+    image:  "/images/auro-bindo-course.webp"
   }
 ];

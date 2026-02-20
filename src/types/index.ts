@@ -95,4 +95,5 @@ export interface HeroSlide {
     icon: string;
   }>;
   color?: "navy" | "blue" | "gold" | "gray";
+  image?: string;
 }

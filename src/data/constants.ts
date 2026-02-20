@@ -121,25 +121,25 @@ export const academicsGallery = [
   {
     id: 1,
     title: "Logistics Students Industrial Visit to Flipkart",
-    image: "/images/gallery/flipkart.jpg",
+    image: "/images/academics.jpeg",
     description: "Students gaining practical insights at Flipkart operations"
   },
   {
     id: 2,
     title: "Soft Skills Training Sessions at YISU",
-    image: "/images/gallery/soft-skills.jpg",
+    image: "/images/academics.jpeg",
     description: "Enhancing communication and interpersonal skills"
   },
   {
     id: 3,
     title: "BFSI Students at YISU Campus",
-    image: "/images/gallery/bfsi.jpg",
+    image: "/images/academics.jpeg",
     description: "Banking, Financial Services and Insurance students"
   },
   {
     id: 4,
     title: "AIG Endoscopy Technician Training",
-    image: "/images/gallery/aig-training.jpg",
+    image: "/images/academics.jpeg",
     description: "Students undergoing training at AIG Hospitals, Gachibowli"
   }
 ];

@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/shared/SectionHeader";
-import PlaceholderImage from "@/components/shared/PlaceholderImage";
 import { academicsGallery } from "@/data/constants";
 
 export default function AcademicsGallerySection() {
@@ -15,7 +14,7 @@ export default function AcademicsGallerySection() {
           badgeVariant="glass"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 mt-6">
           {academicsGallery.map((item, index) => (
             <motion.div
               key={item.id}
@@ -28,18 +27,27 @@ export default function AcademicsGallerySection() {
             >
               <div className="bg-card border border-border/40 rounded-xl overflow-hidden h-full hover:border-primary/50 hover:shadow-md transition-all">
                 {/* Bigger Image */}
-                <div className="h-40 bg-muted/50">
-                  <PlaceholderImage
-                    label={item.title}
-                    icon=""
-                    aspectRatio="16:9"
-                    color={index % 3 === 0 ? "blue" : index % 3 === 1 ? "gold" : "navy"}
-                    className="h-full"
-                  />
+                <div className="h-48 bg-muted/50 overflow-hidden">
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = "/images/academics.jpeg";
+                      }}
+                    />
+                  ) : (
+                    <img
+                      src="/images/academics.jpeg"
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
 
                 {/* Content */}
-                <div className="p-4 flex-1 flex flex-col">
+                <div className="p-5 flex-1 flex flex-col">
                   <h3 className="text-sm font-semibold text-foreground leading-snug line-clamp-2 mb-3">
                     {item.title}
                   </h3>

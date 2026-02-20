@@ -30,7 +30,7 @@ export const trendingCourses: Course[] = [
     duration: "4 months",
     fee: "₹5,000",
     isNew: true,
-     image: "/images/swiggy-course.webp",   badge: "NEW",
+     image: "/images/auro-bindo-course.webp",   badge: "NEW",
     school: "School of Applied Life Sciences"
   },
   {

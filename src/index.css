@@ -157,14 +157,14 @@
 @layer components {
   /* Section Spacing - improved breathability */
   .section {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
  
   @media (min-width: 1024px) {
     .section {
-      padding-top: 3.5rem;
-      padding-bottom: 3.5rem;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
     }
   }
 

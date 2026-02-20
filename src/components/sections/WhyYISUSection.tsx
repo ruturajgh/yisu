@@ -51,12 +51,12 @@ export default function WhyYISUSection() {
                 </div>
 
                 {/* Full info on hover */}
-                <div className="absolute inset-0 bg-foreground/95 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10 flex flex-col items-center justify-center p-4">
+                <div className="absolute inset-0 bg-white/95 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10 flex flex-col items-center justify-center p-4">
                   <span className="text-xl mb-2">{point.icon}</span>
-                  <h3 className="text-sm font-semibold text-background leading-tight mb-2 text-center">
+                  <h3 className="text-sm font-semibold text-foreground leading-tight mb-2 text-center">
                     {point.title}
                   </h3>
-                  <p className="text-sm text-background/80 leading-tight text-center">
+                  <p className="text-sm text-foreground/80 leading-tight text-center">
                     {point.description}
                   </p>
                 </div>

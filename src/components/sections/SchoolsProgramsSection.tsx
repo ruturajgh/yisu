@@ -35,7 +35,7 @@ export default function SchoolsProgramsSection() {
               >
                 <div className={cn(
                   "bg-card border border-border/40 rounded-xl p-6 h-full transition-all",
-                  school.isComingSoon ? "opacity-50" : "hover:border-primary/50 hover:shadow-md"
+                  "hover:border-primary/50 hover:shadow-md"
                 )}>
                   <div className="flex flex-col items-center text-center space-y-3">
                     <span className="text-3xl">{school.icon}</span>
@@ -50,8 +50,8 @@ export default function SchoolsProgramsSection() {
                     </div>
                   </div>
                   {school.description && (
-                    <div className="absolute inset-0 bg-foreground/95 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center p-4">
-                      <p className="text-sm text-center text-foreground/90 leading-tight">
+                    <div className="absolute inset-0 bg-white/95 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center p-4">
+                      <p className="text-sm text-center text-foreground leading-tight">
                         {school.description}
                       </p>
                     </div>
@@ -75,23 +75,23 @@ export default function SchoolsProgramsSection() {
                 whileHover={{ scale: 1.02, y: -3 }}
                 className="h-full"
               >
-                 <div className="bg-card border border-border/40 rounded-xl overflow-hidden h-full hover:border-primary/50 hover:shadow-md transition-all group">
-                   {/* Real Course Image */}
-                   <div className="relative h-48 bg-muted/50 overflow-hidden">
-                     <img
-                       src={course.image || "/images/swiggy-course.webp"}
-                       alt={course.name}
-                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                       loading="lazy"
-                     />
-                     {course.isNew && (
-                       <div className="absolute top-3 right-3 z-10">
-                         <span className="px-2.5 py-1 bg-accent text-background text-xs font-bold rounded-md shadow-sm">
-                           NEW
-                         </span>
-                       </div>
-                     )}
-                   </div>
+                <div className="bg-card border border-border/40 rounded-xl overflow-hidden h-full hover:border-primary/50 hover:shadow-md transition-all group">
+                  {/* Real Course Image */}
+                  <div className="relative h-48 bg-muted/50 overflow-hidden">
+                    <img
+                      src={course.image || "/images/swiggy-course.webp"}
+                      alt={course.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    {course.isNew && (
+                      <div className="absolute top-3 right-3 z-10">
+                        <span className="px-2.5 py-1 bg-accent text-background text-xs font-bold rounded-md shadow-sm">
+                          NEW
+                        </span>
+                      </div>
+                    )}
+                  </div>
 
                   {/* Content */}
                   <div className="p-5 space-y-3">
