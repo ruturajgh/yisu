@@ -55,33 +55,39 @@ export const outreachStats = {
 export const whyYISUPoints = [
   {
     id: 1,
-    title: "Industry-Aligned Curriculum",
-    description: "Courses designed with industry experts for job-ready skills",
-    icon: "🎯"
+    title: "Job-Ready Curriculum",
+    description: "Built with industry experts",
+    icon: "Target"
   },
   {
     id: 2,
-    title: "Experiential Learning",
-    description: "Hands-on projects, internships, and real-world practice",
-    icon: "🔧"
+    title: "Hands-On Training",
+    description: "Real-world projects & practice",
+    icon: "Wrench"
   },
   {
     id: 3,
-    title: "Expert Faculty",
-    description: "Industry practitioners as teachers and mentors",
-    icon: "👨‍🏫"
+    title: "Industry Mentors",
+    description: "Learn from practitioners",
+    icon: "UserCircle"
   },
   {
     id: 4,
-    title: "Job-Ready Skills",
-    description: "Communication, digital skills, and professional etiquette",
-    icon: "💼"
+    title: "Skill Development",
+    description: "Communication & etiquette",
+    icon: "Briefcase"
   },
   {
     id: 5,
-    title: "Growth Ecosystem",
-    description: "Workshops, networking, and industry trends exposure",
-    icon: "🚀"
+    title: "Career Growth",
+    description: "Networking & workshops",
+    icon: "TrendingUp"
+  },
+  {
+    id: 6,
+    title: "Industry Certifications",
+    description: "Recognized credentials",
+    icon: "Award"
   }
 ];
 

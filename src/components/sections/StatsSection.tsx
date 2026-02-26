@@ -7,18 +7,18 @@ export default function StatsSection() {
   const isInView = useInView(ref, { once: true });
 
   return (
-    <section className="py-5 bg-foreground/5 border-y border-border/30">
+    <section className="py-8 bg-foreground/5 border-y border-border/30">
       <div className="container-narrow">
-        <div ref={ref} className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
+        <div ref={ref} className="flex flex-wrap items-center justify-center gap-8 md:gap-10">
           {siteStats.map((stat, index) => (
             <motion.div
               key={stat.id}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.4, delay: index * 0.08 }}
-              className="flex items-center gap-3 px-4 py-3 bg-card/50 border border-border/40 rounded-lg hover:bg-card hover:border-accent/30 transition-all group"
+              className="flex items-center gap-4 px-6 py-4 bg-card/50 border border-border/40 rounded-lg hover:bg-card hover:border-accent/30 transition-all group"
             >
-              <span className="text-xl group-hover:scale-110 transition-transform">
+              <span className="text-2xl group-hover:scale-110 transition-transform">
                 {stat.icon}
               </span>
               <div className="flex flex-col">
@@ -26,12 +26,12 @@ export default function StatsSection() {
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : {}}
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-                  className="text-base md:text-lg font-bold text-foreground"
+                  className="text-lg md:text-xl font-bold text-foreground"
                 >
                   {stat.value}
                   {stat.suffix}
                 </motion.span>
-                <span className="text-xs text-muted-foreground uppercase tracking-wide">
+                <span className="text-sm text-muted-foreground uppercase tracking-wide">
                   {stat.label}
                 </span>
               </div>

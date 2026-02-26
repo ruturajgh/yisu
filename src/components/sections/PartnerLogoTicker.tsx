@@ -30,9 +30,11 @@ export default function PartnerLogoTicker() {
                 className="flex-shrink-0 w-20 h-8 bg-white/5 border border-white/10 rounded flex items-center justify-center hover:bg-white/10 transition-all cursor-pointer group"
                 title={partner.name}
               >
-                <span className="text-[10px] font-medium text-foreground/70 group-hover:text-foreground transition-colors text-center px-1 truncate">
-                  {partner.name}
-                </span>
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-w-full max-h-full object-contain px-1"
+                />
               </div>
             ))}
           </motion.div>

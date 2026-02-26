@@ -85,7 +85,7 @@ export default function SectionHeader({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="w-full text-base text-foreground/80 max-w-3xl"
+          className="w-full text-base mx-auto text-foreground/80 max-w-3xl"
         >
           {description}
         </motion.p>

@@ -31,7 +31,7 @@ const Index = () => {
 
       <main>
         <HeroSlider />
-        <PartnerLogoTicker />
+        {/* <PartnerLogoTicker /> */}
         <StatsSection />
         <WhyYISUSection />
         <SchoolsProgramsSection />

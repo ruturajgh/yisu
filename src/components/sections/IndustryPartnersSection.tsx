@@ -16,7 +16,8 @@ export default function IndustryPartnersSection() {
           transition={{ duration: 0.4 }}
           className="flex items-center gap-2 mb-4"
         >
-          <span className="text-xs font-semibold text-accent uppercase tracking-wider">
+          <div className="flex-1 h-px bg-border/40"></div>
+          <span className="text-xs  font-semibold text-accent uppercase tracking-wider">
             Our Partners
           </span>
           <div className="flex-1 h-px bg-border/40"></div>
@@ -44,9 +45,11 @@ export default function IndustryPartnersSection() {
               className="flex-shrink-0 w-32 h-14 rounded-xl bg-card border border-border/40 flex items-center justify-center hover:border-accent/40 hover:bg-muted/30 transition-all cursor-pointer"
               title={partner.name}
             >
-              <span className="text-xs font-medium text-foreground/70 text-center px-2 truncate">
-                {partner.name}
-              </span>
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="max-w-full max-h-full object-contain px-2"
+              />
             </motion.div>
           ))}
         </motion.div>
